@@ -96,6 +96,7 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
 .strip{display:flex;gap:26px;justify-content:center;margin-top:60px}
 .strip div{width:250px;height:340px;background:#fff;border-radius:26px;padding:12px;display:grid;place-items:center}
 .strip img{max-width:100%;max-height:100%;object-fit:contain}
+#s6b .card{padding:28px 32px}#s6b .card .ic{font-size:46px}#s6b .card h3{margin:8px 0 6px}
 .who4{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
 .w4{display:flex;align-items:center;gap:22px;background:#fff;border-radius:24px;padding:26px 30px;border:3px solid #ebe6df}
 .w4 .e{font-size:54px}
@@ -162,8 +163,8 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
     <div class="kick a">01 · Análisis</div>
     <h2 class="a">Hoy todo vive bajo <em>un techo que no es tuyo</em></h2>
     <div class="row" style="margin-top:50px">
-      <div class="card a"><div class="ic">🏚️</div><h3>Un solo servidor ajeno</h3><p>La tienda, los correos y el "mapa" del dominio están en el servidor del proveedor anterior, fuera de Chile. Si se apaga, se cae todo junto.</p><br><span class="tag red">Riesgo alto</span></div>
-      <div class="card a"><div class="ic">💾</div><h3>Sin respaldo completo</h3><p>Solo existía una copia parcial de enero. Si algo fallaba, no había cómo recuperar la tienda.</p><br><span class="tag red">Riesgo alto</span></div>
+      <div class="card a"><div class="ic">🏚️</div><h3>Un solo servidor ajeno</h3><p>La tienda, los correos y el "mapa" del dominio están en el servidor del proveedor anterior, fuera de Chile y prestados sin costo. Si un día se apaga, se cae todo junto.</p><br><span class="tag red">Hay que mudarse</span></div>
+      <div class="card a"><div class="ic">💾</div><h3>Respaldos solo ahí</h3><p>El servidor anterior hace respaldos automáticos, pero viven en el mismo lugar. No había ninguna copia fuera de él.</p><br><span class="tag red">Por mejorar</span></div>
       <div class="card a"><div class="ic">🌐</div><h3>El dominio es tuyo</h3><p>noiasportswear.cl está a tu nombre, se renueva solo y está pagado hasta agosto de 2027.</p><br><span class="tag ok">En orden</span></div>
     </div>
   </section>
@@ -201,7 +202,7 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
       <div class="old">
         <div class="blk a"><span>🛒</span><span>Tienda<small>Servidor del proveedor anterior</small></span></div>
         <div class="blk a"><span>📬</span><span>5 cuentas de correo en Outlook<small>5 claves separadas</small></span></div>
-        <div class="blk a"><span>💾</span><span>Respaldos<small>No había uno completo</small></span></div>
+        <div class="blk a"><span>💾</span><span>Respaldos<small>Solo dentro del servidor anterior</small></span></div>
         <div class="blk a"><span>🔑</span><span>Accesos<small>En manos de un tercero</small></span></div>
       </div>
       <div class="arrowbig a">→</div>
@@ -246,13 +247,13 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
   <section class="s" id="s6b">
     <div class="kick a">Configuración y riesgos</div>
     <h2 class="a" style="font-size:76px">Lo que puede pasar, <em>y cómo lo cubrimos</em></h2>
-    <div class="row" style="margin-top:30px;flex-wrap:wrap;gap:24px">
+    <div class="row" style="margin-top:14px;flex-wrap:wrap;gap:20px">
       <div class="card a" style="flex:1 1 30%"><div class="ic">🗺️</div><h3>DNS</h3><p>Se cambia desde tu cuenta de bluehosting.cl. Un día antes bajamos el tiempo de cambio a 5 minutos.</p></div>
       <div class="card a" style="flex:1 1 30%"><div class="ic">💳</div><h3>Transbank</h3><p>Viaja con la tienda. Prueba antes del cambio y una compra real pequeña después.</p></div>
       <div class="card a" style="flex:1 1 30%"><div class="ic">📬</div><h3>Correos</h3><p>Firmas anti-spam y una segunda copia 1 o 2 días después del cambio.</p></div>
       <div class="card a" style="flex:1 1 30%"><div class="ic">🛍️</div><h3>Pedidos</h3><p>48 h sin cargar productos. El día del cambio revisamos ambas tiendas.</p></div>
-      <div class="card a" style="flex:1 1 30%"><div class="ic">🔑</div><h3>Licencias</h3><p>Pedimos el traspaso. Si no llega, licencia propia (≈ US$60).</p></div>
-      <div class="card a" style="flex:1 1 30%;border-color:var(--wine)"><div class="ic">🔙</div><h3>Plan B</h3><p>Si algo falla, volvemos al servidor anterior en minutos.</p></div>
+      <div class="card a" style="flex:1 1 30%"><div class="ic">🔑</div><h3>Licencias</h3><p>El tema de la tienda (Flatsome) no tiene licencia. Conviene comprarla: ≈ US$60, una vez.</p></div>
+      <div class="card a" style="flex:1 1 30%;border-color:var(--wine)"><div class="ic">🔙</div><h3>Plan B</h3><p>El servidor anterior sigue encendido el tiempo que haga falta: si algo falla, volvemos en minutos.</p></div>
     </div>
   </section>
 

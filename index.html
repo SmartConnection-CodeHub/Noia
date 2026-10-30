@@ -200,7 +200,7 @@ footer b{color:#fff}
         <div class="blk"><span class="e">🛒</span><span><b>Tienda</b><small>Servidor del proveedor anterior</small></span></div>
         <div class="blk"><span class="e">📬</span><span><b>Buzones de correo</b><small>El mismo servidor</small></span></div>
         <div class="blk"><span class="e">🗺️</span><span><b>Mapa del dominio (DNS)</b><small>El mismo servidor</small></span></div>
-        <div class="blk"><span class="e">💾</span><span><b>Respaldos</b><small>No había uno completo</small></span></div>
+        <div class="blk"><span class="e">💾</span><span><b>Respaldos</b><small>Solo dentro del mismo servidor</small></span></div>
       </div>
     </div>
     <div class="card col after rv"><h3>🏡 Después</h3><small style="color:var(--mut)">Cuentas de Noia · Smart Connection te da soporte</small>
@@ -349,17 +349,17 @@ footer b{color:#fff}
   <div class="card rv" style="overflow-x:auto;padding:8px 18px">
     <table style="width:100%;border-collapse:collapse;font-size:15px">
       <tr style="text-align:left;color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.05em"><th style="padding:10px 8px">Riesgo</th><th style="padding:10px 8px">Qué pasaría</th><th style="padding:10px 8px">Cómo lo cubrimos</th></tr>
-      <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>El proveedor anterior apaga antes</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">Se caen tienda y correos</td><td style="padding:10px 8px;border-top:1px solid var(--line)">El respaldo completo ya está hecho: se restaura en el hosting nuevo el mismo día</td></tr>
+      <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>El servidor anterior se apaga</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">Se caen tienda y correos</td><td style="padding:10px 8px;border-top:1px solid var(--line)">Riesgo bajo: el proveedor anterior confirmó que lo mantiene el tiempo que haga falta. Y el respaldo completo ya está hecho</td></tr>
       <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Pedidos durante el cambio</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">Algunas personas aún ven la tienda antigua por unas horas</td><td style="padding:10px 8px;border-top:1px solid var(--line)">Ese día revisamos ambas tiendas y traspasamos cualquier pedido</td></tr>
       <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Cambios en productos esos días</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">Se podrían perder si se hacen en la tienda antigua</td><td style="padding:10px 8px;border-top:1px solid var(--line)">48 horas sin cargar productos ni cambiar precios</td></tr>
       <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Correos en la transición</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">Alguno llega al buzón antiguo</td><td style="padding:10px 8px;border-top:1px solid var(--line)">Segunda copia de correos 1 o 2 días después</td></tr>
       <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Avisos de pedido en spam</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">No te enteras de una venta</td><td style="padding:10px 8px;border-top:1px solid var(--line)">Firmas SPF/DKIM/DMARC y prueba antes del cambio</td></tr>
       <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Transbank no cobra</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">No se puede pagar en la tienda</td><td style="padding:10px 8px;border-top:1px solid var(--line)">Prueba antes y compra real después. Si falla, volvemos el mapa al servidor anterior en minutos</td></tr>
       <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Candado SSL demora</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">Aviso de "sitio no seguro" por un rato</td><td style="padding:10px 8px;border-top:1px solid var(--line)">Cambio en horario de poca venta y SSL emitido al tiro</td></tr>
-      <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Licencias o cuentas a nombre de otro</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">Tema de la tienda, Google Shopping o estadísticas sin acceso</td><td style="padding:10px 8px;border-top:1px solid var(--line)">Las pedimos por correo. Si no llegan, se compra la licencia propia (≈ US$60) o se reconecta</td></tr>
+      <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Tema sin licencia y cuentas conectadas</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">El tema Flatsome no tiene licencia, así que no recibe actualizaciones de seguridad. Algunas cuentas (Google, Meta) están ligadas a hola@ o a master@, y master@ no existe como casilla</td><td style="padding:10px 8px;border-top:1px solid var(--line)">Comprar la licencia de Flatsome (≈ US$60, una vez) y crear master@ en el hosting nuevo para no perder el acceso a esas cuentas</td></tr>
     </table>
   </div>
-  <div class="card rv" style="margin-top:14px;border-left:5px solid var(--navy)"><b>🔙 Plan B siempre listo:</b> mientras el servidor anterior siga encendido, si algo falla el día del cambio volvemos el "mapa" a como estaba en minutos. Por eso le pedimos al proveedor anterior que no apague nada hasta que confirmemos.</div>
+  <div class="card rv" style="margin-top:14px;border-left:5px solid var(--navy)"><b>🔙 Plan B siempre listo:</b> mientras el servidor anterior siga encendido, si algo falla el día del cambio volvemos el "mapa" a como estaba en minutos. El proveedor anterior ya confirmó que no apagará nada hasta que terminemos.</div>
 </div></section>
 
 <section id="pruebas"><div class="in">
