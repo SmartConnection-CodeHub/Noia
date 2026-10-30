@@ -59,6 +59,15 @@ svg .flow{stroke-dasharray:6 6;animation:dash 1.6s linear infinite}
 .wpside button.on{background:#2271b1;color:#fff}
 .wpside .ic{width:20px;text-align:center}
 .wpdet{padding:26px 28px;min-height:420px}
+.wpside.nx{background:#393636;color:#f4efe9}
+.wpside.nx .bar{color:#d8cfc8;border-color:#4d4949}
+.wpside.nx button{color:#f4efe9}
+.wpside.nx button:hover{background:#4a4646;color:#a9c3d9}
+.wpside.nx button.sub{background:#433f3f;color:#d8cfc8}
+.wpside.nx button.on{background:#a9c3d9;color:#1f2d3f;font-weight:700}
+.wpside .grp{padding:12px 14px 4px;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#a9c3d9}
+.xp{margin:6px 0 14px}
+
 .wpdet .t{font-size:24px;font-weight:800;margin:4px 0 14px}
 .wpdet dl{margin:0;display:grid;gap:14px}
 .wpdet dt{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
@@ -114,27 +123,29 @@ svg.clk text{pointer-events:none}
   <h2>Las capas, de la clienta a la base de datos</h2>
   <p class="sub">Cada capa se apoya en la de abajo. Cuando algo falla, se busca de arriba hacia abajo: ¿el dominio responde?, ¿el servidor está arriba?, ¿WordPress carga?, ¿el plugin funciona?</p>
   <div class="card dia rv">
-    <svg viewBox="0 0 900 470" role="img" aria-label="Diagrama de arquitectura en capas">
+    <svg class="clk" viewBox="0 0 900 470" role="img" aria-label="Diagrama de arquitectura en capas">
       <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#334862"/></marker></defs>
       <g font-family="Raleway" font-size="14">
-        <rect x="20" y="20" width="200" height="60" rx="12" fill="#e9f0f6" stroke="#a9c3d9"/><text x="120" y="47" text-anchor="middle" font-weight="800" fill="#393636">📱 Clienta</text><text x="120" y="66" text-anchor="middle" fill="#6f6a6a" font-size="12">navegador o celular</text>
-        <rect x="350" y="20" width="200" height="60" rx="12" fill="#fff" stroke="#cdc4e4"/><text x="450" y="47" text-anchor="middle" font-weight="800" fill="#393636">🗺️ DNS</text><text x="450" y="66" text-anchor="middle" fill="#6f6a6a" font-size="12">noiasportswear.cl → servidor</text>
+        <rect data-info="a-clienta" x="20" y="20" width="200" height="60" rx="12" fill="#e9f0f6" stroke="#a9c3d9"/><text x="120" y="47" text-anchor="middle" font-weight="800" fill="#393636">📱 Clienta</text><text x="120" y="66" text-anchor="middle" fill="#6f6a6a" font-size="12">navegador o celular</text>
+        <rect data-info="a-dns" x="350" y="20" width="200" height="60" rx="12" fill="#fff" stroke="#cdc4e4"/><text x="450" y="47" text-anchor="middle" font-weight="800" fill="#393636">🗺️ DNS</text><text x="450" y="66" text-anchor="middle" fill="#6f6a6a" font-size="12">noiasportswear.cl → servidor</text>
         <line class="flow" x1="220" y1="50" x2="345" y2="50" stroke="#334862" stroke-width="2" marker-end="url(#ar)"/>
-        <rect x="20" y="120" width="860" height="330" rx="18" fill="#f7f3ee" stroke="#d6ccc2" stroke-dasharray="6 5"/>
+        <rect data-info="a-hosting" x="20" y="120" width="860" height="330" rx="18" fill="#f7f3ee" stroke="#d6ccc2" stroke-dasharray="6 5"/>
         <text x="40" y="146" font-weight="800" fill="#334862">🏢 HOSTING (servidor web)</text>
         <line class="flow" x1="450" y1="80" x2="450" y2="160" stroke="#334862" stroke-width="2" marker-end="url(#ar)"/>
-        <rect x="300" y="162" width="300" height="46" rx="10" fill="#fff" stroke="#a9c3d9"/><text x="450" y="190" text-anchor="middle" font-weight="700" fill="#393636">Servidor web LiteSpeed + SSL (candado)</text>
-        <rect x="300" y="222" width="300" height="46" rx="10" fill="#fff" stroke="#a9c3d9"/><text x="450" y="250" text-anchor="middle" font-weight="700" fill="#393636">PHP 8.3 · ejecuta el código</text>
-        <rect x="160" y="282" width="580" height="54" rx="10" fill="#334862"/><text x="450" y="306" text-anchor="middle" font-weight="800" fill="#fff">WordPress</text><text x="450" y="325" text-anchor="middle" fill="#cfd9e5" font-size="12">el sistema que arma cada página</text>
-        <rect x="40" y="350" width="250" height="80" rx="10" fill="#fff" stroke="#cdc4e4"/><text x="165" y="378" text-anchor="middle" font-weight="800" fill="#393636">🛒 WooCommerce</text><text x="165" y="398" text-anchor="middle" fill="#6f6a6a" font-size="12">productos, carrito,</text><text x="165" y="414" text-anchor="middle" fill="#6f6a6a" font-size="12">pedidos y clientas</text>
-        <rect x="325" y="350" width="250" height="80" rx="10" fill="#fff" stroke="#e6cccc"/><text x="450" y="378" text-anchor="middle" font-weight="800" fill="#393636">🎨 Tema Flatsome</text><text x="450" y="398" text-anchor="middle" fill="#6f6a6a" font-size="12">el diseño + tema hijo</text><text x="450" y="414" text-anchor="middle" fill="#6f6a6a" font-size="12">(campo RUT a medida)</text>
-        <rect x="610" y="350" width="250" height="80" rx="10" fill="#fff" stroke="#9aa06a"/><text x="735" y="378" text-anchor="middle" font-weight="800" fill="#393636">🧩 Plugins</text><text x="735" y="398" text-anchor="middle" fill="#6f6a6a" font-size="12">pagos, envíos, SEO,</text><text x="735" y="414" text-anchor="middle" fill="#6f6a6a" font-size="12">correo, seguridad</text>
-        <rect x="660" y="162" width="200" height="106" rx="12" fill="#fff" stroke="#c39a74"/><text x="760" y="192" text-anchor="middle" font-weight="800" fill="#393636">🗄️ Base de datos</text><text x="760" y="212" text-anchor="middle" fill="#6f6a6a" font-size="12">MySQL / MariaDB</text><text x="760" y="232" text-anchor="middle" fill="#6f6a6a" font-size="12">83 tablas</text><text x="760" y="252" text-anchor="middle" fill="#6f6a6a" font-size="12">~114 MB</text>
+        <rect data-info="a-ssl" x="300" y="162" width="300" height="46" rx="10" fill="#fff" stroke="#a9c3d9"/><text x="450" y="190" text-anchor="middle" font-weight="700" fill="#393636">Servidor web LiteSpeed + SSL (candado)</text>
+        <rect data-info="a-php" x="300" y="222" width="300" height="46" rx="10" fill="#fff" stroke="#a9c3d9"/><text x="450" y="250" text-anchor="middle" font-weight="700" fill="#393636">PHP 8.3 · ejecuta el código</text>
+        <rect data-info="a-wordpress" x="160" y="282" width="580" height="54" rx="10" fill="#334862"/><text x="450" y="306" text-anchor="middle" font-weight="800" fill="#fff">WordPress</text><text x="450" y="325" text-anchor="middle" fill="#cfd9e5" font-size="12">el sistema que arma cada página</text>
+        <rect data-info="a-woo" x="40" y="350" width="250" height="80" rx="10" fill="#fff" stroke="#cdc4e4"/><text x="165" y="378" text-anchor="middle" font-weight="800" fill="#393636">🛒 WooCommerce</text><text x="165" y="398" text-anchor="middle" fill="#6f6a6a" font-size="12">productos, carrito,</text><text x="165" y="414" text-anchor="middle" fill="#6f6a6a" font-size="12">pedidos y clientas</text>
+        <rect data-info="a-tema" x="325" y="350" width="250" height="80" rx="10" fill="#fff" stroke="#e6cccc"/><text x="450" y="378" text-anchor="middle" font-weight="800" fill="#393636">🎨 Tema Flatsome</text><text x="450" y="398" text-anchor="middle" fill="#6f6a6a" font-size="12">el diseño + tema hijo</text><text x="450" y="414" text-anchor="middle" fill="#6f6a6a" font-size="12">(campo RUT a medida)</text>
+        <rect data-info="a-plugins" x="610" y="350" width="250" height="80" rx="10" fill="#fff" stroke="#9aa06a"/><text x="735" y="378" text-anchor="middle" font-weight="800" fill="#393636">🧩 Plugins</text><text x="735" y="398" text-anchor="middle" fill="#6f6a6a" font-size="12">pagos, envíos, SEO,</text><text x="735" y="414" text-anchor="middle" fill="#6f6a6a" font-size="12">correo, seguridad</text>
+        <rect data-info="a-bd" x="660" y="162" width="200" height="106" rx="12" fill="#fff" stroke="#c39a74"/><text x="760" y="192" text-anchor="middle" font-weight="800" fill="#393636">🗄️ Base de datos</text><text x="760" y="212" text-anchor="middle" fill="#6f6a6a" font-size="12">MySQL / MariaDB</text><text x="760" y="232" text-anchor="middle" fill="#6f6a6a" font-size="12">83 tablas</text><text x="760" y="252" text-anchor="middle" fill="#6f6a6a" font-size="12">~114 MB</text>
         <line class="flow" x1="740" y1="300" x2="760" y2="272" stroke="#334862" stroke-width="2" marker-end="url(#ar)"/>
-        <rect x="40" y="162" width="200" height="106" rx="12" fill="#fff" stroke="#a9c3d9"/><text x="140" y="192" text-anchor="middle" font-weight="800" fill="#393636">📬 Correo</text><text x="140" y="212" text-anchor="middle" fill="#6f6a6a" font-size="12">buzones @noiasportswear</text><text x="140" y="232" text-anchor="middle" fill="#6f6a6a" font-size="12">que Pía lee en Outlook</text><text x="140" y="252" text-anchor="middle" fill="#6f6a6a" font-size="12">(registro MX)</text>
+        <rect data-info="a-correo" x="40" y="162" width="200" height="106" rx="12" fill="#fff" stroke="#a9c3d9"/><text x="140" y="192" text-anchor="middle" font-weight="800" fill="#393636">📬 Correo</text><text x="140" y="212" text-anchor="middle" fill="#6f6a6a" font-size="12">buzones @noiasportswear</text><text x="140" y="232" text-anchor="middle" fill="#6f6a6a" font-size="12">que Pía lee en Outlook</text><text x="140" y="252" text-anchor="middle" fill="#6f6a6a" font-size="12">(registro MX)</text>
       </g>
     </svg>
   </div>
+<span class="hint">👆 Toca una capa en el diagrama o en el menú</span>
+  <div class="wp xp rv" data-exp="arq"></div>
   <div class="learn"><b>🎓 Una idea clave:</b> WordPress no guarda los pedidos "en las páginas". Cada vez que alguien entra, PHP le pregunta a la base de datos y arma la página en ese momento. Por eso la base de datos es lo más valioso del respaldo.</div>
 </section>
 
@@ -142,16 +153,8 @@ svg.clk text{pointer-events:none}
 <section id="componentes">
   <div class="kick">2 · Componentes</div>
   <h2>Qué hace cada pieza, agrupada por función</h2>
-  <span class="hint">👆 Toca cualquier pieza para ver su detalle</span>
-  <p class="sub">La tienda tiene WordPress, WooCommerce, el tema Flatsome y 17 plugins. Agrupados por lo que hacen, se entienden mejor.</p>
-  <div class="grid g3">
-    <div class="card cat rv"><h3>🛒 Vender</h3><ul><li data-info="c-woo"><b>WooCommerce</b>: catálogo, carrito, pedidos</li><li data-info="c-swatchly"><b>Swatchly</b>: muestras de color y talla</li><li data-info="c-yith"><b>YITH Wishlist</b>: lista de deseos</li><li data-info="c-rut"><b>Campo RUT</b>: código a medida en el tema hijo</li></ul></div>
-    <div class="card cat rv"><h3>💳 Cobrar</h3><ul><li data-info="c-transbank"><b>Transbank Webpay Plus</b>: tarjetas de crédito y débito</li><li data-info="c-pdf"><b>PDF Invoices</b>: comprobante y guía de despacho en PDF (no es la boleta del SII)</li></ul></div>
-    <div class="card cat rv"><h3>🚚 Despachar</h3><ul><li data-info="c-masterbip"><b>MasterBip</b>: regiones y comunas de Chile</li><li data-info="c-shipit"><b>Shipit</b>: plataforma de envíos conectada como usuario "gestor de la tienda"</li></ul></div>
-    <div class="card cat rv"><h3>📣 Atraer clientas</h3><ul><li data-info="c-rankmath"><b>Rank Math</b>: SEO en Google</li><li data-info="c-google"><b>Google for WooCommerce</b> + <b>CTX Feed</b>: catálogo en Google Shopping</li><li data-info="c-reviews"><b>Reseñas de Google</b>: muestra opiniones</li><li data-info="c-joinchat"><b>Joinchat</b>: botón de WhatsApp</li></ul></div>
-    <div class="card cat rv"><h3>🛡️ Proteger</h3><ul><li data-info="c-imunify"><b>Imunify</b>: antimalware del servidor</li><li data-info="c-jetpack"><b>Jetpack</b>: firewall, estadísticas y bloqueo de ataques</li><li data-info="c-login"><b>Login oculto</b>: cambia la dirección del acceso</li></ul></div>
-    <div class="card cat rv"><h3>✉️ Comunicar</h3><ul><li data-info="c-smtp"><b>Easy WP SMTP</b>: envía los correos de la tienda</li><li data-info="c-cf7"><b>Contact Form 7</b>: formulario de contacto</li></ul></div>
-  </div>
+  <span class="hint">👆 Toca una pieza del menú</span>
+  <div class="wp xp rv" data-exp="comp"></div>
   <div class="learn"><b>🎓 Regla de los plugins:</b> cada plugin es una puerta más. Menos plugins, menos riesgo. Se actualizan de a uno, se prueba la compra después de cada actualización y los que no se usan se borran.</div>
 </section>
 
@@ -187,14 +190,7 @@ svg.clk text{pointer-events:none}
       </g>
     </svg>
   </div>
-  <div class="card tw rv"><table>
-    <tr><th>Integración</th><th>Cómo se conecta</th><th>Qué revisar al migrar</th></tr>
-    <tr><td><b>Transbank</b></td><td>Plugin con código de comercio y llave secreta</td><td>Ambiente "Producción" y una compra real chica</td></tr>
-    <tr><td><b>Shipit</b></td><td>Un usuario "gestor de la tienda" que lee los pedidos</td><td>Que los pedidos nuevos lleguen a Shipit</td></tr>
-    <tr><td><b>Correo de la tienda</b></td><td>Easy WP SMTP con una casilla de Noia</td><td>Que lleguen los avisos y no caigan en spam</td></tr>
-    <tr><td><b>Google Shopping</b></td><td>CTX Feed genera un archivo con el catálogo; Google lo lee</td><td>Que la dirección del feed siga respondiendo</td></tr>
-    <tr><td><b>Jetpack</b></td><td>Conectado a cuentas de WordPress.com</td><td>Que la conexión quede a nombre de Noia</td></tr>
-  </table></div>
+  <div class="wp xp rv" data-exp="integ"></div>
 </section>
 
 <!-- 4 PEDIDO -->
@@ -203,13 +199,13 @@ svg.clk text{pointer-events:none}
   <h2>Qué pasa desde que una clienta compra hasta que recibe</h2>
   <p class="sub">Cada carril es un actor. Seguir el número de paso ayuda a encontrar dónde se cortó algo cuando una clienta reclama.</p>
   <div class="card dia rv">
-    <svg viewBox="0 0 960 400" role="img" aria-label="Diagrama de carriles del proceso de pedido">
+    <svg class="clk" viewBox="0 0 960 400" role="img" aria-label="Diagrama de carriles del proceso de pedido">
       <defs><marker id="ar3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#334862"/></marker></defs>
       <g font-family="Raleway" font-size="12.5">
         <g font-weight="800" fill="#334862" font-size="13"><text x="10" y="52">Clienta</text><text x="10" y="132">Tienda</text><text x="10" y="212">Transbank</text><text x="10" y="292">Pía</text><text x="10" y="372">Shipit</text></g>
         <g stroke="#e7e1da"><line x1="90" y1="85" x2="950" y2="85"/><line x1="90" y1="165" x2="950" y2="165"/><line x1="90" y1="245" x2="950" y2="245"/><line x1="90" y1="325" x2="950" y2="325"/></g>
         <g fill="#fff" stroke="#a9c3d9">
-          <rect x="95" y="25" width="130" height="46" rx="9"/><rect x="250" y="105" width="130" height="46" rx="9"/><rect x="250" y="185" width="130" height="46" rx="9"/><rect x="405" y="105" width="140" height="46" rx="9"/><rect x="570" y="25" width="130" height="46" rx="9"/><rect x="570" y="265" width="130" height="46" rx="9"/><rect x="725" y="345" width="130" height="46" rx="9"/><rect x="805" y="105" width="140" height="46" rx="9"/>
+          <rect data-info="p-1" x="95" y="25" width="130" height="46" rx="9"/><rect data-info="p-2" x="250" y="105" width="130" height="46" rx="9"/><rect data-info="p-3" x="250" y="185" width="130" height="46" rx="9"/><rect data-info="p-4" x="405" y="105" width="140" height="46" rx="9"/><rect data-info="p-5" x="570" y="25" width="130" height="46" rx="9"/><rect data-info="p-5" x="570" y="265" width="130" height="46" rx="9"/><rect data-info="p-6" x="725" y="345" width="130" height="46" rx="9"/><rect data-info="p-7" x="805" y="105" width="140" height="46" rx="9"/>
         </g>
         <g fill="#393636" text-anchor="middle">
           <text x="160" y="45" font-weight="700">1 · Elige y paga</text><text x="160" y="62" fill="#6f6a6a" font-size="11">carrito + RUT</text>
@@ -234,6 +230,8 @@ svg.clk text{pointer-events:none}
       </g>
     </svg>
   </div>
+<span class="hint">👆 Toca un paso en el diagrama o en el menú</span>
+  <div class="wp xp rv" data-exp="ped"></div>
   <div class="learn"><b>🎓 Los estados de un pedido:</b> Pendiente de pago → Procesando (pagado) → Completado (despachado). Además existen Fallido (pago rechazado), Cancelado (abandonó o se anuló) y Reembolsado. Los pedidos impagos se cancelan solos si el cron de WordPress funciona; por eso hay que dejar un cron del sistema al migrar.</div>
 </section>
 
@@ -242,28 +240,26 @@ svg.clk text{pointer-events:none}
   <div class="kick">5 · El negocio</div>
   <h2>De dónde llegan las ventas y qué sostiene la tecnología</h2>
   <div class="card dia rv">
-    <svg viewBox="0 0 900 230" role="img" aria-label="Diagrama del flujo del negocio">
+    <svg class="clk" viewBox="0 0 900 230" role="img" aria-label="Diagrama del flujo del negocio">
       <defs><marker id="ar4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#334862"/></marker></defs>
       <g font-family="Raleway" font-size="13">
-        <g fill="#fff" stroke="#cdc4e4"><rect x="10" y="20" width="170" height="44" rx="10"/><rect x="10" y="80" width="170" height="44" rx="10"/><rect x="10" y="140" width="170" height="44" rx="10"/></g>
+        <g fill="#fff" stroke="#cdc4e4"><rect data-info="n-instagram" x="10" y="20" width="170" height="44" rx="10"/><rect data-info="n-google" x="10" y="80" width="170" height="44" rx="10"/><rect data-info="n-whatsapp" x="10" y="140" width="170" height="44" rx="10"/></g>
         <g text-anchor="middle" fill="#393636" font-weight="700"><text x="95" y="47">📱 Instagram</text><text x="95" y="107">🔍 Google / Shopping</text><text x="95" y="167">💬 WhatsApp</text></g>
         <g stroke="#334862" stroke-width="2"><line class="flow" x1="180" y1="42" x2="248" y2="95" marker-end="url(#ar4)"/><line class="flow" x1="180" y1="102" x2="248" y2="102" marker-end="url(#ar4)"/><line class="flow" x1="180" y1="162" x2="248" y2="110" marker-end="url(#ar4)"/></g>
-        <rect x="250" y="70" width="150" height="64" rx="12" fill="#334862"/><text x="325" y="98" text-anchor="middle" fill="#fff" font-weight="800">🛒 Tienda</text><text x="325" y="117" text-anchor="middle" fill="#cfd9e5" font-size="11.5">catálogo y pago</text>
+        <rect data-info="n-tienda" x="250" y="70" width="150" height="64" rx="12" fill="#334862"/><text x="325" y="98" text-anchor="middle" fill="#fff" font-weight="800">🛒 Tienda</text><text x="325" y="117" text-anchor="middle" fill="#cfd9e5" font-size="11.5">catálogo y pago</text>
         <line class="flow" x1="400" y1="102" x2="455" y2="102" stroke="#334862" stroke-width="2" marker-end="url(#ar4)"/>
-        <rect x="457" y="70" width="130" height="64" rx="12" fill="#fff" stroke="#a9c3d9"/><text x="522" y="98" text-anchor="middle" fill="#393636" font-weight="800">📦 Pedido</text><text x="522" y="117" text-anchor="middle" fill="#6f6a6a" font-size="11.5">preparar</text>
+        <rect data-info="n-pedido" x="457" y="70" width="130" height="64" rx="12" fill="#fff" stroke="#a9c3d9"/><text x="522" y="98" text-anchor="middle" fill="#393636" font-weight="800">📦 Pedido</text><text x="522" y="117" text-anchor="middle" fill="#6f6a6a" font-size="11.5">preparar</text>
         <line class="flow" x1="587" y1="102" x2="637" y2="102" stroke="#334862" stroke-width="2" marker-end="url(#ar4)"/>
-        <rect x="639" y="70" width="120" height="64" rx="12" fill="#fff" stroke="#9aa06a"/><text x="699" y="98" text-anchor="middle" fill="#393636" font-weight="800">🚚 Despacho</text><text x="699" y="117" text-anchor="middle" fill="#6f6a6a" font-size="11.5">Shipit</text>
+        <rect data-info="n-despacho" x="639" y="70" width="120" height="64" rx="12" fill="#fff" stroke="#9aa06a"/><text x="699" y="98" text-anchor="middle" fill="#393636" font-weight="800">🚚 Despacho</text><text x="699" y="117" text-anchor="middle" fill="#6f6a6a" font-size="11.5">Shipit</text>
         <line class="flow" x1="759" y1="102" x2="789" y2="102" stroke="#334862" stroke-width="2" marker-end="url(#ar4)"/>
-        <rect x="791" y="70" width="100" height="64" rx="12" fill="#fff" stroke="#e6cccc"/><text x="841" y="98" text-anchor="middle" fill="#393636" font-weight="800">💗 Clienta</text><text x="841" y="117" text-anchor="middle" fill="#6f6a6a" font-size="11.5">recompra</text>
+        <rect data-info="n-clienta" x="791" y="70" width="100" height="64" rx="12" fill="#fff" stroke="#e6cccc"/><text x="841" y="98" text-anchor="middle" fill="#393636" font-weight="800">💗 Clienta</text><text x="841" y="117" text-anchor="middle" fill="#6f6a6a" font-size="11.5">recompra</text>
         <text x="450" y="195" text-anchor="middle" fill="#6f6a6a" font-size="12">Detrás, siempre: dominio · hosting · respaldos · seguridad · soporte de Smart Connection</text>
       </g>
     </svg>
   </div>
-  <div class="grid g3">
-    <div class="card rv"><span class="pill">Lo que vende</span><h3 style="margin:8px 0 4px">Ropa de pádel y entrenamiento</h3><small class="mut" style="color:var(--mut)">Faldas, tops, poleras y polerones para mujer, niñas y hombre.</small></div>
-    <div class="card rv"><span class="pill">Lo que no puede fallar</span><h3 style="margin:8px 0 4px">Cobrar y avisar</h3><small style="color:var(--mut)">Transbank, el correo de pedido y Shipit: si fallan, se pierde una venta o una clienta espera sin respuesta.</small></div>
-    <div class="card rv"><span class="pill">Lo que más se mueve</span><h3 style="margin:8px 0 4px">Catálogo y stock</h3><small style="color:var(--mut)">Productos, tallas, colores y precios: lo que Pía actualiza más seguido.</small></div>
-  </div>
+  <span class="hint">👆 Toca un canal o una etapa</span>
+  <div class="wp xp rv" data-exp="neg"></div>
+  
 </section>
 
 <!-- 6 PANEL -->
@@ -313,12 +309,9 @@ svg.clk text{pointer-events:none}
 <section id="roles">
   <div class="kick">7 · Perfiles de usuario</div>
   <h2>Quién puede hacer qué</h2>
-  <div class="card tw rv"><table>
-    <tr><th>Perfil</th><th>Puede</th><th>En Noia</th></tr>
-    <tr><td><b>Administrador</b></td><td>Todo: plugins, diseño, usuarios, pedidos, pagos y datos de clientas</td><td>4 cuentas, que hay que revisar y dejar en las mínimas</td></tr>
-    <tr><td><b>Gestor de la tienda</b></td><td>Productos, pedidos y clientas, sin tocar plugins ni diseño</td><td>1, la integración de despachos (Shipit)</td></tr>
-    <tr><td><b>Cliente</b></td><td>Solo su cuenta: pedidos, direcciones y lista de deseos</td><td>124 clientas registradas</td></tr>
-  </table></div>
+  <span class="hint">👆 Toca un perfil</span>
+  <div class="wp xp rv" data-exp="roles"></div>
+  
   <div class="learn"><b>🎓 Menor privilegio:</b> cada persona con el perfil más bajo que le sirva. Quien solo sube productos va como gestor de la tienda, no como administrador. Una agencia externa, mientras trabaje, con su propio usuario, y se le quita el acceso al terminar.</div>
 </section>
 
@@ -368,14 +361,7 @@ svg.clk text{pointer-events:none}
       </g>
     </svg>
   </div>
-  <div class="card tw rv"><table>
-    <tr><th>Tabla</th><th>Guarda</th><th>Ojo</th></tr>
-    <tr><td><code>posts</code> + <code>postmeta</code></td><td>Productos, variaciones (talla/color), páginas y cupones. Precio, stock y SKU en postmeta</td><td>La tabla más grande: no se edita a mano</td></tr>
-    <tr><td><code>wc_orders</code> + <code>wc_order_*</code></td><td>Pedidos: estado, totales, direcciones y datos de pago</td><td>El campo RUT se guarda como dato extra del pedido: verificarlo en las pruebas</td></tr>
-    <tr><td><code>woocommerce_order_items</code></td><td>Las líneas de cada pedido</td><td>—</td></tr>
-    <tr><td><code>users</code> + <code>usermeta</code></td><td>Cuentas y perfiles</td><td>Datos personales: Ley 19.628</td></tr>
-    <tr><td><code>options</code></td><td>Configuración de todo, incluidas las llaves de Transbank</td><td>Contiene secretos: nunca compartir un respaldo de la base</td></tr>
-  </table></div>
+  <div class="wp xp rv" data-exp="bd"></div>
   <div class="learn"><b>🎓 La regla de la base de datos:</b> nunca se edita directo, siempre desde WordPress. Antes de cualquier cambio grande, respaldo. Y un respaldo de la base es información sensible: tiene clientas, pedidos y llaves.</div>
 </section>
 
@@ -383,11 +369,9 @@ svg.clk text{pointer-events:none}
 <section id="operar">
   <div class="kick">9 · Operar el día a día</div>
   <h2>Rutina de soporte</h2>
-  <div class="grid g3">
-    <div class="card rv"><span class="pill">Cada semana</span><ul style="padding-left:18px;margin:8px 0 0"><li>Revisar que lleguen los pedidos y los avisos</li><li>Mirar el log de errores</li><li>Revisar el estado de seguridad</li></ul></div>
-    <div class="card rv"><span class="pill">Cada mes</span><ul style="padding-left:18px;margin:8px 0 0"><li>Actualizar plugins de a uno, con prueba de compra</li><li>Copia del respaldo al Drive de Noia</li><li>Revisar usuarios y perfiles</li></ul></div>
-    <div class="card rv"><span class="pill">Cada año</span><ul style="padding-left:18px;margin:8px 0 0"><li>Renovar dominio y hosting</li><li>Renovar la licencia del tema</li><li>Cambiar las claves importantes</li></ul></div>
-  </div>
+  <span class="hint">👆 Toca una frecuencia</span>
+  <div class="wp xp rv" data-exp="op"></div>
+  
 </section>
 
 <!-- 10 GLOSARIO -->
@@ -483,19 +467,96 @@ var INFO={
 "t-lookup":{t:"Tabla wc_product_meta_lookup",i:"🗄️",que:"Copia rápida de precio y stock para búsquedas y filtros.",ves:"Los filtros de la tienda.",usa:"Velocidad.",ojo:"Si los filtros muestran algo raro, se regenera en WooCommerce → Estado → Herramientas."}
 };
 
-function card(k){var d=INFO[k];if(!d)return '';return '<div style="font-size:40px">'+d.i+'</div><div class="t" id="drwt">'+d.t+'</div><dl><div><dt>Qué es</dt><dd>'+d.que+'</dd></div><div><dt>Qué vas a ver</dt><dd>'+d.ves+'</dd></div><div><dt>Para qué se usa</dt><dd>'+d.usa+'</dd></div>'+(d.ojo&&d.ojo!=='—'?'<div><dt>⚠️ Cuidado</dt><dd class="ojo">'+d.ojo+'</dd></div>':'')+'</dl>';}
+Object.assign(INFO,{
+/* Arquitectura */
+"a-clienta":{t:"La clienta",i:"📱",que:"La persona que entra a la tienda desde el celular o el computador.",ves:"Solo la vitrina: noiasportswear.cl. No ve nada de lo que hay detrás.",usa:"Todo existe para que ella encuentre, compre y reciba sin fricción.",ojo:"La mayoría compra desde el celular: cada cambio se prueba primero en un teléfono.",ej:"En la última semana hubo 236 vistas y 54 visitantes, según Jetpack."},
+"a-dns":{t:"DNS",i:"🗺️",que:"La guía de internet que traduce noiasportswear.cl a la dirección del servidor.",ves:"Registros: A (la web), MX (el correo), TXT (las firmas anti-spam).",usa:"Mover la tienda a otro servidor sin cambiar el dominio.",ojo:"Un error aquí deja sin web y sin correo a la vez. Se cambia con el TTL bajo y con plan B.",mig:"Es el paso final de la migración: se apunta todo al hosting nuevo."},
+"a-hosting":{t:"Hosting",i:"🏢",que:"El espacio arrendado en un servidor donde vive todo: web, base de datos y correo.",ves:"cPanel: archivos, correos, bases de datos, respaldos, DNS y certificados.",usa:"Respaldos, correos, revisar errores y espacio en disco.",ojo:"Hoy es un hosting prestado. Después será contratado a nombre de Noia.",mig:"Se contrata en Chile, en la misma cuenta del dominio."},
+"a-ssl":{t:"Servidor web + SSL",i:"🔒",que:"El programa que recibe las visitas (LiteSpeed) y el certificado que pone el candado (SSL).",ves:"El candado en el navegador y la dirección con https.",usa:"Transbank exige SSL para cobrar.",ojo:"Si el certificado vence, el navegador muestra 'sitio no seguro' y las clientas se van.",mig:"El hosting nuevo emite el certificado gratis (Let's Encrypt) apenas apunta el dominio."},
+"a-php":{t:"PHP",i:"⚙️",que:"El lenguaje en que está escrito WordPress. El servidor lo ejecuta en cada visita.",ves:"Una versión (8.3) que se elige en el panel del hosting.",usa:"Mantenerlo en una versión con soporte.",ojo:"Subir de versión puede romper plugins antiguos: se prueba antes.",mig:"Elegir la misma versión, PHP 8.3, en el hosting nuevo."},
+"a-wordpress":{t:"WordPress",i:"Ⓦ",que:"El sistema que arma cada página consultando la base de datos.",ves:"El panel de administración: la trastienda (sección 6).",usa:"Administrar contenido, usuarios y plugins.",ojo:"Se actualiza con respaldo previo. Versión actual: 6.9.4.",ej:"WordPress mueve más del 40% de los sitios del mundo, así que hay mucha ayuda disponible."},
+"a-woo":{t:"WooCommerce",i:"🛒",que:"La capa de tienda sobre WordPress.",ves:"Productos, carrito, pedidos, clientas, envíos y pagos.",usa:"Toda la operación comercial.",ojo:"Es el plugin más crítico: se actualiza al final y con prueba de compra."},
+"a-tema":{t:"Tema Flatsome + tema hijo",i:"🎨",que:"El diseño de la tienda. El tema hijo guarda las personalizaciones.",ves:"Cómo se ve todo: colores, encabezado, fichas de producto.",usa:"Cambiar el diseño sin tocar código.",ojo:"Sin licencia no recibe parches. El campo RUT vive en el tema hijo: no se borra."},
+"a-plugins":{t:"Plugins",i:"🧩",que:"Piezas que suman funciones: pagos, envíos, SEO, correo, seguridad.",ves:"17 plugins (sección 2).",usa:"Extender la tienda sin programar.",ojo:"Cada plugin es una puerta más: menos es mejor."},
+"a-bd":{t:"Base de datos",i:"🗄️",que:"Donde se guarda todo lo que cambia: productos, pedidos, clientas y configuración.",ves:"83 tablas, unos 114 MB (sección 8).",usa:"No se toca directo: WordPress la lee y escribe.",ojo:"Es lo más valioso del respaldo y tiene datos sensibles.",mig:"Se copia completa. Es el archivo de 9,4 MB que ya respaldamos."},
+"a-correo":{t:"Correo",i:"📬",que:"Los buzones @noiasportswear.cl.",ves:"Pía los lee en Outlook. El registro MX dice dónde se reciben.",usa:"Recibir pedidos, consultas y avisos.",ojo:"Si el MX apunta mal, los correos rebotan.",mig:"Se crean las mismas casillas en el hosting nuevo y se copian los mensajes."},
+/* Pedido */
+"p-1":{t:"Paso 1 · Elige y paga",i:"🛍️",que:"La clienta arma el carrito, completa sus datos y el RUT, y elige pagar con Webpay.",ves:"Carrito → Finalizar compra → formulario con región, comuna y RUT.",usa:"El costo de envío se calcula según la comuna.",ojo:"Si una comuna no tiene zona de envío, no puede comprar."},
+"p-2":{t:"Paso 2 · Se crea el pedido",i:"🧾",que:"La tienda guarda el pedido en estado 'Pendiente de pago' antes de cobrar.",ves:"Aparece en WooCommerce → Pedidos.",usa:"Si la clienta no paga, queda pendiente.",ojo:"Los pendientes se cancelan solos solo si el cron funciona."},
+"p-3":{t:"Paso 3 · Transbank cobra",i:"💳",que:"La clienta pasa a la página de Webpay, paga y vuelve a la tienda.",ves:"La pantalla de Webpay con el monto.",usa:"Aprobado → sigue. Rechazado → pedido 'Fallido'.",ojo:"Si la vuelta falla (por un bloqueo del servidor, por ejemplo), el pago se hace pero el pedido no se confirma: hay que revisarlo en el portal de Transbank."},
+"p-4":{t:"Paso 4 · Se confirma",i:"✅",que:"Con el pago aprobado, el pedido pasa a 'Procesando' y baja el stock.",ves:"El estado cambia solo.",usa:"Desde aquí Pía prepara el envío.",ojo:"Si el stock llega al umbral, se dispara el aviso de stock bajo."},
+"p-5":{t:"Paso 5 · Correos",i:"✉️",que:"Salen dos correos: 'Pedido recibido' a la clienta y 'Nuevo pedido' a ventas@.",ves:"Pía lo ve en su Outlook; la clienta, en su correo.",usa:"Confirmación y aviso interno.",ojo:"Si el correo de la tienda falla, Pía no se entera de la venta. Hay que revisar Pedidos todos los días."},
+"p-6":{t:"Paso 6 · Despacho con Shipit",i:"🚚",que:"Shipit lee el pedido, genera la etiqueta y coordina el retiro con el courier.",ves:"El pedido en el panel de Shipit.",usa:"Despachar sin escribir direcciones a mano.",ojo:"Después de migrar hay que confirmar que los pedidos nuevos lleguen a Shipit."},
+"p-7":{t:"Paso 7 · Completado",i:"🎉",que:"Pía marca el pedido como 'Completado' y la clienta recibe el correo final.",ves:"El estado del pedido.",usa:"Cerrar la venta y que cuente en los reportes.",ojo:"Marcar Completado manda un correo: no se hace antes de despachar."},
+/* Negocio */
+"n-instagram":{t:"Instagram",i:"📱",que:"El canal principal: fotos y reels con el link en la bio hacia la tienda.",ves:"Visitas que llegan con 'utm_source=ig' en la dirección.",usa:"Lanzamientos, promociones y comunidad.",ojo:"La cuenta de negocio y la conexión con Meta deben estar a nombre de Noia."},
+"n-google":{t:"Google y Google Shopping",i:"🔍",que:"Búsquedas normales y la vitrina de productos de Google.",ves:"Search Console (búsquedas) y Merchant Center (productos).",usa:"Clientas nuevas que buscan 'ropa de pádel mujer'.",ojo:"Hoy Rank Math muestra 0 impresiones: falta conectar Search Console."},
+"n-whatsapp":{t:"WhatsApp",i:"💬",que:"Atención directa antes y después de comprar.",ves:"El botón de Joinchat en la tienda.",usa:"Resolver tallas, cambios y despachos.",ojo:"Es atención manual: tiempo de respuesta de Pía."},
+"n-tienda":{t:"La tienda",i:"🛒",que:"Donde se concreta la venta: catálogo, carrito y pago.",ves:"noiasportswear.cl.",usa:"Vender las 24 horas.",ojo:"Velocidad y celular: si es lenta o falla en móvil, se pierde la venta."},
+"n-pedido":{t:"Preparar el pedido",i:"📦",que:"Pía revisa el pedido, saca la prenda y la empaca.",ves:"WooCommerce → Pedidos y la guía en PDF.",usa:"Cumplir el plazo prometido.",ojo:"El stock de la tienda debe coincidir con el real."},
+"n-despacho":{t:"Despacho",i:"🚚",que:"Shipit lleva el paquete con el courier.",ves:"Seguimiento del envío.",usa:"Que la clienta reciba a tiempo.",ojo:"Comunicar el número de seguimiento evita consultas."},
+"n-clienta":{t:"Recompra",i:"💗",que:"Una clienta contenta vuelve y recomienda.",ves:"124 clientas registradas, con su historial.",usa:"Cupones para recompra y lanzamientos.",ojo:"Sus datos son personales (Ley 19.628): solo se usan para lo que ella aceptó."},
+"n-soporte":{t:"Lo que sostiene todo",i:"🧱",que:"Dominio, hosting, respaldos, seguridad y el soporte de Smart Connection.",ves:"No se ve, hasta que falla.",usa:"Que la tienda esté siempre arriba.",ojo:"Por eso el cambio: que todo quede a nombre de Noia y con respaldos."},
+/* Roles */
+"r-admin":{t:"Administrador",i:"🔑",que:"Acceso total.",ves:"Todo el menú: plugins, diseño, usuarios, pedidos, pagos y datos de clientas.",usa:"Pía y el soporte técnico.",ojo:"Hoy hay 4 administradores: dejar solo los necesarios, cada uno con su propio usuario.",ej:"Si alguien solo carga productos, no necesita ser administrador."},
+"r-gestor":{t:"Gestor de la tienda",i:"🧑‍💼",que:"Maneja la tienda sin tocar la parte técnica.",ves:"Productos, pedidos, clientas, cupones y reportes. No ve plugins, temas ni usuarios administradores.",usa:"Una persona que ayuda con pedidos o productos. En Noia lo usa la integración de Shipit.",ojo:"Es el perfil recomendado para colaboradoras."},
+"r-cliente":{t:"Cliente",i:"🙋",que:"La cuenta de una compradora.",ves:"Mi cuenta: pedidos, direcciones, datos y lista de deseos.",usa:"Comprar más rápido y ver su historial.",ojo:"124 cuentas con datos personales: Ley 19.628."},
+/* Operar */
+"o-semana":{t:"Cada semana",i:"📅",que:"Revisión rápida, unos 15 minutos.",ves:"1) Pedidos: que no haya pendientes viejos. 2) Que lleguen los avisos a ventas@. 3) Log de errores. 4) El aviso de seguridad del escritorio.",usa:"Detectar problemas antes que la clienta.",ojo:"Un pedido 'Procesando' por más de 3 días suele ser un despacho olvidado."},
+"o-mes":{t:"Cada mes",i:"🗓️",que:"Mantención, unos 45 minutos.",ves:"1) Respaldo y copia al Drive de Noia. 2) Actualizar plugins de a uno, con prueba de compra. 3) Revisar usuarios. 4) Revisar que el feed de Google funcione.",usa:"Mantener la tienda segura y al día.",ojo:"Nunca actualizar un viernes en la tarde ni antes de una campaña."},
+"o-anio":{t:"Cada año",i:"📆",que:"Renovaciones y limpieza.",ves:"1) Dominio (agosto). 2) Hosting. 3) Licencia del tema. 4) Cambio de claves importantes. 5) Borrar plugins y usuarios que no se usan.",usa:"Que nada venza por sorpresa.",ojo:"Anotar las fechas de vencimiento en un calendario de Noia."}
+});
+Object.assign(INFO["i-transbank"],{mig:"Ambiente 'Producción' y una compra real chica que se anula."});
+Object.assign(INFO["i-shipit"],{mig:"Que un pedido nuevo aparezca en Shipit."});
+Object.assign(INFO["i-smtp"],{mig:"Que lleguen los avisos y no caigan en spam."});
+Object.assign(INFO["i-shopping"],{mig:"Que la dirección del feed siga respondiendo."});
+Object.assign(INFO["i-wpcom"],{mig:"Reconectar Jetpack a una cuenta de Noia."});
+Object.assign(INFO["i-search"],{mig:"Conectar Search Console con una cuenta de Noia."});
+Object.assign(INFO["i-meta"],{mig:"Sin cambios: el link sigue siendo el mismo dominio."});
+Object.assign(INFO["i-whatsapp"],{mig:"Revisar el número del botón."});
+
+function card(k){var d=INFO[k];if(!d)return '';var f=function(l,v,c){return v&&v!=='—'?'<div><dt>'+l+'</dt><dd'+(c?' class="'+c+'"':'')+'>'+v+'</dd></div>':''};return '<div style="font-size:40px">'+d.i+'</div><div class="t" id="drwt">'+d.t+'</div><dl>'+f('Qué es',d.que)+f('Qué vas a ver',d.ves)+f('Para qué se usa',d.usa)+f('💡 En Noia',d.ej)+f('🔁 Al migrar',d.mig)+f('⚠️ Cuidado',d.ojo,'ojo')+'</dl>';}
+var EXP={
+arq:{bar:'🏗️ Capas de la tienda',def:'a-wordpress',items:[['a-clienta'],['a-dns'],['a-hosting'],['a-ssl',1],['a-php',1],['a-wordpress',1],['a-woo',1],['a-tema',1],['a-plugins',1],['a-bd',1],['a-correo',1]]},
+comp:{bar:'🧩 Componentes',def:'c-woo',groups:[['🛒 Vender',['c-woo','c-swatchly','c-yith','c-rut']],['💳 Cobrar',['c-transbank','c-pdf']],['🚚 Despachar',['c-masterbip','c-shipit']],['📣 Atraer clientas',['c-rankmath','c-google','c-reviews','c-joinchat']],['🛡️ Proteger',['c-imunify','c-jetpack','c-login']],['✉️ Comunicar',['c-smtp','c-cf7']]]},
+integ:{bar:'🔌 Integraciones',def:'i-transbank',items:[['i-transbank'],['i-shipit'],['i-smtp'],['i-shopping'],['i-search'],['i-wpcom'],['i-meta'],['i-whatsapp']]},
+ped:{bar:'🧾 Un pedido, paso a paso',def:'p-1',items:[['p-1'],['p-2'],['p-3'],['p-4'],['p-5'],['p-6'],['p-7']]},
+neg:{bar:'💼 El negocio',def:'n-instagram',groups:[['Canales',['n-instagram','n-google','n-whatsapp']],['Operación',['n-tienda','n-pedido','n-despacho','n-clienta']],['La base',['n-soporte']]]},
+roles:{bar:'👤 Perfiles',def:'r-admin',items:[['r-admin'],['r-gestor'],['r-cliente']]},
+bd:{bar:'🗄️ Tablas principales',def:'t-orders',items:[['t-orders'],['t-items'],['t-posts'],['t-terms'],['t-users'],['t-customer'],['t-options'],['t-lookup']]},
+op:{bar:'🗓️ Rutina de soporte',def:'o-semana',items:[['o-semana'],['o-mes'],['o-anio']]}
+};
+var REG={};
+function mkExplorer(root,side,det){
+  function show(k,btn){side.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x.dataset.k===k)});det.innerHTML=card(k).replace(' id="drwt"','');det.animate&&det.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:260,easing:'ease-out'});}
+  side.addEventListener('click',function(e){var b=e.target.closest('button');if(b)show(b.dataset.k);});
+  side.querySelectorAll('button').forEach(function(b){REG[b.dataset.k]={show:show,root:root};});
+  return show;
+}
 (function(){
-  var side=document.getElementById('wpside'),det=document.getElementById('wpdet');
-  function show(b){side.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});det.innerHTML='<div class="wpdet-in">'+card(b.dataset.k).replace('class="t" id="drwt"','class="t"')+'</div>';det.animate&&det.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:260,easing:'ease-out'});}
-  side.addEventListener('click',function(e){var b=e.target.closest('button');if(b)show(b);});
-  show(side.querySelector('button[data-k="wc-pedidos"]'));
-  var drw=document.getElementById('drw'),bg=document.getElementById('drwbg'),c=document.getElementById('drwc');
-  function open(k){c.innerHTML=card(k).replace('class="t"','class="t" style="font-size:24px;font-weight:800;margin:4px 0 14px"').replace('<dl>','<dl style="display:grid;gap:14px;margin:0">');drw.classList.add('open');bg.classList.add('open');}
+  /* panel WordPress */
+  var wp=document.getElementById('wpside');mkExplorer(wp.parentNode,wp,document.getElementById('wpdet'))('wc-pedidos');
+  /* exploradores */
+  document.querySelectorAll('[data-exp]').forEach(function(root){
+    var c=EXP[root.dataset.exp],side=document.createElement('div'),det=document.createElement('div');
+    side.className='wpside nx';det.className='wpdet';det.setAttribute('aria-live','polite');
+    var h='<div class="bar">'+c.bar+'</div>';
+    function btn(k,sub){var d=INFO[k];return '<button'+(sub?' class="sub"':'')+' data-k="'+k+'"><span class="ic">'+d.i+'</span>'+d.t+'</button>';}
+    if(c.groups)c.groups.forEach(function(g){h+='<div class="grp">'+g[0]+'</div>';g[1].forEach(function(k){h+=btn(k)})});
+    else c.items.forEach(function(it){h+=btn(it[0],it[1])});
+    side.innerHTML=h;root.appendChild(side);root.appendChild(det);
+    mkExplorer(root,side,det)(c.def);
+  });
+  /* clic en diagramas: selecciona en su panel; si no hay panel, abre el lateral */
+  var drw=document.getElementById('drw'),bg=document.getElementById('drwbg'),cc=document.getElementById('drwc');
+  function open(k){cc.innerHTML=card(k).replace('class="t"','class="t" style="font-size:24px;font-weight:800;margin:4px 0 14px"').replace('<dl>','<dl style="display:grid;gap:14px;margin:0">');drw.classList.add('open');bg.classList.add('open');}
   function close(){drw.classList.remove('open');bg.classList.remove('open');}
-  document.addEventListener('click',function(e){var t=e.target.closest('[data-info]');if(t){e.preventDefault();open(t.getAttribute('data-info'));}});
+  document.addEventListener('click',function(e){var t=e.target.closest('[data-info]');if(!t)return;var k=t.getAttribute('data-info');e.preventDefault();
+    if(REG[k]){REG[k].show(k);var r=REG[k].root.getBoundingClientRect();if(r.top<70||r.bottom>innerHeight)REG[k].root.scrollIntoView({behavior:'smooth',block:'center'});REG[k].root.animate&&REG[k].root.animate([{boxShadow:'0 0 0 4px rgba(169,195,217,.9)'},{boxShadow:'0 0 0 0 rgba(169,195,217,0)'}],{duration:900});}
+    else open(k);});
   bg.addEventListener('click',close);drw.querySelector('.x').addEventListener('click',close);
   addEventListener('keydown',function(e){if(e.key==='Escape')close();});
-})();
+})()
 </script>
 <script>
 (function(){var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.1}):null;document.querySelectorAll('.rv').forEach(function(el){io?io.observe(el):el.classList.add('on')});})();
