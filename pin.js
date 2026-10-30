@@ -1,10 +1,7 @@
-/* PIN de entrada "noia" · se desbloquea al escribir la 4ª letra, sin Enter.
+/* PIN de entrada "noia" · se pide en cada visita y se desbloquea al escribir la 4ª letra, sin Enter.
    Ocultamiento visual (no es seguridad real: el contenido está en el HTML). */
 (function () {
-  var KEY = 'noia-pin-ok', PIN = 'noia', root = document.documentElement;
-  var ok = false;
-  try { ok = localStorage.getItem(KEY) === '1'; } catch (e) {}
-  if (ok) return;
+  var PIN = 'noia', root = document.documentElement;
   root.classList.add('locked');
 
   var css = document.createElement('style');
@@ -65,7 +62,6 @@
         cells.forEach(function (c, i) { setTimeout(function () { c.classList.add('good'); }, i * 90); });
         hint.textContent = 'Bienvenida 🎾';
         w.classList.add('open');
-        try { localStorage.setItem(KEY, '1'); } catch (e) {}
         setTimeout(function () { w.classList.add('out'); root.classList.remove('locked'); dispatchEvent(new Event('noia:unlock')); }, 950);
         setTimeout(function () { w.remove(); }, 1900);
       } else {

@@ -14,8 +14,8 @@
 <style>
 :root{--navy:#393636;--navy2:#4d4949;--sky:#a9c3d9;--sky2:#e9f0f6;--wine:#334862;--ball:#a9c3d9;--lav:#cdc4e4;--rosa:#e6cccc;--oliva:#9aa06a;--ink:#393636;--mut:#6f6a6a;--bg:#f7f3ee;--ok:#6f7a3c}
 *{box-sizing:border-box;margin:0}
-html,body{height:100%;background:#0f1722;overflow:hidden;font-family:Raleway,system-ui,sans-serif}
-#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden;background:var(--bg);color:var(--ink)}
+html,body{height:100%;background:#2b2828;overflow:hidden;font-family:Raleway,system-ui,sans-serif}
+#stage{position:fixed;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden;background:var(--bg);color:var(--ink)}
 .s{position:absolute;inset:0;padding:110px 140px;visibility:hidden}
 .s.dark{background:var(--navy);color:#fff}
 .kick{font-size:24px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--wine)}
@@ -108,7 +108,18 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
 #dots i.on{background:var(--ball)}
 #ui a{display:inline-block;background:#fff;color:#393636;font-size:17px;font-weight:800;text-decoration:none;padding:12px 24px;border-radius:99px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
 #ui a:hover{background:var(--sky)}
-@media (max-width:600px){#ui .hide-m{display:none}}
+@media (max-width:700px){
+  #ui{gap:6px;padding:10px}
+  #dots{display:none}
+  #ui .sp{flex:1}
+  #ui a{font-size:14px;padding:10px 16px}
+  #ui button{padding:8px 12px}
+}
+#ui .sp{display:none}
+@media (max-width:700px){#ui .sp{display:block}}
+#rot{position:fixed;left:50%;top:18px;transform:translateX(-50%);z-index:101;background:rgba(255,255,255,.95);color:#393636;font:700 13px Raleway,sans-serif;padding:9px 16px;border-radius:99px;box-shadow:0 6px 20px rgba(0,0,0,.25);display:none;white-space:nowrap}
+@media (max-width:700px) and (orientation:portrait){#rot{display:block;animation:rotOut 1s ease 6s forwards}}
+@keyframes rotOut{to{opacity:0;visibility:hidden}}
 </style>
 </head>
 <body>
@@ -255,12 +266,14 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
   <div id="ball"></div>
 </div>
 
+<div id="rot">↻ Gira el celular para verla en grande</div>
 <div id="ui">
   <button id="prev" aria-label="Anterior">‹</button>
   <button id="play">❚❚ Pausa</button>
   <button id="next" aria-label="Siguiente">›</button>
   <div id="dots"></div>
-  <a class="hide-m" href="index.html">Ver el plan completo →</a>
+  <span class="sp"></span>
+  <a href="index.html">Ver el plan completo →</a>
 </div>
 
 <script>
