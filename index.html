@@ -9,11 +9,11 @@
 <link rel="icon" href="img/pelota.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Raleway:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#2b2a2a;--mut:#6b6a6a;--line:#e7e3dd;--bg:#f3f0ec;--card:#fff;
-  --navy:#334862;--sky:#a9c3d9;--sky2:#e8f0f6;--wine:#6f8a78;--wine2:#e7eee9;
+  --ink:#2b2a2a;--mut:#6b6a6a;--line:#e7e3dd;--bg:#faf8f5;--card:#fff;
+  --navy:#334862;--sky:#a9c3d9;--sky2:#e8f0f6;--wine:#334862;--wine2:#e8eef5;
   --ball:#a9c3d9;--ok:#2f7a47;--ok2:#e5f3ea;--warn:#8a5a00;--warn2:#fff4d6;
   --r:18px;--sh:0 10px 30px rgba(51,72,98,.10)
 }
@@ -24,8 +24,8 @@ img{max-width:100%;display:block}
 a{color:var(--navy)}
 .in{max-width:1080px;margin:auto;padding:0 16px}
 section{padding:64px 0}
-.kick{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#8d8580}
-h1,h2{font-weight:300;line-height:1.12;margin:0}h3{font-weight:700;line-height:1.2;margin:0}h1 em,h2 em{font-family:Allura,cursive;font-style:normal;font-weight:400;font-size:1.3em;line-height:.8}
+.kick{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
+h1,h2,h3{font-weight:800;line-height:1.12;margin:0}
 h2{font-size:clamp(26px,4.4vw,40px);margin:8px 0 12px;letter-spacing:-.01em}
 h3{font-size:18px;margin-bottom:6px}
 .lead{color:var(--mut);max-width:680px;font-size:17px;margin:0 0 28px}
@@ -49,7 +49,7 @@ h3{font-size:18px;margin-bottom:6px}
 .hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(45,42,42,.92) 0%,rgba(45,42,42,.70) 45%,rgba(45,42,42,.18) 100%)}
 .hero .in{position:relative;padding-top:96px;padding-bottom:110px}
 .hero h1{font-size:clamp(36px,7vw,68px);letter-spacing:-.02em;max-width:640px}
-.hero h1 em{color:#ecd6d8}
+.hero h1 em{font-style:normal;color:var(--ball)}
 .hero p{max-width:520px;font-size:18px;opacity:.92;margin:18px 0 26px}
 .hero .chips{display:flex;flex-wrap:wrap;gap:8px}
 .hero .chips span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 12px;border-radius:99px;font-size:14px;font-weight:600}
@@ -173,7 +173,7 @@ footer b{color:#fff}
         <ellipse rx="9" ry="2.5" fill="rgba(0,0,0,.28)">
           <animateMotion dur="9s" repeatCount="indefinite" calcMode="spline" keyPoints="0;0.5;1" keyTimes="0;0.5;1" keySplines=".45 0 .55 1;.45 0 .55 1" path="M140,113 L1060,113 L140,113"/>
         </ellipse>
-        <circle r="7" fill="#d9ef3a" stroke="#b9cf20" stroke-width="1.2">
+        <circle r="7" fill="#a9c3d9" stroke="#7fa3c2" stroke-width="1.2">
           <animateMotion dur="9s" repeatCount="indefinite" calcMode="spline" keyPoints="0;0.5;1" keyTimes="0;0.5;1" keySplines=".45 0 .55 1;.45 0 .55 1" path="M140,100 Q370,24 600,48 Q830,24 1060,100 Q830,24 600,48 Q370,24 140,100"/>
         </circle>
       </g>

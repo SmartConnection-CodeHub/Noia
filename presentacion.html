@@ -8,21 +8,21 @@
 <link rel="icon" href="img/pelota.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Allura&family=Raleway:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <style>
-:root{--navy:#393636;--navy2:#4d4949;--sky:#a9c3d9;--sky2:#e9f0f6;--wine:#6f8a78;--ball:#a9c3d9;--lav:#cdc4e4;--rosa:#d9b9bc;--oliva:#c39a74;--ink:#393636;--mut:#6f6a6a;--bg:#efebe7;--ok:#6f7a3c}
+:root{--navy:#393636;--navy2:#4d4949;--sky:#a9c3d9;--sky2:#e9f0f6;--wine:#334862;--ball:#a9c3d9;--lav:#cdc4e4;--rosa:#e6cccc;--oliva:#9aa06a;--ink:#393636;--mut:#6f6a6a;--bg:#f7f3ee;--ok:#6f7a3c}
 *{box-sizing:border-box;margin:0}
 html,body{height:100%;background:#0f1722;overflow:hidden;font-family:Raleway,system-ui,sans-serif}
 #stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden;background:var(--bg);color:var(--ink)}
 .s{position:absolute;inset:0;padding:110px 140px;visibility:hidden}
 .s.dark{background:var(--navy);color:#fff}
-.kick{font-size:22px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#8d8580}
-.dark .kick{color:#d8cfc8}
-h1{font-size:150px;font-weight:300;line-height:.98;letter-spacing:-.03em}
-h2{font-size:88px;font-weight:300;line-height:1.02;letter-spacing:-.02em;margin:18px 0 26px}
-h2 em,h1 em{font-family:Allura,cursive;font-style:normal;font-weight:400;font-size:1.3em;line-height:.8;letter-spacing:0;color:#ecd6d8}
-.s:not(.dark) h2 em{color:#a7777d}
+.kick{font-size:24px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--wine)}
+.dark .kick{color:var(--ball)}
+h1{font-size:150px;font-weight:900;line-height:.98;letter-spacing:-.03em}
+h2{font-size:88px;font-weight:900;line-height:1.02;letter-spacing:-.02em;margin:18px 0 26px}
+h2 em,h1 em{font-style:normal;color:var(--ball)}
+.s:not(.dark) h2 em{color:var(--wine)}
 p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
 .dark p.lead{color:#e3dcd6}
 .row{display:flex;gap:32px}
@@ -63,7 +63,7 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
 /* planes */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:20px}
 .plan{position:relative;background:#fff;border:3px solid #ebe6df;border-radius:32px;padding:36px 36px 30px}
-.plan.rec{border-color:var(--wine);box-shadow:0 26px 70px rgba(111,138,120,.2)}
+.plan.rec{border-color:var(--wine);box-shadow:0 26px 70px rgba(51,72,98,.16)}
 .plan:nth-child(1){border-top:10px solid var(--sky)}.plan:nth-child(3){border-top:10px solid var(--lav)}
 .plan .badge{position:absolute;top:-22px;left:32px}
 .plan h3{font-size:38px;font-weight:900}
