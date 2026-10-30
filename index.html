@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Noia · Plan de la nueva web</title>
+<meta name="description" content="Plan para dejar noiasportswear.cl a nombre de Noia, sin dejar de vender. Smart Connection.">
+<link rel="icon" href="img/pelota.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2b2a2a;--mut:#6b6a6a;--line:#e7e3dd;--bg:#faf8f5;--card:#fff;
+  --navy:#334862;--sky:#a9c3d9;--sky2:#e8f0f6;--wine:#6b1d3a;--wine2:#f6e9ee;
+  --ball:#d9ef3a;--ok:#2f7a47;--ok2:#e5f3ea;--warn:#8a5a00;--warn2:#fff4d6;
+  --r:18px;--sh:0 10px 30px rgba(51,72,98,.10)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Raleway,system-ui,sans-serif}
+img{max-width:100%;display:block}
+a{color:var(--navy)}
+.in{max-width:1080px;margin:auto;padding:0 16px}
+section{padding:64px 0}
+.kick{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--wine)}
+h1,h2,h3{font-weight:800;line-height:1.12;margin:0}
+h2{font-size:clamp(26px,4.4vw,40px);margin:8px 0 12px;letter-spacing:-.01em}
+h3{font-size:18px;margin-bottom:6px}
+.lead{color:var(--mut);max-width:680px;font-size:17px;margin:0 0 28px}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;box-shadow:var(--sh)}
+.pill{display:inline-block;font-size:12px;font-weight:700;padding:4px 10px;border-radius:99px}
+.p-ok{background:var(--ok2);color:var(--ok)}.p-go{background:var(--sky2);color:var(--navy)}.p-you{background:var(--wine2);color:var(--wine)}.p-warn{background:var(--warn2);color:var(--warn)}
+
+/* top */
+.top{position:sticky;top:0;z-index:20;background:rgba(250,248,245,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .in{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.top img{height:26px;width:auto}
+.top nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.top nav a{font-size:13px;font-weight:600;text-decoration:none;color:var(--mut);padding:6px 10px;border-radius:99px;white-space:nowrap}
+.top nav a:hover{background:var(--sky2);color:var(--navy)}
+
+/* hero */
+.hero{position:relative;color:#fff;overflow:hidden;background:var(--navy)}
+.hero .bg{position:absolute;inset:0;background:url(img/hero-padel.jpg) center 30%/cover}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(28,40,56,.92) 0%,rgba(28,40,56,.72) 45%,rgba(28,40,56,.25) 100%)}
+.hero .in{position:relative;padding-top:96px;padding-bottom:110px}
+.hero h1{font-size:clamp(36px,7vw,68px);letter-spacing:-.02em;max-width:640px}
+.hero h1 em{font-style:normal;color:var(--ball)}
+.hero p{max-width:520px;font-size:18px;opacity:.92;margin:18px 0 26px}
+.hero .chips{display:flex;flex-wrap:wrap;gap:8px}
+.hero .chips span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 12px;border-radius:99px;font-size:14px;font-weight:600}
+.court{position:absolute;left:0;right:0;bottom:0;height:120px;pointer-events:none}
+.court svg{width:100%;height:100%}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+
+/* hoy vs después */
+.vs .col{position:relative}
+.vs .col h3{display:flex;align-items:center;gap:8px}
+.stack{display:grid;gap:10px;margin-top:14px}
+.blk{display:flex;gap:12px;align-items:center;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg)}
+.blk b{display:block}
+.blk small{color:var(--mut)}
+.blk .e{font-size:22px;flex:none;width:30px;text-align:center}
+.hoy .blk{border-style:dashed}
+.after .amz{background:#fff7ec;border-color:#f3dcb6}
+.after .ggl{background:#eef5ff;border-color:#cfe0f7}
+.after .you{background:var(--wine2);border-color:#ecd0da}
+
+/* correos */
+.mail-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:stretch}
+.mail-photo{border-radius:var(--r);overflow:hidden;min-height:320px;background:url(img/jugadora-padel.jpg) center 20%/cover}
+.al{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.al:last-child{border:0}
+.al code{font-family:inherit;font-weight:700;color:var(--navy)}
+
+/* flujo */
+.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;position:relative}
+.fs{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center;position:relative;box-shadow:var(--sh)}
+.fs .n{width:40px;height:40px;margin:0 auto 10px;border-radius:50%;display:grid;place-items:center;background:var(--sky2);font-size:20px}
+.fs small{color:var(--mut);display:block;font-size:13px;line-height:1.45}
+.flow .bl{position:absolute;top:36px;width:14px;height:14px;border-radius:50%;background:var(--ball);box-shadow:0 0 0 3px rgba(217,239,58,.35);left:0;animation:roll 7s cubic-bezier(.45,0,.55,1) infinite;z-index:2}
+@keyframes roll{0%{left:4%;transform:translateY(0)}10%{transform:translateY(-26px)}20%{left:24%;transform:translateY(0)}30%{transform:translateY(-26px)}40%{left:44%;transform:translateY(0)}50%{transform:translateY(-26px)}60%{left:64%;transform:translateY(0)}70%{transform:translateY(-26px)}80%{left:86%;transform:translateY(0)}100%{left:86%}}
+
+/* costos */
+.cost{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.cost:last-of-type{border:0}
+.cost b{font-size:20px;white-space:nowrap}
+.total{margin-top:6px;padding:18px;border-radius:14px;background:var(--navy);color:#fff;display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.total b{font-size:28px}
+
+/* timeline */
+.tl{position:relative;display:grid;gap:14px;padding-left:34px}
+.tl::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--ok) 0 18%,var(--line) 18%)}
+.st{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.st::before{content:"";position:absolute;left:-29px;top:20px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--line)}
+.st.done::before{background:var(--ok);border-color:var(--ok)}
+.st.now::before{background:var(--ball);border-color:#b9cf20;animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(217,239,58,.35)}}
+.st .meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.st small{color:var(--mut)}
+
+/* checklist */
+.ck{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.ck:last-child{border:0}
+.ck input{width:22px;height:22px;accent-color:var(--wine);flex:none;margin-top:2px}
+.ck small{display:block;color:var(--mut)}
+
+/* productos */
+.strip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:8px}
+.strip figure{margin:0;background:#fff;border-radius:14px;border:1px solid var(--line);padding:6px;aspect-ratio:2/3;overflow:hidden}
+.strip img{width:100%;height:100%;object-fit:contain;transition:transform .5s ease}
+.strip figure:hover img{transform:scale(1.06) rotate(-1deg)}
+
+/* faq */
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px}
+summary{cursor:pointer;padding:16px 18px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::after{content:"+";color:var(--wine);font-size:20px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin:0;padding:0 18px 16px;color:var(--mut)}
+
+footer{background:var(--navy);color:#cfd8e3;padding:36px 0;font-size:14px}
+footer b{color:#fff}
+
+@media (max-width:860px){
+  .g2,.g3,.g4,.mail-grid{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr}
+  .flow .bl{display:none}
+  .strip{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .strip figure:nth-child(n+4){display:none}
+  .top nav{display:none}
+  .hero .in{padding-top:64px;padding-bottom:120px}
+  .hero .bg{background-position:30% 30%}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  .court .anim{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="in">
+  <a href="#inicio" aria-label="Inicio"><img src="img/logo-noia.png" alt="NOIA"></a>
+  <nav>
+    <a href="#hoy">Hoy y después</a><a href="#correos">Correos</a><a href="#costos">Costos</a><a href="#pasos">Próximos pasos</a><a href="#tu">Lo que necesito de ti</a><a href="#faq">Preguntas</a>
+  </nav>
+</div></header>
+
+<section class="hero" id="inicio">
+  <div class="bg" role="img" aria-label="Jugadoras de pádel con ropa Noia"></div>
+  <div class="in">
+    <div class="kick" style="color:var(--ball)">Plan de la nueva web · 30-10-2026</div>
+    <h1>Tu tienda,<br><em>100% a tu nombre.</em></h1>
+    <p>Vamos a mover noiasportswear.cl y tus correos a cuentas propias de Noia, sin dejar de vender ni un día. Aquí está todo lo que haremos, en simple.</p>
+    <div class="chips"><span>✅ Respaldo completo hecho</span><span>🛒 La tienda sigue vendiendo</span><span>📬 Sigues en Outlook</span></div>
+  </div>
+  <div class="court" aria-hidden="true">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="xMidYMax slice">
+      <line x1="0" y1="112" x2="1200" y2="112" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
+      <rect x="597" y="62" width="6" height="50" fill="rgba(255,255,255,.55)"/>
+      <line x1="600" y1="62" x2="600" y2="112" stroke="rgba(255,255,255,.25)" stroke-width="22" stroke-dasharray="2 4"/>
+      <g class="anim">
+        <ellipse rx="10" ry="3" fill="rgba(0,0,0,.25)">
+          <animateMotion dur="3.2s" repeatCount="indefinite" path="M80,113 L1120,113 L80,113" keyPoints="0;0.25;0.5;0.75;1" keyTimes="0;0.25;0.5;0.75;1" calcMode="linear"/>
+        </ellipse>
+        <circle r="9" fill="#d9ef3a" stroke="#b9cf20" stroke-width="1.5">
+          <animateMotion dur="3.2s" repeatCount="indefinite" path="M80,60 Q330,-20 560,104 Q600,30 640,104 Q870,-20 1120,60 Q870,-20 640,104 Q600,30 560,104 Q330,-20 80,60"/>
+        </circle>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section id="estado"><div class="in">
+  <div class="grid g3">
+    <div class="card rv"><span class="pill p-ok">Hecho · 30-10</span><h3 style="margin-top:10px">Respaldo completo</h3>La web, la tienda (productos, pedidos y clientes) y tus 7 casillas de correo quedaron copiadas y revisadas, guardadas de forma segura.</div>
+    <div class="card rv"><span class="pill p-ok">En orden</span><h3 style="margin-top:10px">Tu dominio es tuyo</h3><b>noiasportswear.cl</b> está a tu nombre, se renueva solo ($8.900 al año) y está pagado hasta el 17-08-2027.</div>
+    <div class="card rv"><span class="pill p-go">Por partir</span><h3 style="margin-top:10px">El cambio</h3>Crear las cuentas de Noia, copiar todo, probar y recién ahí cambiar. Unos <b>7 a 10 días hábiles</b>.</div>
+  </div>
+</div></section>
+
+<section id="hoy" style="padding-top:0"><div class="in">
+  <div class="kick">Hoy y después</div>
+  <h2>De un solo local ajeno a dos casas propias</h2>
+  <p class="lead">Hoy la tienda, los correos y el "mapa" del dominio viven todos en un servidor del proveedor anterior. Si ese servidor se apaga, se cae todo junto. Después, cada cosa queda en un lugar especializado y <b>a nombre de tu empresa</b>.</p>
+  <div class="grid g2 vs">
+    <div class="card col hoy rv"><h3>🏚️ Hoy</h3><small style="color:var(--mut)">Todo bajo un mismo techo, que no es tuyo</small>
+      <div class="stack">
+        <div class="blk"><span class="e">🛒</span><span><b>Tienda</b><small>Servidor del proveedor anterior</small></span></div>
+        <div class="blk"><span class="e">📬</span><span><b>Buzones de correo</b><small>El mismo servidor</small></span></div>
+        <div class="blk"><span class="e">🗺️</span><span><b>Mapa del dominio (DNS)</b><small>El mismo servidor</small></span></div>
+        <div class="blk"><span class="e">💾</span><span><b>Respaldos</b><small>No había uno completo</small></span></div>
+      </div>
+    </div>
+    <div class="card col after rv"><h3>🏡 Después</h3><small style="color:var(--mut)">Cuentas de Noia · Smart Connection te da soporte</small>
+      <div class="stack">
+        <div class="blk amz"><span class="e">🛒</span><span><b>Tienda en Amazon</b><small>Servidor propio para tu web, con respaldo automático diario</small></span></div>
+        <div class="blk amz"><span class="e">🗺️</span><span><b>Mapa del dominio en Amazon</b><small>Dice dónde está la tienda y dónde el correo</small></span></div>
+        <div class="blk ggl"><span class="e">📬</span><span><b>Buzones en Google</b><small>Guardados y protegidos contra spam</small></span></div>
+        <div class="blk you"><span class="e">💻</span><span><b>Tú, en Outlook</b><small>Lees y respondes igual que hoy</small></span></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="correos" style="background:#fff"><div class="in">
+  <div class="kick">Tus correos</div>
+  <h2>Una sola cuenta, todas tus direcciones</h2>
+  <p class="lead">Las direcciones @noiasportswear.cl <b>no cambian</b>: tus clientas y proveedores escriben a las mismas. Hoy tienes <b>5 cuentas separadas</b> en Outlook, cada una con su clave. Después tienes <b>1 sola cuenta</b>, y todas tus direcciones llegan ahí, cada una a su carpeta.</p>
+  <div class="grid g2" style="margin-bottom:18px">
+    <div class="card rv" style="padding:16px 18px"><span class="pill p-warn">Hoy</span><div style="margin-top:8px">5 cuentas en Outlook · 5 claves · 5 buzones que revisar<br><small style="color:var(--mut)">pia.valencia@ · ideas@ · hola@ · contacto@ · ventas@ (+ tu Gmail noiasportswear@, que sigue igual)</small></div></div>
+    <div class="card rv" style="padding:16px 18px"><span class="pill p-ok">Después</span><div style="margin-top:8px">1 cuenta en Outlook · 1 clave · todo ordenado por carpetas<br><small style="color:var(--mut)">Si prefieres algún buzón totalmente separado, se puede: ≈ US$7 al mes cada uno</small></div></div>
+  </div>
+  <div class="mail-grid">
+    <div class="card rv">
+      <div class="al"><span><code>pia.valencia@</code></span><span class="pill p-you">Tu cuenta</span></div>
+      <div class="al"><span><code>ventas@</code> · aquí llegan los pedidos</span><span class="pill p-go">Carpeta Ventas</span></div>
+      <div class="al"><span><code>ideas@</code> · diseño</span><span class="pill p-go">Carpeta Ideas</span></div>
+      <div class="al"><span><code>notific@</code> · avisos de stock bajo</span><span class="pill p-go">Carpeta Stock</span></div>
+      <div class="al"><span><code>contacto@</code> · <code>hola@</code> · <code>soporte@</code></span><span class="pill p-go">Carpeta Contacto</span></div>
+      <p style="margin:14px 0 0;color:var(--mut);font-size:15px">Puedes <b>responder desde la dirección que corresponda</b>, por ejemplo desde ventas@. Y nada que tengas asociado a esas direcciones (arriendos, cuentas, avisos) deja de llegarte.</p>
+    </div>
+    <div class="mail-photo rv" role="img" aria-label="Jugadora de pádel con conjunto celeste Noia"></div>
+  </div>
+</div></section>
+
+<section id="flujo"><div class="in">
+  <div class="kick">Cuando alguien compra</div>
+  <h2>Así viaja cada aviso de la tienda</h2>
+  <p class="lead">Lo dejamos probado antes del cambio: un pedido de prueba, un aviso de stock y que nada caiga en spam.</p>
+  <div class="flow">
+    <span class="bl" aria-hidden="true"></span>
+    <div class="fs rv"><div class="n">🛍️</div><b>Compra</b><small>Una clienta paga en la tienda</small></div>
+    <div class="fs rv"><div class="n">💳</div><b>Transbank</b><small>Aprueba el pago y el pedido queda guardado</small></div>
+    <div class="fs rv"><div class="n">⚙️</div><b>La tienda avisa</b><small>Pedido nuevo, confirmación y stock bajo</small></div>
+    <div class="fs rv"><div class="n">✉️</div><b>Google envía</b><small>Desde ventas@, firmado para no caer en spam</small></div>
+    <div class="fs rv"><div class="n">📥</div><b>Te llega a Outlook</b><small>Y a la clienta, su confirmación</small></div>
+  </div>
+</div></section>
+
+<section id="costos" style="background:#fff"><div class="in">
+  <div class="kick">Costos</div>
+  <h2>Cuánto cuesta tener todo a tu nombre</h2>
+  <p class="lead">Valores mensuales aproximados. Se confirman al crear las cuentas, y se pagan directo con la tarjeta de tu empresa.</p>
+  <div class="grid g2">
+    <div class="card rv">
+      <div class="cost"><span>🛒 <b style="font-size:16px">Tienda en Amazon</b><br><small style="color:var(--mut)">Servidor + respaldo diario</small></span><b>US$15–25</b></div>
+      <div class="cost"><span>🗺️ <b style="font-size:16px">Mapa del dominio en Amazon</b></span><b>≈ US$1</b></div>
+      <div class="cost"><span>📬 <b style="font-size:16px">Correo en Google</b><br><small style="color:var(--mut)">1 cuenta, todas tus direcciones</small></span><b>≈ US$7</b></div>
+      <div class="cost"><span>🌐 <b style="font-size:16px">Dominio .cl</b><br><small style="color:var(--mut)">Ya lo pagas tú, una vez al año</small></span><b>$8.900/año</b></div>
+      <div class="total"><span>Total aproximado al mes</span><b>US$20–35</b><small style="width:100%;opacity:.8">≈ $19.000–33.000 · más el soporte de Smart Connection (propuesta aparte)</small></div>
+    </div>
+    <div class="card rv" style="display:flex;flex-direction:column;justify-content:center">
+      <h3>Para comparar</h3>
+      <p style="color:var(--mut);margin:0 0 12px">Cuéntanos cuánto le pagabas al proveedor anterior (hosting, mantención, correos) y si era mensual o anual. Con eso vemos la diferencia real.</p>
+      <h3 style="margin-top:8px">¿Por qué estas plataformas?</h3>
+      <p style="color:var(--mut);margin:0">Amazon y Google son las que usa Smart Connection todos los días, así que el soporte es directo. Y como las cuentas son tuyas, <b>siempre eres dueña de todo</b>, trabajes con quien trabajes.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="pasos"><div class="in">
+  <div class="kick">Próximos pasos</div>
+  <h2>El camino, paso a paso</h2>
+  <p class="lead">La tienda sigue vendiendo en todo momento. Solo al final se "cambia la dirección", cuando todo está probado.</p>
+  <div class="tl">
+    <div class="st done rv"><div class="meta"><span class="pill p-ok">✓ Hecho · 30-10</span><span class="pill p-go">Smart Connection</span></div><b>Revisión y respaldo completo</b><br><small>Se revisó la web y se copió todo: tienda, pedidos, clientes y los 7 correos.</small></div>
+    <div class="st now rv"><div class="meta"><span class="pill p-warn">Ahora</span><span class="pill p-you">Tú</span><span class="pill p-go">Smart Connection</span></div><b>Respuestas y limpieza</b><br><small>El proveedor anterior nos confirma plazos y licencias. Tú puedes limpiar el spam y los correos de ideas@ anteriores a 2023 (nada de ventas@).</small></div>
+    <div class="st rv"><div class="meta"><span class="pill p-you">Tú</span><span class="pill p-go">Smart Connection</span><span class="pill p-go">30 min</span></div><b>Videollamada para crear tus cuentas</b><br><small>Amazon y Google a nombre de tu empresa, con tu tarjeta. Nosotros entramos con un usuario de soporte.</small></div>
+    <div class="st rv"><div class="meta"><span class="pill p-go">Smart Connection</span><span class="pill p-go">2–3 días</span></div><b>Copiamos la tienda y los correos</b><br><small>Montamos la tienda en Amazon y traemos tus correos a Google. Tú no ves nada todavía: la tienda actual sigue funcionando.</small></div>
+    <div class="st rv"><div class="meta"><span class="pill p-go">Smart Connection</span><span class="pill p-go">1 día</span></div><b>Pruebas antes del cambio</b><br><small>Pedido de prueba con Transbank, aviso de stock, que lleguen los correos y que no caigan en spam.</small></div>
+    <div class="st rv"><div class="meta"><span class="pill p-you">Tú</span><span class="pill p-go">Smart Connection</span><span class="pill p-go">1–2 días</span></div><b>El cambio</b><br><small>Cambiamos la dirección del dominio a tus cuentas nuevas y configuramos tu Outlook. Una compra real pequeña para confirmar.</small></div>
+    <div class="st rv"><div class="meta"><span class="pill p-go">Smart Connection</span></div><b>Cierre</b><br><small>El proveedor anterior borra los datos de tu tienda y cierra su servidor. Cambias las claves que se compartieron por WhatsApp.</small></div>
+  </div>
+</div></section>
+
+<section id="tu" style="background:#fff"><div class="in">
+  <div class="kick">Lo que necesito de ti</div>
+  <h2>Tu checklist</h2>
+  <p class="lead">Marca lo que vayas completando. Queda guardado en tu navegador.</p>
+  <div class="grid g2">
+    <div class="card rv" id="checks">
+      <label class="ck"><input type="checkbox" data-k="c1"><span><b>Contarme cuánto pagabas al proveedor anterior</b><small>Hosting, mantención, correos. Mensual o anual</small></span></label>
+      <label class="ck"><input type="checkbox" data-k="c2"><span><b>Agendar 30 min para crear las cuentas</b><small>Amazon y Google, con la tarjeta de tu empresa a mano</small></span></label>
+      <label class="ck"><input type="checkbox" data-k="c3"><span><b>Limpiar spam y correos antiguos</b><small>En pia.valencia@ e ideas@ (lo anterior a 2023). Nada de ventas@</small></span></label>
+      <label class="ck"><input type="checkbox" data-k="c4"><span><b>Confirmar si bebembe.cl y braustore.cl se siguen usando</b><small>Si no, no los migramos</small></span></label>
+      <label class="ck"><input type="checkbox" data-k="c5"><span><b>Al final: cambiar las claves</b><small>Las que se compartieron por WhatsApp (Transbank y bluehosting), y guardarlas en un lugar seguro</small></span></label>
+    </div>
+    <div class="rv">
+      <div class="strip" aria-label="Algunos productos Noia">
+        <figure><img src="img/CATERINA-LAVANDA-COMPLETA.png" alt="Conjunto Caterina lavanda"></figure>
+        <figure><img src="img/ISIDORA-ICE-BLUE-FRONT-400x565.png" alt="Isidora ice blue"></figure>
+        <figure><img src="img/falda-plisada-celeste-front-zoom.jpg" alt="Falda plisada celeste"></figure>
+        <figure><img src="img/POLERON-CLUB-FRONT-ZOOM-646x800.jpg" alt="Polerón Club"></figure>
+        <figure><img src="img/ALONDA-AZUL-TOTAL-FRONT-400x548.png" alt="Alonda azul"></figure>
+      </div>
+      <p style="color:var(--mut);font-size:14px;margin-top:10px">Todo esto para que tu tienda siga mostrando lo mejor de Noia, sin sustos 🎾</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="in">
+  <div class="kick">Preguntas</div>
+  <h2>Lo que probablemente te estás preguntando</h2>
+  <div style="max-width:780px">
+    <details class="rv"><summary>¿Se va a caer la tienda durante el cambio?</summary><p>No. Primero copiamos todo y lo probamos en paralelo, sin tocar la tienda actual. Solo cuando todo funciona cambiamos la dirección. Ese cambio tarda unas horas en llegar a todos, y mientras tanto las dos versiones responden.</p></details>
+    <details class="rv"><summary>¿Pierdo correos?</summary><p>No. Ya están respaldados, y los traemos completos a Google. Además, hacemos una segunda copia después del cambio para incluir lo que llegue en la transición.</p></details>
+    <details class="rv"><summary>¿Tengo que usar Gmail?</summary><p>No. Google solo guarda los correos. Tú sigues trabajando en Outlook, igual que hoy. El día del cambio te ayudamos a configurarlo.</p></details>
+    <details class="rv"><summary>¿Por qué no se pueden quedar los correos donde están?</summary><p>Porque hoy los buzones viven en el servidor del proveedor anterior. La dirección es tuya, pero el lugar donde se guardan las cartas no. Si ese servidor se apaga, los correos nuevos rebotan. Por eso los movemos a una cuenta tuya.</p></details>
+    <details class="rv"><summary>¿Quién es dueño de todo después?</summary><p>Tú. El dominio, la cuenta de Amazon y la de Google quedan a nombre de tu empresa. Smart Connection entra con un usuario de soporte que puedes quitar cuando quieras.</p></details>
+  </div>
+</div></section>
+
+<footer><div class="in">
+  <b>Smart Connection</b> · Plan para Noia Sportswear · 30-10-2026<br>
+  Valores aproximados, se confirman al contratar. Elaborado con apoyo de IA y revisado por Smart Connection.
+</div></footer>
+
+<script>
+(function(){
+  var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12}):null;
+  document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%5*70)+'ms';io?io.observe(el):el.classList.add('on')});
+  var K='noia-checklist-v1',st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
+  document.querySelectorAll('#checks input').forEach(function(b){b.checked=!!st[b.dataset.k];b.addEventListener('change',function(){st[b.dataset.k]=b.checked;try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}})});
+})();
+</script>
+</body>
+</html>
