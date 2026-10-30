@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <style>
-:root{--navy:#1f2d3f;--navy2:#334862;--sky:#a9c3d9;--sky2:#e8f0f6;--wine:#6b1d3a;--ball:#d9ef3a;--ink:#2b2a2a;--mut:#6b6a6a;--bg:#faf8f5;--ok:#2f7a47}
+:root{--navy:#393636;--navy2:#4d4949;--sky:#a9c3d9;--sky2:#e9f0f6;--wine:#7a2e4a;--ball:#a9c3d9;--lav:#cdc4e4;--rosa:#e6cccc;--oliva:#9aa06a;--ink:#393636;--mut:#6f6a6a;--bg:#f7f3ee;--ok:#6f7a3c}
 *{box-sizing:border-box;margin:0}
 html,body{height:100%;background:#0f1722;overflow:hidden;font-family:Raleway,system-ui,sans-serif}
 #stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden;background:var(--bg);color:var(--ink)}
@@ -24,28 +24,30 @@ h2{font-size:88px;font-weight:900;line-height:1.02;letter-spacing:-.02em;margin:
 h2 em,h1 em{font-style:normal;color:var(--ball)}
 .s:not(.dark) h2 em{color:var(--wine)}
 p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
-.dark p.lead{color:#c9d4e1}
+.dark p.lead{color:#e3dcd6}
 .row{display:flex;gap:32px}
-.card{flex:1;background:#fff;border:2px solid #ebe6df;border-radius:32px;padding:40px;box-shadow:0 20px 60px rgba(31,45,63,.10)}
+.card{flex:1;background:#fff;border:2px solid #ece4dc;border-radius:32px;padding:40px;box-shadow:0 20px 60px rgba(31,45,63,.10)}
 .dark .card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14);box-shadow:none}
 .card .ic{font-size:60px}
+#s2 .card:nth-of-type(1){border-top:10px solid var(--rosa)}#s2 .card:nth-of-type(2){border-top:10px solid var(--lav)}#s2 .card:nth-of-type(3){border-top:10px solid var(--sky)}
 .card h3{font-size:40px;font-weight:800;margin:14px 0 8px}
 .card p{font-size:27px;line-height:1.4;color:var(--mut)}
-.dark .card p{color:#c9d4e1}
+.dark .card p{color:#e3dcd6}
 .big{font-size:96px;font-weight:900;line-height:1}
 .tag{display:inline-block;font-size:22px;font-weight:800;padding:8px 18px;border-radius:99px;background:var(--sky2);color:var(--navy2)}
 .tag.ok{background:#e5f3ea;color:var(--ok)}
 .tag.red{background:#fbe9e7;color:#b3261e}
-.tag.ball{background:var(--ball);color:var(--navy)}
+.tag.ball{background:var(--wine);color:#fff}
 /* portada */
 #s0 .bg{position:absolute;inset:0;background:url(img/hero-padel.jpg) center 25%/cover}
-#s0 .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,30,44,.95) 0%,rgba(20,30,44,.75) 50%,rgba(20,30,44,.2) 100%)}
+#s0 .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(45,42,42,.95) 0%,rgba(45,42,42,.72) 50%,rgba(45,42,42,.15) 100%)}
 #s0 .in{position:relative;top:170px}
 #s0 img.logo{height:70px;filter:brightness(0) invert(1);margin-bottom:60px}
-#s0 p{font-size:38px;color:#dbe4ee;margin-top:36px;max-width:1000px}
+#s0 p{font-size:38px;color:#efe8e2;margin-top:36px;max-width:1000px}
 /* agenda */
 .agenda{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:70px}
-.ag{border-top:6px solid var(--sky);padding-top:26px}
+.ag{border-top:8px solid var(--sky);padding-top:26px}
+.ag:nth-child(2){border-color:var(--lav)}.ag:nth-child(3){border-color:var(--rosa)}.ag:nth-child(4){border-color:var(--oliva)}.ag:nth-child(5){border-color:var(--wine)}
 .ag b{display:block;font-size:30px;font-weight:900;color:var(--wine)}
 .ag span{display:block;font-size:42px;font-weight:800;margin-top:6px}
 .ag small{display:block;font-size:24px;color:var(--mut);margin-top:8px}
@@ -53,15 +55,16 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
 .split{display:grid;grid-template-columns:1fr 120px 1fr;gap:20px;align-items:center;margin-top:30px}
 .blk{display:flex;gap:22px;align-items:center;padding:24px 28px;border-radius:22px;margin-bottom:16px;font-size:30px;font-weight:700}
 .blk small{display:block;font-size:22px;font-weight:500;color:var(--mut)}
-.old .blk{border:3px dashed #d8d2c8;background:#fff}
+.old .blk{border:3px dashed #d6ccc2;background:#fbf9f6;color:#8a8380}
 .new .blk{border:3px solid transparent;background:#fff;box-shadow:0 14px 40px rgba(31,45,63,.08)}
 .new .blk.w{border-color:var(--sky)}
-.new .blk.m{border-color:#d8b6c3}
+.new .blk.m{border-color:var(--rosa)}
 .arrowbig{font-size:110px;text-align:center;color:var(--wine)}
 /* planes */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:20px}
 .plan{position:relative;background:#fff;border:3px solid #ebe6df;border-radius:32px;padding:36px 36px 30px}
-.plan.rec{border-color:var(--wine);box-shadow:0 26px 70px rgba(107,29,58,.18)}
+.plan.rec{border-color:var(--wine);box-shadow:0 26px 70px rgba(122,46,74,.18)}
+.plan:nth-child(1){border-top:10px solid var(--sky)}.plan:nth-child(3){border-top:10px solid var(--lav)}
 .plan .badge{position:absolute;top:-22px;left:32px}
 .plan h3{font-size:38px;font-weight:900}
 .plan .pl{font-size:24px;color:var(--mut);font-weight:700}
@@ -78,9 +81,9 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
 .tl .fill{position:absolute;top:34px;left:4%;height:6px;width:0;background:var(--ball);border-radius:6px}
 .st{position:relative;text-align:center}
 .st .dot{width:74px;height:74px;margin:0 auto 22px;border-radius:50%;display:grid;place-items:center;font-size:34px;background:var(--navy2);border:4px solid rgba(255,255,255,.25);position:relative;z-index:1}
-.st.done .dot{background:var(--ok);border-color:var(--ok)}
+.st.done .dot{background:var(--sky);border-color:var(--sky);color:var(--navy)}
 .st b{display:block;font-size:30px}
-.st small{display:block;font-size:22px;color:#b9c6d6;margin-top:8px;line-height:1.35}
+.st small{display:block;font-size:22px;color:#d9d1ca;margin-top:8px;line-height:1.35}
 .st .who{display:inline-block;margin-top:12px;font-size:18px;font-weight:800;padding:5px 12px;border-radius:99px;background:rgba(255,255,255,.12)}
 /* checklist */
 .ck{display:flex;gap:26px;align-items:flex-start;padding:24px 0;border-bottom:2px solid #ebe6df;font-size:34px;font-weight:700}
@@ -93,16 +96,17 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
 .strip div{width:250px;height:340px;background:#fff;border-radius:26px;padding:12px;display:grid;place-items:center}
 .strip img{max-width:100%;max-height:100%;object-fit:contain}
 /* pelota de transición */
-#ball{position:absolute;width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f1ff8a,var(--ball) 55%,#a9bd12);box-shadow:0 10px 24px rgba(0,0,0,.25);z-index:50;left:-100px;top:-100px}
-#ball::after{content:"";position:absolute;inset:6px;border-radius:50%;border:3px solid rgba(255,255,255,.7);border-left-color:transparent;border-right-color:transparent;transform:rotate(30deg)}
+#ball{position:absolute;width:64px;height:64px;border-radius:50%;background:#fff url(img/pelota.png) center/115% no-repeat;box-shadow:0 0 0 4px rgba(255,255,255,.9),0 12px 26px rgba(0,0,0,.28);z-index:50;left:-100px;top:-100px}
+
 /* controles */
-#ui{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:10px;padding:10px 16px;background:linear-gradient(transparent,rgba(0,0,0,.55));z-index:100;font:600 14px Raleway,sans-serif;color:#fff}
+#ui{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:10px;padding:14px 18px;background:linear-gradient(transparent,rgba(0,0,0,.55));z-index:100;font:600 14px Raleway,sans-serif;color:#fff}
 #ui button{font:inherit;background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:7px 14px;cursor:pointer}
 #ui button:hover{background:rgba(255,255,255,.28)}
 #dots{display:flex;gap:6px;flex:1;justify-content:center}
 #dots i{width:26px;height:5px;border-radius:5px;background:rgba(255,255,255,.3);cursor:pointer}
 #dots i.on{background:var(--ball)}
-#ui a{color:#fff}
+#ui a{display:inline-block;background:#fff;color:#393636;font-size:17px;font-weight:800;text-decoration:none;padding:12px 24px;border-radius:99px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+#ui a:hover{background:var(--sky)}
 @media (max-width:600px){#ui .hide-m{display:none}}
 </style>
 </head>
@@ -113,7 +117,7 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
   <section class="s dark" id="s0">
     <div class="bg"></div>
     <div class="in">
-      <img class="logo a" src="img/logo-noia.png" alt="NOIA">
+      <div class="a"><img class="logo" src="img/logo-noia.png" alt="NOIA"></div>
       <div class="kick a">Presentación ejecutiva · 30-10-2026</div>
       <h1 class="a" style="margin-top:20px">Tu tienda,<br><em>100% a tu nombre.</em></h1>
       <p class="a">Análisis, diseño, plan y próximos pasos para noiasportswear.cl. Preparado por Smart Connection.</p>
@@ -221,7 +225,7 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
 
   <!-- 8 CIERRE -->
   <section class="s dark" id="s8" style="text-align:center;padding-top:170px">
-    <img class="a" src="img/logo-noia.png" alt="NOIA" style="height:80px;filter:brightness(0) invert(1);margin:0 auto 50px">
+    <div class="a"><img src="img/logo-noia.png" alt="NOIA" style="height:80px;filter:brightness(0) invert(1);margin:0 auto 50px"></div>
     <h2 class="a" style="font-size:110px">Tu juego. Tu estilo.<br><em>Tu tienda.</em></h2>
     <div class="strip">
       <div class="a"><img src="img/CATERINA-LAVANDA-COMPLETA.png" alt=""></div>
