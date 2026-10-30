@@ -49,6 +49,35 @@ footer{background:var(--navy);color:#d6dde6;padding:28px 16px;font-size:14px;tex
 .rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}.rv.on{opacity:1;transform:none}
 svg .flow{stroke-dasharray:6 6;animation:dash 1.6s linear infinite}
 @keyframes dash{to{stroke-dashoffset:-24}}
+.wp{display:grid;grid-template-columns:250px minmax(0,1fr);gap:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 10px 28px rgba(51,72,98,.08);background:#fff}
+.wpside{background:#1d2327;color:#f0f0f1;padding:8px 0;font:14px/1.3 -apple-system,"Segoe UI",Roboto,sans-serif;max-height:640px;overflow-y:auto}
+.wpside .bar{display:flex;align-items:center;gap:8px;padding:10px 14px 12px;border-bottom:1px solid #3c434a;margin-bottom:6px;font-weight:600;font-size:13px;color:#c3c4c7}
+.wpside button{all:unset;box-sizing:border-box;display:flex;gap:10px;align-items:center;width:100%;padding:8px 14px;cursor:pointer;color:#f0f0f1}
+.wpside button:hover{background:#2c3338;color:#72aee6}
+.wpside button.sub{padding:6px 14px 6px 40px;font-size:13px;color:#c3c4c7;background:#2c3338}
+.wpside button.sub:hover{color:#72aee6}
+.wpside button.on{background:#2271b1;color:#fff}
+.wpside .ic{width:20px;text-align:center}
+.wpdet{padding:26px 28px;min-height:420px}
+.wpdet .t{font-size:24px;font-weight:800;margin:4px 0 14px}
+.wpdet dl{margin:0;display:grid;gap:14px}
+.wpdet dt{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.wpdet dd{margin:4px 0 0;font-size:15.5px}
+.wpdet dd.ojo{background:#fff4d6;border-radius:10px;padding:10px 12px;color:#6b4a00}
+.hint{display:inline-block;font-size:12px;font-weight:700;color:var(--navy);background:var(--sky2);border-radius:99px;padding:4px 10px;margin-bottom:10px}
+[data-info]{cursor:pointer}
+li[data-info]{border-radius:6px;transition:background .2s}
+li[data-info]:hover{background:var(--sky2)}
+li[data-info]::after{content:" ›";color:var(--navy);font-weight:800}
+svg [data-info]:hover{filter:drop-shadow(0 4px 10px rgba(51,72,98,.35))}
+svg.clk text{pointer-events:none}
+#drw{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:#fff;z-index:60;box-shadow:-20px 0 50px rgba(0,0,0,.18);transform:translateX(105%);transition:transform .35s cubic-bezier(.2,.8,.2,1);overflow-y:auto;padding:24px}
+#drw.open{transform:none}
+#drw dt{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}#drw dd{margin:4px 0 0;font-size:15.5px}#drw dd.ojo{background:#fff4d6;border-radius:10px;padding:10px 12px;color:#6b4a00}
+#drwbg{position:fixed;inset:0;background:rgba(40,37,37,.35);z-index:55;opacity:0;pointer-events:none;transition:opacity .3s}
+#drwbg.open{opacity:1;pointer-events:auto}
+#drw .x{all:unset;cursor:pointer;float:right;font-size:26px;line-height:1;color:var(--mut)}
+@media (max-width:760px){.wp{grid-template-columns:1fr}.wpside{max-height:300px}}
 @media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}nav.idx{display:none}.g2,.g3{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}svg .flow{animation:none}}
 </style>
@@ -113,14 +142,15 @@ svg .flow{stroke-dasharray:6 6;animation:dash 1.6s linear infinite}
 <section id="componentes">
   <div class="kick">2 · Componentes</div>
   <h2>Qué hace cada pieza, agrupada por función</h2>
+  <span class="hint">👆 Toca cualquier pieza para ver su detalle</span>
   <p class="sub">La tienda tiene WordPress, WooCommerce, el tema Flatsome y 17 plugins. Agrupados por lo que hacen, se entienden mejor.</p>
   <div class="grid g3">
-    <div class="card cat rv"><h3>🛒 Vender</h3><ul><li><b>WooCommerce</b>: catálogo, carrito, pedidos</li><li><b>Swatchly</b>: muestras de color y talla</li><li><b>YITH Wishlist</b>: lista de deseos</li><li><b>Campo RUT</b>: código a medida en el tema hijo</li></ul></div>
-    <div class="card cat rv"><h3>💳 Cobrar</h3><ul><li><b>Transbank Webpay Plus</b>: tarjetas de crédito y débito</li><li><b>PDF Invoices</b>: comprobante y guía de despacho en PDF (no es la boleta del SII)</li></ul></div>
-    <div class="card cat rv"><h3>🚚 Despachar</h3><ul><li><b>MasterBip</b>: regiones y comunas de Chile</li><li><b>Shipit</b>: plataforma de envíos conectada como usuario "gestor de la tienda"</li></ul></div>
-    <div class="card cat rv"><h3>📣 Atraer clientas</h3><ul><li><b>Rank Math</b>: SEO en Google</li><li><b>Google for WooCommerce</b> + <b>CTX Feed</b>: catálogo en Google Shopping</li><li><b>Reseñas de Google</b>: muestra opiniones</li><li><b>Joinchat</b>: botón de WhatsApp</li></ul></div>
-    <div class="card cat rv"><h3>🛡️ Proteger</h3><ul><li><b>Imunify</b>: antimalware del servidor</li><li><b>Jetpack</b>: firewall, estadísticas y bloqueo de ataques</li><li><b>Login oculto</b>: cambia la dirección del acceso</li></ul></div>
-    <div class="card cat rv"><h3>✉️ Comunicar</h3><ul><li><b>Easy WP SMTP</b>: envía los correos de la tienda</li><li><b>Contact Form 7</b>: formulario de contacto</li></ul></div>
+    <div class="card cat rv"><h3>🛒 Vender</h3><ul><li data-info="c-woo"><b>WooCommerce</b>: catálogo, carrito, pedidos</li><li data-info="c-swatchly"><b>Swatchly</b>: muestras de color y talla</li><li data-info="c-yith"><b>YITH Wishlist</b>: lista de deseos</li><li data-info="c-rut"><b>Campo RUT</b>: código a medida en el tema hijo</li></ul></div>
+    <div class="card cat rv"><h3>💳 Cobrar</h3><ul><li data-info="c-transbank"><b>Transbank Webpay Plus</b>: tarjetas de crédito y débito</li><li data-info="c-pdf"><b>PDF Invoices</b>: comprobante y guía de despacho en PDF (no es la boleta del SII)</li></ul></div>
+    <div class="card cat rv"><h3>🚚 Despachar</h3><ul><li data-info="c-masterbip"><b>MasterBip</b>: regiones y comunas de Chile</li><li data-info="c-shipit"><b>Shipit</b>: plataforma de envíos conectada como usuario "gestor de la tienda"</li></ul></div>
+    <div class="card cat rv"><h3>📣 Atraer clientas</h3><ul><li data-info="c-rankmath"><b>Rank Math</b>: SEO en Google</li><li data-info="c-google"><b>Google for WooCommerce</b> + <b>CTX Feed</b>: catálogo en Google Shopping</li><li data-info="c-reviews"><b>Reseñas de Google</b>: muestra opiniones</li><li data-info="c-joinchat"><b>Joinchat</b>: botón de WhatsApp</li></ul></div>
+    <div class="card cat rv"><h3>🛡️ Proteger</h3><ul><li data-info="c-imunify"><b>Imunify</b>: antimalware del servidor</li><li data-info="c-jetpack"><b>Jetpack</b>: firewall, estadísticas y bloqueo de ataques</li><li data-info="c-login"><b>Login oculto</b>: cambia la dirección del acceso</li></ul></div>
+    <div class="card cat rv"><h3>✉️ Comunicar</h3><ul><li data-info="c-smtp"><b>Easy WP SMTP</b>: envía los correos de la tienda</li><li data-info="c-cf7"><b>Contact Form 7</b>: formulario de contacto</li></ul></div>
   </div>
   <div class="learn"><b>🎓 Regla de los plugins:</b> cada plugin es una puerta más. Menos plugins, menos riesgo. Se actualizan de a uno, se prueba la compra después de cada actualización y los que no se usan se borran.</div>
 </section>
@@ -129,9 +159,10 @@ svg .flow{stroke-dasharray:6 6;animation:dash 1.6s linear infinite}
 <section id="integraciones">
   <div class="kick">3 · Integraciones</div>
   <h2>Con quién conversa la tienda</h2>
+  <span class="hint">👆 Toca cada servicio del diagrama</span>
   <p class="sub">La tienda está al centro y se conecta con servicios externos. Si uno falla, falla solo esa función; el resto sigue funcionando.</p>
   <div class="card dia rv">
-    <svg viewBox="0 0 900 470" role="img" aria-label="Diagrama de integraciones">
+    <svg class="clk" viewBox="0 0 900 470" role="img" aria-label="Diagrama de integraciones">
       <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#334862"/></marker></defs>
       <g font-family="Raleway" font-size="13">
         <circle cx="450" cy="235" r="92" fill="#334862"/><text x="450" y="228" text-anchor="middle" fill="#fff" font-weight="800" font-size="18">Tienda Noia</text><text x="450" y="250" text-anchor="middle" fill="#cfd9e5" font-size="12">WordPress + WooCommerce</text>
@@ -145,14 +176,14 @@ svg .flow{stroke-dasharray:6 6;animation:dash 1.6s linear infinite}
           <line class="flow" x1="450" y1="327" x2="450" y2="398" marker-end="url(#ar2)"/>
           <line class="flow" x1="450" y1="143" x2="450" y2="78" marker-end="url(#ar2)"/>
         </g>
-        <rect x="40" y="40" width="190" height="64" rx="12" fill="#fff" stroke="#e6cccc"/><text x="135" y="66" text-anchor="middle" font-weight="800" fill="#393636">💳 Transbank</text><text x="135" y="86" text-anchor="middle" fill="#6f6a6a" font-size="12">cobra con tarjeta (Webpay)</text>
-        <rect x="670" y="40" width="190" height="64" rx="12" fill="#fff" stroke="#9aa06a"/><text x="765" y="66" text-anchor="middle" font-weight="800" fill="#393636">🚚 Shipit</text><text x="765" y="86" text-anchor="middle" fill="#6f6a6a" font-size="12">lee pedidos para despachar</text>
-        <rect x="355" y="14" width="190" height="64" rx="12" fill="#fff" stroke="#a9c3d9"/><text x="450" y="40" text-anchor="middle" font-weight="800" fill="#393636">✉️ Correo (SMTP)</text><text x="450" y="60" text-anchor="middle" fill="#6f6a6a" font-size="12">avisos de pedido y stock</text>
-        <rect x="20" y="203" width="190" height="64" rx="12" fill="#fff" stroke="#cdc4e4"/><text x="115" y="229" text-anchor="middle" font-weight="800" fill="#393636">🛍️ Google Shopping</text><text x="115" y="249" text-anchor="middle" fill="#6f6a6a" font-size="12">catálogo vía CTX Feed</text>
-        <rect x="690" y="203" width="190" height="64" rx="12" fill="#fff" stroke="#cdc4e4"/><text x="785" y="229" text-anchor="middle" font-weight="800" fill="#393636">🔍 Google Search</text><text x="785" y="249" text-anchor="middle" fill="#6f6a6a" font-size="12">SEO con Rank Math</text>
-        <rect x="40" y="366" width="190" height="64" rx="12" fill="#fff" stroke="#a9c3d9"/><text x="135" y="392" text-anchor="middle" font-weight="800" fill="#393636">🛡️ WordPress.com</text><text x="135" y="412" text-anchor="middle" fill="#6f6a6a" font-size="12">Jetpack: stats y firewall</text>
-        <rect x="670" y="366" width="190" height="64" rx="12" fill="#fff" stroke="#e6cccc"/><text x="765" y="392" text-anchor="middle" font-weight="800" fill="#393636">📱 Meta / Instagram</text><text x="765" y="412" text-anchor="middle" fill="#6f6a6a" font-size="12">link en bio → tienda</text>
-        <rect x="355" y="398" width="190" height="64" rx="12" fill="#fff" stroke="#9aa06a"/><text x="450" y="424" text-anchor="middle" font-weight="800" fill="#393636">💬 WhatsApp</text><text x="450" y="444" text-anchor="middle" fill="#6f6a6a" font-size="12">botón Joinchat</text>
+        <rect data-info="i-transbank" x="40" y="40" width="190" height="64" rx="12" fill="#fff" stroke="#e6cccc"/><text x="135" y="66" text-anchor="middle" font-weight="800" fill="#393636">💳 Transbank</text><text x="135" y="86" text-anchor="middle" fill="#6f6a6a" font-size="12">cobra con tarjeta (Webpay)</text>
+        <rect data-info="i-shipit" x="670" y="40" width="190" height="64" rx="12" fill="#fff" stroke="#9aa06a"/><text x="765" y="66" text-anchor="middle" font-weight="800" fill="#393636">🚚 Shipit</text><text x="765" y="86" text-anchor="middle" fill="#6f6a6a" font-size="12">lee pedidos para despachar</text>
+        <rect data-info="i-smtp" x="355" y="14" width="190" height="64" rx="12" fill="#fff" stroke="#a9c3d9"/><text x="450" y="40" text-anchor="middle" font-weight="800" fill="#393636">✉️ Correo (SMTP)</text><text x="450" y="60" text-anchor="middle" fill="#6f6a6a" font-size="12">avisos de pedido y stock</text>
+        <rect data-info="i-shopping" x="20" y="203" width="190" height="64" rx="12" fill="#fff" stroke="#cdc4e4"/><text x="115" y="229" text-anchor="middle" font-weight="800" fill="#393636">🛍️ Google Shopping</text><text x="115" y="249" text-anchor="middle" fill="#6f6a6a" font-size="12">catálogo vía CTX Feed</text>
+        <rect data-info="i-search" x="690" y="203" width="190" height="64" rx="12" fill="#fff" stroke="#cdc4e4"/><text x="785" y="229" text-anchor="middle" font-weight="800" fill="#393636">🔍 Google Search</text><text x="785" y="249" text-anchor="middle" fill="#6f6a6a" font-size="12">SEO con Rank Math</text>
+        <rect data-info="i-wpcom" x="40" y="366" width="190" height="64" rx="12" fill="#fff" stroke="#a9c3d9"/><text x="135" y="392" text-anchor="middle" font-weight="800" fill="#393636">🛡️ WordPress.com</text><text x="135" y="412" text-anchor="middle" fill="#6f6a6a" font-size="12">Jetpack: stats y firewall</text>
+        <rect data-info="i-meta" x="670" y="366" width="190" height="64" rx="12" fill="#fff" stroke="#e6cccc"/><text x="765" y="392" text-anchor="middle" font-weight="800" fill="#393636">📱 Meta / Instagram</text><text x="765" y="412" text-anchor="middle" fill="#6f6a6a" font-size="12">link en bio → tienda</text>
+        <rect data-info="i-whatsapp" x="355" y="398" width="190" height="64" rx="12" fill="#fff" stroke="#9aa06a"/><text x="450" y="424" text-anchor="middle" font-weight="800" fill="#393636">💬 WhatsApp</text><text x="450" y="444" text-anchor="middle" fill="#6f6a6a" font-size="12">botón Joinchat</text>
       </g>
     </svg>
   </div>
@@ -238,23 +269,44 @@ svg .flow{stroke-dasharray:6 6;animation:dash 1.6s linear infinite}
 <!-- 6 PANEL -->
 <section id="panel">
   <div class="kick">6 · El panel de WordPress</div>
-  <h2>Dónde está cada cosa en la trastienda</h2>
-  <p class="sub">cPanel es la administración del edificio. WordPress es la trastienda de la tienda. Esta tabla es el mapa del menú de WordPress.</p>
-  <div class="card tw rv"><table>
-    <tr><th>Quieres…</th><th>Menú de WordPress</th></tr>
-    <tr><td>🏠 Cambiar la portada</td><td>Páginas → Home → Editar con UX Builder (editor de Flatsome)</td></tr>
-    <tr><td>🎨 Menú, colores, encabezado</td><td>Flatsome → Theme Options · Apariencia → Menús</td></tr>
-    <tr><td>👗 Productos, tallas, colores</td><td>Productos → Todos / Añadir nuevo · Categorías · Atributos</td></tr>
-    <tr><td>🧾 Ver y gestionar pedidos</td><td>WooCommerce → Pedidos</td></tr>
-    <tr><td>💳 Configurar Transbank</td><td>WooCommerce → Ajustes → Pagos → Webpay Plus</td></tr>
-    <tr><td>🚚 Envíos y comunas</td><td>WooCommerce → Ajustes → Envío</td></tr>
-    <tr><td>📦 Stock y aviso de stock bajo</td><td>WooCommerce → Ajustes → Productos → Inventario</td></tr>
-    <tr><td>✉️ Correos que manda la tienda</td><td>WooCommerce → Ajustes → Correos electrónicos · Ajustes → Easy WP SMTP</td></tr>
-    <tr><td>🏷️ Cupones de descuento</td><td>Marketing → Cupones</td></tr>
-    <tr><td>👥 Usuarios y perfiles</td><td>Usuarios</td></tr>
-    <tr><td>🧩 Plugins</td><td>Plugins (actualizar de a uno)</td></tr>
-    <tr><td>🔍 SEO · 💬 WhatsApp</td><td>Rank Math · Joinchat</td></tr>
-  </table></div>
+  <h2>Haz clic en el menú y te explico cada opción</h2>
+  <p class="sub">Así se ve el menú de la izquierda en la trastienda de WordPress. cPanel administra el edificio; esto administra la tienda.</p>
+  <span class="hint">👆 Toca una opción del menú</span>
+  <div class="wp rv">
+    <div class="wpside" id="wpside">
+      <div class="bar">Ⓦ Noia · Escritorio</div>
+      <button data-k="escritorio"><span class="ic">🏠</span>Escritorio</button>
+      <button data-k="wc-inicio"><span class="ic">🛒</span>WooCommerce</button>
+      <button class="sub" data-k="wc-pedidos">Pedidos</button>
+      <button class="sub" data-k="wc-clientes">Clientes</button>
+      <button class="sub" data-k="wc-general">Ajustes · General</button>
+      <button class="sub" data-k="wc-productos-aj">Ajustes · Productos</button>
+      <button class="sub" data-k="wc-envio">Ajustes · Envío</button>
+      <button class="sub" data-k="wc-pagos">Ajustes · Pagos</button>
+      <button class="sub" data-k="wc-correos">Ajustes · Correos</button>
+      <button class="sub" data-k="wc-avanzado">Ajustes · Avanzado</button>
+      <button class="sub" data-k="wc-estado">Estado</button>
+      <button data-k="prod-todos"><span class="ic">👗</span>Productos</button>
+      <button class="sub" data-k="prod-nuevo">Añadir nuevo</button>
+      <button class="sub" data-k="prod-cat">Categorías</button>
+      <button class="sub" data-k="prod-atrib">Atributos</button>
+      <button data-k="wc-informes"><span class="ic">📈</span>Analytics</button>
+      <button data-k="marketing"><span class="ic">🏷️</span>Marketing</button>
+      <button data-k="medios"><span class="ic">🖼️</span>Medios</button>
+      <button data-k="paginas"><span class="ic">📄</span>Páginas</button>
+      <button data-k="apariencia"><span class="ic">🖌️</span>Apariencia</button>
+      <button data-k="flatsome"><span class="ic">✨</span>Flatsome</button>
+      <button data-k="plugins"><span class="ic">🧩</span>Plugins</button>
+      <button data-k="usuarios"><span class="ic">👤</span>Usuarios</button>
+      <button data-k="herramientas"><span class="ic">🛠️</span>Herramientas</button>
+      <button data-k="ajustes"><span class="ic">⚙️</span>Ajustes</button>
+      <button data-k="rankmath"><span class="ic">🔍</span>Rank Math</button>
+      <button data-k="jetpack"><span class="ic">🛡️</span>Jetpack</button>
+      <button data-k="joinchat"><span class="ic">💬</span>Joinchat</button>
+    </div>
+    <div class="wpdet" id="wpdet" aria-live="polite"></div>
+  </div>
+  <div class="learn"><b>🎓 Truco para aprender:</b> antes de cambiar algo, mira la pantalla completa y anota cómo estaba. Si te equivocas, sabes cómo volver atrás.</div>
 </section>
 
 <!-- 7 ROLES -->
@@ -274,39 +326,40 @@ svg .flow{stroke-dasharray:6 6;animation:dash 1.6s linear infinite}
 <section id="bd">
   <div class="kick">8 · Base de datos</div>
   <h2>Dónde se guarda cada cosa: las tablas</h2>
+  <span class="hint">👆 Toca cada tabla del diagrama</span>
   <p class="sub">La tienda tiene 83 tablas. Estas son las importantes y cómo se relacionan. En la base real cada nombre lleva un prefijo propio, que aquí se omite.</p>
   <div class="card dia rv">
-    <svg viewBox="0 0 940 440" role="img" aria-label="Diagrama de tablas principales">
+    <svg class="clk" viewBox="0 0 940 440" role="img" aria-label="Diagrama de tablas principales">
       <g font-family="Raleway" font-size="12.5">
         <g>
-          <rect x="20" y="20" width="250" height="120" rx="10" fill="#fff" stroke="#334862" stroke-width="1.5"/><rect x="20" y="20" width="250" height="30" rx="10" fill="#334862"/><text x="145" y="40" text-anchor="middle" fill="#fff" font-weight="800">posts</text>
+          <rect data-info="t-posts" x="20" y="20" width="250" height="120" rx="10" fill="#fff" stroke="#334862" stroke-width="1.5"/><rect x="20" y="20" width="250" height="30" rx="10" fill="#334862" pointer-events="none"/><text x="145" y="40" text-anchor="middle" fill="#fff" font-weight="800">posts</text>
           <text x="32" y="70" fill="#393636">id · tipo · título · estado</text><text x="32" y="90" fill="#6f6a6a">productos, variaciones, páginas,</text><text x="32" y="108" fill="#6f6a6a">cupones (todo es un "post")</text><text x="32" y="128" fill="#6f6a6a">→ detalles en <tspan font-weight="700">postmeta</tspan></text>
         </g>
         <g>
-          <rect x="345" y="20" width="250" height="120" rx="10" fill="#fff" stroke="#334862" stroke-width="1.5"/><rect x="345" y="20" width="250" height="30" rx="10" fill="#334862"/><text x="470" y="40" text-anchor="middle" fill="#fff" font-weight="800">wc_orders</text>
+          <rect data-info="t-orders" x="345" y="20" width="250" height="120" rx="10" fill="#fff" stroke="#334862" stroke-width="1.5"/><rect x="345" y="20" width="250" height="30" rx="10" fill="#334862" pointer-events="none"/><text x="470" y="40" text-anchor="middle" fill="#fff" font-weight="800">wc_orders</text>
           <text x="357" y="70" fill="#393636">id · estado · total · cliente</text><text x="357" y="90" fill="#6f6a6a">los pedidos (sistema nuevo</text><text x="357" y="108" fill="#6f6a6a">HPOS de WooCommerce)</text><text x="357" y="128" fill="#6f6a6a">→ <tspan font-weight="700">wc_order_addresses</tspan>, meta</text>
         </g>
         <g>
-          <rect x="670" y="20" width="250" height="120" rx="10" fill="#fff" stroke="#334862" stroke-width="1.5"/><rect x="670" y="20" width="250" height="30" rx="10" fill="#334862"/><text x="795" y="40" text-anchor="middle" fill="#fff" font-weight="800">users</text>
+          <rect data-info="t-users" x="670" y="20" width="250" height="120" rx="10" fill="#fff" stroke="#334862" stroke-width="1.5"/><rect x="670" y="20" width="250" height="30" rx="10" fill="#334862" pointer-events="none"/><text x="795" y="40" text-anchor="middle" fill="#fff" font-weight="800">users</text>
           <text x="682" y="70" fill="#393636">id · usuario · correo</text><text x="682" y="90" fill="#6f6a6a">administradores y clientas</text><text x="682" y="108" fill="#6f6a6a">perfil y datos en</text><text x="682" y="128" fill="#6f6a6a"><tspan font-weight="700">usermeta</tspan></text>
         </g>
         <g>
-          <rect x="345" y="200" width="250" height="100" rx="10" fill="#fff" stroke="#a9c3d9" stroke-width="1.5"/><rect x="345" y="200" width="250" height="30" rx="10" fill="#a9c3d9"/><text x="470" y="220" text-anchor="middle" fill="#393636" font-weight="800">woocommerce_order_items</text>
+          <rect data-info="t-items" x="345" y="200" width="250" height="100" rx="10" fill="#fff" stroke="#a9c3d9" stroke-width="1.5"/><rect x="345" y="200" width="250" height="30" rx="10" fill="#a9c3d9" pointer-events="none"/><text x="470" y="220" text-anchor="middle" fill="#393636" font-weight="800">woocommerce_order_items</text>
           <text x="357" y="250" fill="#393636">pedido → líneas</text><text x="357" y="270" fill="#6f6a6a">cada producto comprado,</text><text x="357" y="288" fill="#6f6a6a">envío y cupón (+ itemmeta)</text>
         </g>
         <g>
-          <rect x="20" y="200" width="250" height="100" rx="10" fill="#fff" stroke="#a9c3d9" stroke-width="1.5"/><rect x="20" y="200" width="250" height="30" rx="10" fill="#a9c3d9"/><text x="145" y="220" text-anchor="middle" fill="#393636" font-weight="800">terms · term_taxonomy</text>
+          <rect data-info="t-terms" x="20" y="200" width="250" height="100" rx="10" fill="#fff" stroke="#a9c3d9" stroke-width="1.5"/><rect x="20" y="200" width="250" height="30" rx="10" fill="#a9c3d9" pointer-events="none"/><text x="145" y="220" text-anchor="middle" fill="#393636" font-weight="800">terms · term_taxonomy</text>
           <text x="32" y="250" fill="#393636">categorías y etiquetas</text><text x="32" y="270" fill="#6f6a6a">faldas, tops… y atributos</text><text x="32" y="288" fill="#6f6a6a">talla y color</text>
         </g>
         <g>
-          <rect x="670" y="200" width="250" height="100" rx="10" fill="#fff" stroke="#a9c3d9" stroke-width="1.5"/><rect x="670" y="200" width="250" height="30" rx="10" fill="#a9c3d9"/><text x="795" y="220" text-anchor="middle" fill="#393636" font-weight="800">wc_customer_lookup</text>
+          <rect data-info="t-customer" x="670" y="200" width="250" height="100" rx="10" fill="#fff" stroke="#a9c3d9" stroke-width="1.5"/><rect x="670" y="200" width="250" height="30" rx="10" fill="#a9c3d9" pointer-events="none"/><text x="795" y="220" text-anchor="middle" fill="#393636" font-weight="800">wc_customer_lookup</text>
           <text x="682" y="250" fill="#393636">resumen de clientas</text><text x="682" y="270" fill="#6f6a6a">para reportes y</text><text x="682" y="288" fill="#6f6a6a">estadísticas</text>
         </g>
         <g>
-          <rect x="185" y="350" width="250" height="76" rx="10" fill="#fff" stroke="#c39a74" stroke-width="1.5"/><text x="310" y="378" text-anchor="middle" fill="#393636" font-weight="800">options</text><text x="310" y="398" text-anchor="middle" fill="#6f6a6a">configuración del sitio,</text><text x="310" y="414" text-anchor="middle" fill="#6f6a6a">plugins y Transbank</text>
+          <rect data-info="t-options" x="185" y="350" width="250" height="76" rx="10" fill="#fff" stroke="#c39a74" stroke-width="1.5"/><text x="310" y="378" text-anchor="middle" fill="#393636" font-weight="800">options</text><text x="310" y="398" text-anchor="middle" fill="#6f6a6a">configuración del sitio,</text><text x="310" y="414" text-anchor="middle" fill="#6f6a6a">plugins y Transbank</text>
         </g>
         <g>
-          <rect x="505" y="350" width="250" height="76" rx="10" fill="#fff" stroke="#c39a74" stroke-width="1.5"/><text x="630" y="378" text-anchor="middle" fill="#393636" font-weight="800">wc_product_meta_lookup</text><text x="630" y="398" text-anchor="middle" fill="#6f6a6a">precio y stock rápidos</text><text x="630" y="414" text-anchor="middle" fill="#6f6a6a">para búsquedas y filtros</text>
+          <rect data-info="t-lookup" x="505" y="350" width="250" height="76" rx="10" fill="#fff" stroke="#c39a74" stroke-width="1.5"/><text x="630" y="378" text-anchor="middle" fill="#393636" font-weight="800">wc_product_meta_lookup</text><text x="630" y="398" text-anchor="middle" fill="#6f6a6a">precio y stock rápidos</text><text x="630" y="414" text-anchor="middle" fill="#6f6a6a">para búsquedas y filtros</text>
         </g>
         <g stroke="#334862" stroke-width="1.6" fill="none" stroke-dasharray="4 4">
           <line x1="470" y1="140" x2="470" y2="200"/><line x1="595" y1="80" x2="670" y2="80"/><line x1="270" y1="80" x2="345" y2="80"/><line x1="145" y1="140" x2="145" y2="200"/><line x1="270" y1="110" x2="505" y2="365"/><line x1="795" y1="140" x2="795" y2="200"/>
@@ -358,6 +411,92 @@ svg .flow{stroke-dasharray:6 6;animation:dash 1.6s linear infinite}
 </main>
 </div>
 <footer>Smart Connection · Guía del administrador TI para Noia Sportswear · 30-10-2026 · Elaborado con apoyo de IA y revisado por Smart Connection</footer>
+
+<div id="drwbg"></div>
+<aside id="drw" role="dialog" aria-modal="true" aria-labelledby="drwt"><button class="x" aria-label="Cerrar">×</button><div id="drwc"></div></aside>
+<script>
+var INFO={
+/* ===== Menú WordPress ===== */
+"escritorio":{t:"Escritorio",i:"🏠",que:"La portada del panel. Es lo primero que ves al entrar a WordPress.",ves:"Resúmenes en cajas: estado de WooCommerce (ventas del mes), seguridad de Imunify, estadísticas de Jetpack (visitas y ataques bloqueados), Rank Math y salud del sitio.",usa:"Mirada rápida diaria: ¿hay ventas?, ¿hay avisos de seguridad?, ¿algo pide actualización?",ojo:"Los avisos amarillos de plugins que piden reseñas o recomiendan instalar cosas se pueden ignorar. No instales nada que sugiera un aviso."},
+"medios":{t:"Medios",i:"🖼️",que:"La biblioteca de fotos y archivos subidos a la tienda.",ves:"Todas las imágenes de productos y banners, ordenadas por fecha. Se pueden buscar, editar el texto alternativo y ver dónde se usan.",usa:"Subir fotos nuevas antes de crear un producto o cambiar un banner.",ojo:"Borrar una foto que está en uso deja el producto sin imagen. Sube fotos livianas (menos de 300 KB): las pesadas hacen lenta la tienda."},
+"paginas":{t:"Páginas",i:"📄",que:"Las páginas fijas del sitio: Home, Nosotros, Contacto, Políticas, Mi cuenta, Carrito, Finalizar compra.",ves:"La lista de páginas con su estado (publicada o borrador). Al editar Home se abre el UX Builder de Flatsome, un editor visual de arrastrar y soltar.",usa:"Cambiar textos y bloques de la portada, actualizar políticas de cambio o de envío.",ojo:"Las páginas Carrito, Finalizar compra y Mi cuenta las usa WooCommerce: no se borran ni se les cambia el nombre de la dirección."},
+"wc-inicio":{t:"WooCommerce → Inicio",i:"🛒",que:"El resumen de la tienda.",ves:"Ventas, pedidos y visitas del período, y tareas pendientes de configuración.",usa:"Ver de un vistazo cómo van las ventas.",ojo:"Puede mostrar recomendaciones de extensiones pagadas: no son necesarias."},
+"wc-pedidos":{t:"WooCommerce → Pedidos",i:"🧾",que:"Todos los pedidos de la tienda. Es la pantalla que más usa Pía.",ves:"Lista con número, fecha, estado (Pendiente, Procesando, Completado, Cancelado…) y total. Al abrir uno: productos, cliente, dirección, RUT, medio de pago y notas.",usa:"Preparar despachos, marcar como Completado (eso envía el correo final a la clienta), revisar un pago, reenviar un correo o hacer un reembolso.",ojo:"Cambiar el estado manda correos automáticos a la clienta. Un reembolso desde aquí también puede devolver la plata por Transbank: confírmalo antes de apretar."},
+"wc-clientes":{t:"WooCommerce → Clientes",i:"👥",que:"La lista de clientas con su historial.",ves:"Nombre, correo, cantidad de pedidos, total gastado y última compra.",usa:"Saber quiénes compran más o ubicar a una clienta que reclama.",ojo:"Son datos personales (Ley 19.628): no se exportan ni se comparten sin necesidad."},
+"wc-informes":{t:"Analytics / Informes",i:"📈",que:"Los reportes de ventas de WooCommerce.",ves:"Ventas por día, productos más vendidos, categorías, cupones usados e impuestos.",usa:"Decidir qué reponer o qué producto promocionar.",ojo:"Las cifras dependen de que los pedidos tengan el estado correcto. Un pedido que nunca se marca Completado igual cuenta como venta si está Procesando."},
+"wc-general":{t:"Ajustes → General",i:"⚙️",que:"Los datos base de la tienda.",ves:"Dirección de la tienda, países donde vende, moneda (peso chileno) y formato de precios.",usa:"Se configura una vez.",ojo:"Cambiar la moneda o los decimales afecta todos los precios y el cobro en Transbank."},
+"wc-productos-aj":{t:"Ajustes → Productos → Inventario",i:"📦",que:"Cómo se maneja el stock.",ves:"Gestionar stock (sí/no), umbral de stock bajo, umbral de agotado, el correo que recibe el aviso y si se muestran los productos agotados.",usa:"Definir a partir de qué cantidad llega el aviso de stock bajo, y a qué correo.",ojo:"El correo del aviso debe ser una casilla que exista. Después de la migración, que sea ventas@ o notific@ como alias."},
+"wc-envio":{t:"Ajustes → Envío",i:"🚚",que:"Zonas y tarifas de despacho.",ves:"Zonas (por ejemplo, Región Metropolitana y Regiones) con sus métodos: tarifa fija, envío gratis desde cierto monto o retiro. El plugin MasterBip agrega regiones y comunas de Chile.",usa:"Cambiar el costo de envío o activar envío gratis en una campaña.",ojo:"Si una comuna no calza con ninguna zona, la clienta no puede comprar. Prueba con una dirección de la RM y otra de regiones después de cada cambio."},
+"wc-pagos":{t:"Ajustes → Pagos",i:"💳",que:"Los medios de pago activos.",ves:"Webpay Plus (Transbank) y otros como transferencia. Dentro de Webpay: ambiente (Integración o Producción), código de comercio y llave.",usa:"Revisar que Webpay esté en Producción. Activar transferencia si Transbank falla.",ojo:"Nunca compartas la llave secreta. Si queda en Integración, la tienda cobra con tarjetas de prueba y no entra plata real."},
+"wc-correos":{t:"Ajustes → Correos electrónicos",i:"✉️",que:"Los correos automáticos que manda la tienda.",ves:"Nuevo pedido (a la tienda), Pedido en proceso, Completado, Cancelado, Reembolsado, Restablecer contraseña… Cada uno con destinatario, asunto y si está activo.",usa:"Cambiar a quién llega el aviso de nuevo pedido (ventas@) o ajustar los textos.",ojo:"Si se desactiva un correo, la clienta deja de recibir esa confirmación. Para que lleguen bien, el envío lo hace Easy WP SMTP."},
+"wc-avanzado":{t:"Ajustes → Avanzado",i:"🔧",que:"Configuraciones técnicas.",ves:"Qué página es el carrito y cuál el pago, la API REST, webhooks y el sistema de guardado de pedidos (HPOS).",usa:"Casi nunca. Lo ve el soporte.",ojo:"Aquí están las conexiones de integraciones como Shipit. No borres claves de API sin saber quién las usa."},
+"wc-estado":{t:"WooCommerce → Estado",i:"🩺",que:"El diagnóstico técnico de la tienda.",ves:"Versiones de WordPress, PHP y la base de datos, plugins activos, tareas programadas y registros de errores (logs).",usa:"Lo primero que revisa el soporte ante un problema. El informe se puede copiar para pedir ayuda.",ojo:"El informe incluye datos técnicos del servidor: compártelo solo con quien da soporte."},
+"prod-todos":{t:"Productos → Todos",i:"👗",que:"El catálogo completo.",ves:"Cada producto con foto, SKU, stock, precio, categorías y estado. Al editar: descripción, galería, precio normal y rebajado, inventario, envío y variaciones.",usa:"Cambiar precios, poner ofertas, actualizar stock o esconder un producto.",ojo:"En un producto con variaciones (talla y color), el stock y el precio se ponen en cada variación, no arriba."},
+"prod-nuevo":{t:"Productos → Añadir nuevo",i:"➕",que:"Crear un producto.",ves:"Nombre, descripción, fotos, precio, SKU, categorías y la pestaña Variaciones para tallas y colores.",usa:"Lanzar una prenda nueva.",ojo:"Primero se crean los atributos (talla y color), después se generan las variaciones y al final se pone precio y stock a cada una."},
+"prod-cat":{t:"Productos → Categorías",i:"🗂️",que:"Las secciones de la tienda: Faldas, Tops, Polerones, Niñas, Ofertas…",ves:"Nombre, dirección y foto de cada categoría.",usa:"Ordenar el catálogo y el menú.",ojo:"Cambiar la dirección de una categoría rompe los links que ya se compartieron en Instagram o Google."},
+"prod-atrib":{t:"Productos → Atributos",i:"🎨",que:"Las características que generan variaciones: talla y color.",ves:"Cada atributo con sus valores (XS, S, M… / Celeste, Lavanda…). Swatchly los muestra como muestras de color.",usa:"Agregar un color o una talla nueva.",ojo:"Borrar un valor lo quita de todas las prendas que lo usan."},
+"marketing":{t:"Marketing → Cupones",i:"🏷️",que:"Los códigos de descuento.",ves:"Código, tipo (porcentaje o monto fijo), monto, vencimiento, mínimo de compra y límite de usos.",usa:"Crear un cupón para una campaña o una clienta.",ojo:"Ponle siempre fecha de vencimiento y límite de usos, o puede circular para siempre."},
+"apariencia":{t:"Apariencia",i:"🖌️",que:"El diseño del sitio.",ves:"Temas (Flatsome y el tema hijo activo), Personalizar, Menús y Widgets.",usa:"Cambiar el menú superior o elementos del pie de página.",ojo:"Nunca actives otro tema: la tienda cambiaría por completo. El tema activo es el hijo, que es donde vive el campo RUT."},
+"flatsome":{t:"Flatsome",i:"✨",que:"El panel del tema: el diseño global.",ves:"Theme Options: encabezado, colores, tipografía, tienda, pie de página. También el UX Builder.",usa:"Ajustes de diseño que afectan todo el sitio.",ojo:"El tema no tiene licencia: no recibe actualizaciones de seguridad hasta que se compre."},
+"plugins":{t:"Plugins",i:"🧩",que:"Las piezas que agregan funciones.",ves:"La lista de plugins con versión, si están activos y si tienen actualización disponible.",usa:"Actualizar, de a uno. Desactivar uno para descartar que cause un problema.",ojo:"Respaldo antes de actualizar y prueba de compra después. Nunca instales un plugin de origen desconocido o una versión pirata."},
+"usuarios":{t:"Usuarios",i:"👤",que:"Quién puede entrar y con qué permisos.",ves:"Administradores, gestor de la tienda (la integración de despachos) y clientas registradas.",usa:"Dar o quitar acceso. Que cada persona tenga su propio usuario.",ojo:"Mientras menos administradores, mejor. El usuario de Shipit no se borra: es la conexión de despachos."},
+"herramientas":{t:"Herramientas",i:"🛠️",que:"Utilidades del sistema.",ves:"Salud del sitio, importar y exportar, exportar o borrar datos personales (pedidos de privacidad).",usa:"Salud del sitio te dice si algo está mal configurado.",ojo:"\"Borrar datos personales\" es irreversible. Se usa solo si una clienta lo pide formalmente."},
+"ajustes":{t:"Ajustes",i:"⚙️",que:"Configuración general de WordPress y de varios plugins.",ves:"Generales (nombre del sitio, correo del administrador, zona horaria), Lectura, Enlaces permanentes, Privacidad, Easy WP SMTP y el acceso oculto.",usa:"Revisar el correo del administrador y la configuración del correo de la tienda.",ojo:"Cambiar los enlaces permanentes rompe todos los links. El correo del administrador debe ser una casilla real."},
+"rankmath":{t:"Rank Math",i:"🔍",que:"El SEO: cómo aparece la tienda en Google.",ves:"Título y descripción para Google de cada página y producto, el mapa del sitio y la conexión con Search Console.",usa:"Mejorar cómo se ve un producto en los resultados de Google.",ojo:"Hoy muestra 0 impresiones: falta conectar Search Console con una cuenta de Noia."},
+"jetpack":{t:"Jetpack",i:"🛡️",que:"Servicios de WordPress.com: estadísticas y seguridad.",ves:"Visitas, páginas más vistas, intentos de acceso bloqueados y firewall.",usa:"Ver cuánta gente entra y desde dónde.",ojo:"Está conectado a cuentas de WordPress.com: hay que dejar la conexión a nombre de Noia."},
+"joinchat":{t:"Joinchat",i:"💬",que:"El botón de WhatsApp.",ves:"El número, el mensaje de bienvenida y en qué páginas se muestra.",usa:"Cambiar el número o el texto del saludo.",ojo:"Si el número queda mal, las consultas no le llegan a Pía."},
+/* ===== Componentes ===== */
+"c-woo":{t:"WooCommerce",i:"🛒",que:"El plugin que convierte WordPress en tienda.",ves:"Agrega Productos, Pedidos, Clientes y Ajustes de tienda al menú.",usa:"Todo lo que es vender.",ojo:"Es el corazón: se actualiza al final, con respaldo y prueba completa de compra."},
+"c-swatchly":{t:"Swatchly",i:"🎨",que:"Muestra los colores y tallas como botones en vez de listas desplegables.",ves:"Los círculos de color en la ficha del producto.",usa:"Comodidad para la clienta.",ojo:"Si falla, las variaciones igual funcionan con listas."},
+"c-yith":{t:"YITH Wishlist",i:"💗",que:"La lista de deseos.",ves:"El corazón para guardar productos.",usa:"Que la clienta guarde lo que le gusta.",ojo:"Prescindible si da problemas."},
+"c-rut":{t:"Campo RUT (código a medida)",i:"🪪",que:"Código propio en el tema hijo que pide el RUT al pagar.",ves:"El campo RUT en el formulario de compra, en el pedido y en el correo.",usa:"Tener el RUT de la clienta para boletas o facturas.",ojo:"Se guarda con un método antiguo: en la prueba de compra hay que confirmar que el RUT aparece en el pedido."},
+"c-transbank":{t:"Transbank Webpay Plus",i:"💳",que:"El plugin oficial de Transbank para cobrar con tarjeta.",ves:"Al pagar, la clienta pasa por la página de Webpay y vuelve a la tienda.",usa:"Cobrar crédito, débito y prepago.",ojo:"No emite boleta al SII. Debe estar en ambiente Producción."},
+"c-pdf":{t:"PDF Invoices & Packing Slips",i:"🧾",que:"Genera comprobantes y guías de despacho en PDF.",ves:"Botones de PDF en cada pedido.",usa:"Imprimir la guía para el paquete.",ojo:"No es una boleta electrónica válida ante el SII."},
+"c-masterbip":{t:"MasterBip",i:"📍",que:"Agrega las regiones y comunas de Chile al checkout.",ves:"Listas de región y comuna al comprar.",usa:"Que el costo de envío se calcule por comuna.",ojo:"No se actualiza desde 2023: vigilarlo."},
+"c-shipit":{t:"Shipit",i:"🚚",que:"Plataforma de envíos que lee los pedidos de la tienda.",ves:"Un usuario 'gestor de la tienda' en WordPress.",usa:"Generar etiquetas y coordinar retiros con los couriers.",ojo:"Después de migrar, revisar que los pedidos nuevos lleguen a Shipit."},
+"c-rankmath":{t:"Rank Math",i:"🔍",que:"SEO para Google.",ves:"Puntaje SEO en cada producto.",usa:"Mejorar cómo se ve la tienda en Google.",ojo:"Conectar Search Console con una cuenta de Noia."},
+"c-google":{t:"Google for WooCommerce + CTX Feed",i:"🛍️",que:"Llevan el catálogo a Google Shopping.",ves:"Un archivo (feed) con los productos que Google lee.",usa:"Aparecer con foto y precio en Google.",ojo:"CTX Feed tiene una vulnerabilidad conocida: actualizarlo."},
+"c-reviews":{t:"Reseñas de Google",i:"⭐",que:"Muestra las opiniones de Google en la tienda.",ves:"Estrellas y comentarios en la portada.",usa:"Confianza para comprar.",ojo:"—"},
+"c-joinchat":{t:"Joinchat",i:"💬",que:"Botón flotante de WhatsApp.",ves:"El ícono verde en la esquina.",usa:"Consultas directas a Pía.",ojo:"Revisar el número."},
+"c-imunify":{t:"Imunify",i:"🛡️",que:"Antimalware del servidor anterior.",ves:"Escaneos y bloqueos.",usa:"Detectar archivos infectados.",ojo:"Es del hosting actual: en el nuevo se usa el antivirus que ofrezca el hosting."},
+"c-jetpack":{t:"Jetpack",i:"🛡️",que:"Firewall y estadísticas de WordPress.com.",ves:"Ataques bloqueados y visitas.",usa:"Seguridad y métricas.",ojo:"Tiene una vulnerabilidad conocida: actualizarlo."},
+"c-login":{t:"Login oculto",i:"🔒",que:"Cambia la dirección para entrar al panel.",ves:"La dirección normal /wp-admin no funciona para extraños.",usa:"Reduce los intentos de entrar a la fuerza.",ojo:"Guarda la dirección en un lugar seguro. Se puede entrar igual desde el panel del hosting."},
+"c-smtp":{t:"Easy WP SMTP",i:"✉️",que:"Hace que los correos de la tienda salgan por un servidor de correo real.",ves:"Configuración con servidor, puerto y casilla.",usa:"Que los avisos de pedido no caigan en spam.",ojo:"Si la casilla cambia de clave o de servidor, los correos dejan de salir: es lo primero que se revisa al migrar."},
+"c-cf7":{t:"Contact Form 7",i:"📝",que:"El formulario de contacto.",ves:"El formulario en la página de contacto.",usa:"Recibir consultas por correo.",ojo:"Necesita el SMTP funcionando."},
+/* ===== Integraciones ===== */
+"i-transbank":{t:"Transbank",i:"💳",que:"La empresa que procesa los pagos con tarjeta en Chile.",ves:"Portal de comercio con ventas, abonos y anulaciones.",usa:"Revisar pagos y anular una compra.",ojo:"El portal es de Noia: las claves las cambia Pía al terminar la migración."},
+"i-shipit":{t:"Shipit",i:"🚚",que:"Agregador de couriers (Starken, Chilexpress, Blue…).",ves:"Los pedidos de la tienda listos para despachar.",usa:"Etiquetas, retiros y seguimiento.",ojo:"Depende de la conexión con la tienda: probar después de migrar."},
+"i-smtp":{t:"Correo de la tienda",i:"✉️",que:"El servicio que envía los avisos de pedido y stock.",ves:"Los correos en Enviados y en la bandeja de la clienta.",usa:"Confirmaciones y avisos internos.",ojo:"Firmas SPF, DKIM y DMARC para no caer en spam."},
+"i-shopping":{t:"Google Shopping",i:"🛍️",que:"Los productos con foto y precio en Google.",ves:"Merchant Center lee el feed del catálogo.",usa:"Atraer compradoras desde Google.",ojo:"El feed debe seguir respondiendo en la misma dirección después de migrar."},
+"i-search":{t:"Google Search",i:"🔍",que:"Los resultados normales de Google.",ves:"Search Console muestra búsquedas, clics y errores.",usa:"Medir el SEO.",ojo:"Falta conectarlo con una cuenta de Noia."},
+"i-wpcom":{t:"WordPress.com (Jetpack)",i:"🛡️",que:"Servicios en la nube de WordPress.",ves:"Estadísticas y firewall.",usa:"Seguridad y visitas.",ojo:"Dejar la conexión a nombre de Noia."},
+"i-meta":{t:"Meta / Instagram",i:"📱",que:"El canal que más tráfico trae: link en la bio.",ves:"Visitas que llegan desde Instagram.",usa:"Promocionar productos.",ojo:"La cuenta de negocio debe ser de Noia."},
+"i-whatsapp":{t:"WhatsApp",i:"💬",que:"Atención directa.",ves:"El botón de Joinchat abre una conversación con Pía.",usa:"Resolver dudas antes de comprar.",ojo:"Revisar el número."},
+/* ===== Tablas ===== */
+"t-posts":{t:"Tabla posts + postmeta",i:"🗄️",que:"Guarda productos, variaciones, páginas y cupones. Los detalles (precio, stock, SKU) van en postmeta.",ves:"No se ve directamente: WordPress la muestra como Productos y Páginas.",usa:"Se modifica siempre desde el panel.",ojo:"Es la más grande. Editarla a mano puede romper productos."},
+"t-orders":{t:"Tabla wc_orders",i:"🗄️",que:"Los pedidos, con el sistema nuevo de WooCommerce (HPOS).",ves:"WooCommerce → Pedidos.",usa:"Toda la operación de ventas.",ojo:"El RUT se guarda como dato extra del pedido: verificarlo en las pruebas."},
+"t-users":{t:"Tabla users + usermeta",i:"🗄️",que:"Cuentas: administradores, gestor y clientas.",ves:"Usuarios.",usa:"Accesos y perfiles.",ojo:"Datos personales: Ley 19.628."},
+"t-items":{t:"Tabla woocommerce_order_items",i:"🗄️",que:"Las líneas de cada pedido: productos, envío y cupones.",ves:"Dentro de cada pedido.",usa:"Saber qué compró exactamente cada clienta.",ojo:"—"},
+"t-terms":{t:"Tablas terms + term_taxonomy",i:"🗄️",que:"Categorías, etiquetas y valores de atributos (talla y color).",ves:"Productos → Categorías y Atributos.",usa:"Organizar el catálogo.",ojo:"—"},
+"t-customer":{t:"Tabla wc_customer_lookup",i:"🗄️",que:"Resumen de clientas para reportes.",ves:"WooCommerce → Clientes y Analytics.",usa:"Reportes rápidos.",ojo:"Se regenera sola."},
+"t-options":{t:"Tabla options",i:"🗄️",que:"Toda la configuración del sitio y de los plugins.",ves:"Las pantallas de Ajustes.",usa:"—",ojo:"Contiene llaves y secretos, como los de Transbank: un respaldo de la base es información sensible."},
+"t-lookup":{t:"Tabla wc_product_meta_lookup",i:"🗄️",que:"Copia rápida de precio y stock para búsquedas y filtros.",ves:"Los filtros de la tienda.",usa:"Velocidad.",ojo:"Si los filtros muestran algo raro, se regenera en WooCommerce → Estado → Herramientas."}
+};
+
+function card(k){var d=INFO[k];if(!d)return '';return '<div style="font-size:40px">'+d.i+'</div><div class="t" id="drwt">'+d.t+'</div><dl><div><dt>Qué es</dt><dd>'+d.que+'</dd></div><div><dt>Qué vas a ver</dt><dd>'+d.ves+'</dd></div><div><dt>Para qué se usa</dt><dd>'+d.usa+'</dd></div>'+(d.ojo&&d.ojo!=='—'?'<div><dt>⚠️ Cuidado</dt><dd class="ojo">'+d.ojo+'</dd></div>':'')+'</dl>';}
+(function(){
+  var side=document.getElementById('wpside'),det=document.getElementById('wpdet');
+  function show(b){side.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});det.innerHTML='<div class="wpdet-in">'+card(b.dataset.k).replace('class="t" id="drwt"','class="t"')+'</div>';det.animate&&det.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:260,easing:'ease-out'});}
+  side.addEventListener('click',function(e){var b=e.target.closest('button');if(b)show(b);});
+  show(side.querySelector('button[data-k="wc-pedidos"]'));
+  var drw=document.getElementById('drw'),bg=document.getElementById('drwbg'),c=document.getElementById('drwc');
+  function open(k){c.innerHTML=card(k).replace('class="t"','class="t" style="font-size:24px;font-weight:800;margin:4px 0 14px"').replace('<dl>','<dl style="display:grid;gap:14px;margin:0">');drw.classList.add('open');bg.classList.add('open');}
+  function close(){drw.classList.remove('open');bg.classList.remove('open');}
+  document.addEventListener('click',function(e){var t=e.target.closest('[data-info]');if(t){e.preventDefault();open(t.getAttribute('data-info'));}});
+  bg.addEventListener('click',close);drw.querySelector('.x').addEventListener('click',close);
+  addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+})();
+</script>
 <script>
 (function(){var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.1}):null;document.querySelectorAll('.rv').forEach(function(el){io?io.observe(el):el.classList.add('on')});})();
 </script>
