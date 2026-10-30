@@ -89,6 +89,36 @@ svg.clk text{pointer-events:none}
 @media (max-width:760px){.wp{grid-template-columns:1fr}.wpside{max-height:300px}}
 @media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr)}nav.idx{display:none}.g2,.g3{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}svg .flow{animation:none}}
+
+/* ===== Celular ===== */
+.zoom{display:none}
+#zov{position:fixed;inset:0;z-index:70;background:#fff;display:none;flex-direction:column}
+#zov.open{display:flex}
+#zov .zh{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);font-weight:800}
+#zov .zh button{all:unset;cursor:pointer;font-size:26px;line-height:1;color:var(--mut)}
+#zov .zb{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:14px}
+#zov .zb svg{width:900px;max-width:none;height:auto;display:block}
+#zov .zt{font-size:12px;color:var(--mut);padding:0 16px 10px}
+@media (max-width:760px){
+  .dia{padding:10px}
+  .dia svg{min-width:0!important;width:100%}
+  .zoom{display:inline-flex;align-items:center;gap:6px;margin:10px 0 0;font:700 13px Raleway,sans-serif;color:var(--navy);background:var(--sky2);border:0;border-radius:99px;padding:8px 14px;cursor:pointer}
+  .wp{display:block;border-radius:14px;overflow:visible}
+  .wp .wpside{border-radius:14px 14px 0 0}
+  .wpside{position:sticky;top:58px;z-index:6;display:flex;gap:8px;overflow-x:auto;max-height:none;padding:12px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .wpside::-webkit-scrollbar{display:none}
+  .wpside .bar,.wpside .grp{display:none}
+  .wpside button,.wpside button.sub{flex:none;width:auto;white-space:nowrap;scroll-snap-align:center;border-radius:99px;padding:9px 14px;font-size:14px;background:rgba(255,255,255,.08);color:inherit}
+  .wpside.nx button.sub{background:rgba(255,255,255,.08);color:#f4efe9}
+  .wpside button.on,.wpside.nx button.on{background:#a9c3d9;color:#1f2d3f}
+  .wpside:not(.nx) button.on{background:#2271b1;color:#fff}
+  .wpdet{padding:18px 18px 22px;min-height:0}
+  .wpdet .t{font-size:21px;margin:2px 0 10px}
+  .wpdet dd{font-size:15px}
+  .hint{font-size:11.5px}
+  .swipe{display:block;font-size:11px;color:#c9c2bc;padding:0 14px 8px;background:inherit}
+}
+.swipe{display:none}
 </style>
 </head>
 <body>
@@ -144,6 +174,7 @@ svg.clk text{pointer-events:none}
       </g>
     </svg>
   </div>
+  <button class="zoom" data-zoom="1">🔍 Ampliar diagrama</button>
 <span class="hint">👆 Toca una capa en el diagrama o en el menú</span>
   <div class="wp xp rv" data-exp="arq"></div>
   <div class="learn"><b>🎓 Una idea clave:</b> WordPress no guarda los pedidos "en las páginas". Cada vez que alguien entra, PHP le pregunta a la base de datos y arma la página en ese momento. Por eso la base de datos es lo más valioso del respaldo.</div>
@@ -190,6 +221,7 @@ svg.clk text{pointer-events:none}
       </g>
     </svg>
   </div>
+  <button class="zoom" data-zoom="2">🔍 Ampliar diagrama</button>
   <div class="wp xp rv" data-exp="integ"></div>
 </section>
 
@@ -230,6 +262,7 @@ svg.clk text{pointer-events:none}
       </g>
     </svg>
   </div>
+  <button class="zoom" data-zoom="3">🔍 Ampliar diagrama</button>
 <span class="hint">👆 Toca un paso en el diagrama o en el menú</span>
   <div class="wp xp rv" data-exp="ped"></div>
   <div class="learn"><b>🎓 Los estados de un pedido:</b> Pendiente de pago → Procesando (pagado) → Completado (despachado). Además existen Fallido (pago rechazado), Cancelado (abandonó o se anuló) y Reembolsado. Los pedidos impagos se cancelan solos si el cron de WordPress funciona; por eso hay que dejar un cron del sistema al migrar.</div>
@@ -257,6 +290,7 @@ svg.clk text{pointer-events:none}
       </g>
     </svg>
   </div>
+  <button class="zoom" data-zoom="4">🔍 Ampliar diagrama</button>
   <span class="hint">👆 Toca un canal o una etapa</span>
   <div class="wp xp rv" data-exp="neg"></div>
   
@@ -361,6 +395,7 @@ svg.clk text{pointer-events:none}
       </g>
     </svg>
   </div>
+  <button class="zoom" data-zoom="5">🔍 Ampliar diagrama</button>
   <div class="wp xp rv" data-exp="bd"></div>
   <div class="learn"><b>🎓 La regla de la base de datos:</b> nunca se edita directo, siempre desde WordPress. Antes de cualquier cambio grande, respaldo. Y un respaldo de la base es información sensible: tiene clientas, pedidos y llaves.</div>
 </section>
@@ -557,6 +592,18 @@ function mkExplorer(root,side,det){
   bg.addEventListener('click',close);drw.querySelector('.x').addEventListener('click',close);
   addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })()
+</script>
+<div id="zov" role="dialog" aria-modal="true"><div class="zh"><span>Diagrama</span><button aria-label="Cerrar">×</button></div><div class="zt">Desliza para recorrerlo · pellizca para acercar</div><div class="zb"></div></div>
+<script>
+(function(){
+  var ov=document.getElementById('zov'),zb=ov.querySelector('.zb');
+  document.querySelectorAll('.zoom').forEach(function(b){b.addEventListener('click',function(){var svg=b.previousElementSibling.querySelector('svg');zb.innerHTML='';var c=svg.cloneNode(true);c.removeAttribute('class');zb.appendChild(c);ov.querySelector('.zh span').textContent=(svg.getAttribute('aria-label')||'Diagrama');ov.classList.add('open');document.body.style.overflow='hidden';});});
+  function close(){ov.classList.remove('open');document.body.style.overflow='';}
+  ov.querySelector('.zh button').addEventListener('click',close);
+  addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  /* en celular: centrar el botón elegido en la fila deslizable */
+  document.addEventListener('click',function(e){var b=e.target.closest('.wpside button');if(b&&innerWidth<=760)b.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});});
+})();
 </script>
 <script>
 (function(){var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.1}):null;document.querySelectorAll('.rv').forEach(function(el){io?io.observe(el):el.classList.add('on')});})();
