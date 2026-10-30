@@ -53,8 +53,8 @@ h3{font-size:18px;margin-bottom:6px}
 .hero p{max-width:520px;font-size:18px;opacity:.92;margin:18px 0 26px}
 .hero .chips{display:flex;flex-wrap:wrap;gap:8px}
 .hero .chips span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);padding:7px 12px;border-radius:99px;font-size:14px;font-weight:600}
-.court{position:absolute;left:0;right:0;bottom:0;height:120px;pointer-events:none}
-.court svg{width:100%;height:100%}
+.court{position:absolute;left:0;right:0;bottom:0;aspect-ratio:1200/120;max-height:150px;pointer-events:none;opacity:.9}
+.court svg{width:100%;height:100%;display:block}
 
 /* reveal */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
@@ -135,6 +135,7 @@ footer b{color:#fff}
   .strip{grid-template-columns:repeat(3,minmax(0,1fr))}
   .strip figure:nth-child(n+4){display:none}
   .top nav{display:none}
+  .court{display:none}
   .hero .in{padding-top:64px;padding-bottom:120px}
   .hero .bg{background-position:30% 30%}
 }
@@ -163,16 +164,16 @@ footer b{color:#fff}
     <div class="chips"><span>✅ Respaldo completo hecho</span><span>🛒 La tienda sigue vendiendo</span><span>📬 Sigues en Outlook</span></div>
   </div>
   <div class="court" aria-hidden="true">
-    <svg viewBox="0 0 1200 120" preserveAspectRatio="xMidYMax slice">
-      <line x1="0" y1="112" x2="1200" y2="112" stroke="rgba(255,255,255,.35)" stroke-width="2"/>
-      <rect x="597" y="62" width="6" height="50" fill="rgba(255,255,255,.55)"/>
-      <line x1="600" y1="62" x2="600" y2="112" stroke="rgba(255,255,255,.25)" stroke-width="22" stroke-dasharray="2 4"/>
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="xMidYMax meet">
+      <line x1="40" y1="112" x2="1160" y2="112" stroke="rgba(255,255,255,.30)" stroke-width="1.5"/>
+      <rect x="560" y="70" width="80" height="42" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
+      <line x1="600" y1="66" x2="600" y2="112" stroke="rgba(255,255,255,.55)" stroke-width="2"/>
       <g class="anim">
-        <ellipse rx="10" ry="3" fill="rgba(0,0,0,.25)">
-          <animateMotion dur="3.2s" repeatCount="indefinite" path="M80,113 L1120,113 L80,113" keyPoints="0;0.25;0.5;0.75;1" keyTimes="0;0.25;0.5;0.75;1" calcMode="linear"/>
+        <ellipse rx="9" ry="2.5" fill="rgba(0,0,0,.28)">
+          <animateMotion dur="9s" repeatCount="indefinite" calcMode="spline" keyPoints="0;0.5;1" keyTimes="0;0.5;1" keySplines=".45 0 .55 1;.45 0 .55 1" path="M140,113 L1060,113 L140,113"/>
         </ellipse>
-        <circle r="9" fill="#d9ef3a" stroke="#b9cf20" stroke-width="1.5">
-          <animateMotion dur="3.2s" repeatCount="indefinite" path="M80,60 Q330,-20 560,104 Q600,30 640,104 Q870,-20 1120,60 Q870,-20 640,104 Q600,30 560,104 Q330,-20 80,60"/>
+        <circle r="7" fill="#d9ef3a" stroke="#b9cf20" stroke-width="1.2">
+          <animateMotion dur="9s" repeatCount="indefinite" calcMode="spline" keyPoints="0;0.5;1" keyTimes="0;0.5;1" keySplines=".45 0 .55 1;.45 0 .55 1" path="M140,100 Q370,24 600,48 Q830,24 1060,100 Q830,24 600,48 Q370,24 140,100"/>
         </circle>
       </g>
     </svg>
