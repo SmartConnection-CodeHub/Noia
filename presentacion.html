@@ -203,9 +203,23 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
       <div class="st done a"><div class="dot">✓</div><b>Análisis y respaldo</b><small>Revisión completa y copia verificada</small><span class="who">Hecho</span></div>
       <div class="st a"><div class="dot">💬</div><b>Decidir el plan</b><small>Elegir hosting y contratarlo a tu nombre</small><span class="who">Tú</span></div>
       <div class="st a"><div class="dot">📦</div><b>Copiar todo</b><small>El hosting migra tienda y correos gratis</small><span class="who">Hosting + SMC</span></div>
-      <div class="st a"><div class="dot">🧪</div><b>Probar</b><small>Pedido de prueba, Transbank, avisos y correos</small><span class="who">SMC</span></div>
+      <div class="st a"><div class="dot">🧪</div><b>Probar</b><small>10 pruebas con Transbank en modo integración: aprobada, rechazada, cuotas, anulación</small><span class="who">SMC</span></div>
       <div class="st a"><div class="dot">🔀</div><b>El cambio</b><small>Se mueve el dominio y se configura tu Outlook</small><span class="who">Tú + SMC</span></div>
       <div class="st a"><div class="dot">🔒</div><b>Cierre</b><small>Se cierra el servidor anterior y cambias las claves</small><span class="who">SMC</span></div>
+    </div>
+  </section>
+
+  <!-- 6b RIESGOS -->
+  <section class="s" id="s6b">
+    <div class="kick a">Configuración y riesgos</div>
+    <h2 class="a" style="font-size:76px">Lo que puede pasar, <em>y cómo lo cubrimos</em></h2>
+    <div class="row" style="margin-top:30px;flex-wrap:wrap;gap:24px">
+      <div class="card a" style="flex:1 1 30%"><div class="ic">🗺️</div><h3>DNS</h3><p>Se cambia desde tu cuenta de bluehosting.cl. Un día antes bajamos el tiempo de cambio a 5 minutos.</p></div>
+      <div class="card a" style="flex:1 1 30%"><div class="ic">💳</div><h3>Transbank</h3><p>Viaja con la tienda. Prueba antes del cambio y una compra real pequeña después.</p></div>
+      <div class="card a" style="flex:1 1 30%"><div class="ic">📬</div><h3>Correos</h3><p>Firmas anti-spam y una segunda copia 1 o 2 días después del cambio.</p></div>
+      <div class="card a" style="flex:1 1 30%"><div class="ic">🛍️</div><h3>Pedidos</h3><p>48 h sin cargar productos. El día del cambio revisamos ambas tiendas.</p></div>
+      <div class="card a" style="flex:1 1 30%"><div class="ic">🔑</div><h3>Licencias</h3><p>Pedimos el traspaso. Si no llega, licencia propia (≈ US$60).</p></div>
+      <div class="card a" style="flex:1 1 30%;border-color:var(--wine)"><div class="ic">🔙</div><h3>Plan B</h3><p>Si algo falla, volvemos al servidor anterior en minutos.</p></div>
     </div>
   </section>
 
@@ -255,7 +269,7 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
   function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform='scale('+s+') translate(-50%,-50%)';}
   addEventListener('resize',fit);fit();
 
-  var S=[].slice.call(document.querySelectorAll('.s')),cur=-1,timer=null,playing=true,DUR=[6,6,8,7,8,10,9,9,7];
+  var S=[].slice.call(document.querySelectorAll('.s')),cur=-1,timer=null,playing=true,DUR=[6,6,8,7,8,10,9,10,9,7];
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var dots=document.getElementById('dots');
   S.forEach(function(_,i){var d=document.createElement('i');d.onclick=function(){go(i)};dots.appendChild(d)});

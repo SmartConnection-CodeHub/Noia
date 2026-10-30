@@ -152,7 +152,7 @@ footer b{color:#fff}
 <header class="top"><div class="in">
   <a href="#inicio" aria-label="Inicio"><img src="img/logo-noia.png" alt="NOIA"></a>
   <nav>
-    <a href="#hoy">Hoy y después</a><a href="#correos">Correos</a><a href="#costos">Costos</a><a href="#pasos">Próximos pasos</a><a href="#tu">Lo que necesito de ti</a><a href="#faq">Preguntas</a>
+    <a href="#hoy">Hoy y después</a><a href="#correos">Correos</a><a href="#costos">Costos</a><a href="#pasos">Próximos pasos</a><a href="#config">Configuración y riesgos</a><a href="#pruebas">Pruebas</a><a href="#tu">Lo que necesito de ti</a><a href="#faq">Preguntas</a>
   </nav>
 </div></header>
 
@@ -296,6 +296,68 @@ footer b{color:#fff}
   </div>
 </div></section>
 
+<section id="config" style="background:#fff"><div class="in">
+  <div class="kick">Configuraciones</div>
+  <h2>Lo técnico, explicado simple</h2>
+  <p class="lead">Esto lo hace Smart Connection. Te lo dejamos escrito para que sepas qué se toca y por qué.</p>
+
+  <div class="grid g2">
+    <div class="card rv">
+      <h3>🗺️ DNS: el "mapa" de tu dominio</h3>
+      <p style="color:var(--mut);margin:0 0 12px">El DNS le dice a internet dónde está tu tienda y dónde se entregan tus correos. Hoy ese mapa lo maneja el proveedor anterior. El cambio se hace desde tu cuenta de bluehosting.cl, donde está tu dominio.</p>
+      <div class="al"><span><b>Servidores de nombre</b><br><small style="color:var(--mut)">Quién maneja el mapa</small></span><span class="pill p-go">→ los del hosting nuevo</span></div>
+      <div class="al"><span><b>Registro A</b><br><small style="color:var(--mut)">Dónde está la tienda</small></span><span class="pill p-go">→ servidor nuevo</span></div>
+      <div class="al"><span><b>Registro MX</b><br><small style="color:var(--mut)">Dónde llegan los correos</small></span><span class="pill p-go">→ correo del hosting nuevo</span></div>
+      <div class="al"><span><b>SPF · DKIM · DMARC</b><br><small style="color:var(--mut)">Firmas para que tus correos no caigan en spam</small></span><span class="pill p-go">Se crean de nuevo</span></div>
+      <div class="al"><span><b>TTL a 5 minutos</b><br><small style="color:var(--mut)">Un día antes, para que el cambio se note rápido</small></span><span class="pill p-you">1 día antes</span></div>
+      <p style="margin:12px 0 0;font-size:14px;color:var(--mut)">Tu dominio no se transfiere: sigue a tu nombre y se sigue renovando igual ($8.900 al año, hasta 17-08-2027).</p>
+    </div>
+    <div class="card rv">
+      <h3>💳 Transbank (Webpay Plus)</h3>
+      <p style="color:var(--mut);margin:0 0 12px">La configuración de Transbank viaja con la tienda: como el dominio es el mismo, no hay que pedir nada nuevo a Transbank.</p>
+      <div class="al"><span><b>Código de comercio y llave</b><br><small style="color:var(--mut)">Se revisa que sean los de Noia y estén en "Producción"</small></span><span class="pill p-ok">Viajan solos</span></div>
+      <div class="al"><span><b>Certificado SSL (candado)</b><br><small style="color:var(--mut)">Transbank lo exige para cobrar</small></span><span class="pill p-go">Lo emite el hosting</span></div>
+      <div class="al"><span><b>Prueba en modo integración</b><br><small style="color:var(--mut)">Con tarjeta de prueba, antes del cambio</small></span><span class="pill p-go">Antes</span></div>
+      <div class="al"><span><b>Compra real pequeña</b><br><small style="color:var(--mut)">Después del cambio, y se anula desde tu portal</small></span><span class="pill p-you">Tú + SMC</span></div>
+      <p style="margin:12px 0 0;font-size:14px;color:var(--mut)">Recuerda: Transbank cobra, pero <b>no emite la boleta al SII</b>. Revisemos juntas cómo emites las boletas hoy.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:34px 0 12px;font-size:22px">⚠️ Lo que puede pasar, y cómo lo cubrimos</h3>
+  <div class="card rv" style="overflow-x:auto;padding:8px 18px">
+    <table style="width:100%;border-collapse:collapse;font-size:15px">
+      <tr style="text-align:left;color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.05em"><th style="padding:10px 8px">Riesgo</th><th style="padding:10px 8px">Qué pasaría</th><th style="padding:10px 8px">Cómo lo cubrimos</th></tr>
+      <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>El proveedor anterior apaga antes</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">Se caen tienda y correos</td><td style="padding:10px 8px;border-top:1px solid var(--line)">El respaldo completo ya está hecho: se restaura en el hosting nuevo el mismo día</td></tr>
+      <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Pedidos durante el cambio</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">Algunas personas aún ven la tienda antigua por unas horas</td><td style="padding:10px 8px;border-top:1px solid var(--line)">Ese día revisamos ambas tiendas y traspasamos cualquier pedido</td></tr>
+      <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Cambios en productos esos días</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">Se podrían perder si se hacen en la tienda antigua</td><td style="padding:10px 8px;border-top:1px solid var(--line)">48 horas sin cargar productos ni cambiar precios</td></tr>
+      <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Correos en la transición</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">Alguno llega al buzón antiguo</td><td style="padding:10px 8px;border-top:1px solid var(--line)">Segunda copia de correos 1 o 2 días después</td></tr>
+      <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Avisos de pedido en spam</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">No te enteras de una venta</td><td style="padding:10px 8px;border-top:1px solid var(--line)">Firmas SPF/DKIM/DMARC y prueba antes del cambio</td></tr>
+      <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Transbank no cobra</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">No se puede pagar en la tienda</td><td style="padding:10px 8px;border-top:1px solid var(--line)">Prueba antes y compra real después. Si falla, volvemos el mapa al servidor anterior en minutos</td></tr>
+      <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Candado SSL demora</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">Aviso de "sitio no seguro" por un rato</td><td style="padding:10px 8px;border-top:1px solid var(--line)">Cambio en horario de poca venta y SSL emitido al tiro</td></tr>
+      <tr><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>Licencias o cuentas a nombre de otro</b></td><td style="padding:10px 8px;border-top:1px solid var(--line)">Tema de la tienda, Google Shopping o estadísticas sin acceso</td><td style="padding:10px 8px;border-top:1px solid var(--line)">Las pedimos por correo. Si no llegan, se compra la licencia propia (≈ US$60) o se reconecta</td></tr>
+    </table>
+  </div>
+  <div class="card rv" style="margin-top:14px;border-left:5px solid var(--navy)"><b>🔙 Plan B siempre listo:</b> mientras el servidor anterior siga encendido, si algo falla el día del cambio volvemos el "mapa" a como estaba en minutos. Por eso le pedimos al proveedor anterior que no apague nada hasta que confirmemos.</div>
+</div></section>
+
+<section id="pruebas"><div class="in">
+  <div class="kick">Pruebas integrales</div>
+  <h2>Antes de salir a producción, 10 pruebas con Transbank</h2>
+  <p class="lead">Se hacen en la tienda nueva <b>antes</b> de cambiar el dominio, con Transbank en <b>modo integración</b>: tarjetas de prueba oficiales, sin mover dinero real. Solo si las 10 pasan, se cambia el dominio.</p>
+  <div class="card rv" style="overflow-x:auto;padding:8px 18px" id="tests">
+    <table style="width:100%;border-collapse:collapse;font-size:15px">
+      <tr style="text-align:left;color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.05em"><th style="padding:10px 8px">OK</th><th style="padding:10px 8px">Prueba</th><th style="padding:10px 8px">Con qué</th><th style="padding:10px 8px">Resultado esperado</th></tr>
+      <tr><td style="padding:10px 8px;border-top:1px solid var(--line);text-align:center"><input type="checkbox" data-k="t1" style="width:20px;height:20px;accent-color:var(--navy)"></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>1 · Compra aprobada con crédito</b></td><td style="padding:10px 8px;border-top:1px solid var(--line);white-space:nowrap"><small>VISA 4051 8856 0044 6623 · CVV 123</small></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><small>Pedido en «Procesando», baja el stock, llegan el aviso a ventas@ y la confirmación a la clienta</small></td></tr><tr><td style="padding:10px 8px;border-top:1px solid var(--line);text-align:center"><input type="checkbox" data-k="t2" style="width:20px;height:20px;accent-color:var(--navy)"></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>2 · Compra aprobada con débito</b></td><td style="padding:10px 8px;border-top:1px solid var(--line);white-space:nowrap"><small>Redcompra 4051 8842 3993 7763</small></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><small>Igual que la 1, con medio de pago débito</small></td></tr><tr><td style="padding:10px 8px;border-top:1px solid var(--line);text-align:center"><input type="checkbox" data-k="t3" style="width:20px;height:20px;accent-color:var(--navy)"></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>3 · Pago rechazado</b></td><td style="padding:10px 8px;border-top:1px solid var(--line);white-space:nowrap"><small>Mastercard 5186 0595 5959 0568 · CVV 123</small></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><small>Pedido «Fallido», no baja el stock y la clienta ve un mensaje claro para reintentar</small></td></tr><tr><td style="padding:10px 8px;border-top:1px solid var(--line);text-align:center"><input type="checkbox" data-k="t4" style="width:20px;height:20px;accent-color:var(--navy)"></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>4 · La clienta abandona en Webpay</b></td><td style="padding:10px 8px;border-top:1px solid var(--line);white-space:nowrap"><small>Cerrar o anular en la página de pago</small></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><small>El pedido queda «Pendiente» y se cancela solo; el stock vuelve</small></td></tr><tr><td style="padding:10px 8px;border-top:1px solid var(--line);text-align:center"><input type="checkbox" data-k="t5" style="width:20px;height:20px;accent-color:var(--navy)"></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>5 · Compra en cuotas</b></td><td style="padding:10px 8px;border-top:1px solid var(--line);white-space:nowrap"><small>VISA de prueba, elegir cuotas</small></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><small>Monto y cuotas correctos en el pedido y en el correo</small></td></tr><tr><td style="padding:10px 8px;border-top:1px solid var(--line);text-align:center"><input type="checkbox" data-k="t6" style="width:20px;height:20px;accent-color:var(--navy)"></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>6 · Envío por región y comuna</b></td><td style="padding:10px 8px;border-top:1px solid var(--line);white-space:nowrap"><small>Una dirección de la RM y otra de regiones</small></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><small>Costo de envío correcto según comuna</small></td></tr><tr><td style="padding:10px 8px;border-top:1px solid var(--line);text-align:center"><input type="checkbox" data-k="t7" style="width:20px;height:20px;accent-color:var(--navy)"></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>7 · Cupón o descuento</b></td><td style="padding:10px 8px;border-top:1px solid var(--line);white-space:nowrap"><small>Un cupón activo de la tienda</small></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><small>Descuento aplicado antes de pagar y monto correcto en Webpay</small></td></tr><tr><td style="padding:10px 8px;border-top:1px solid var(--line);text-align:center"><input type="checkbox" data-k="t8" style="width:20px;height:20px;accent-color:var(--navy)"></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>8 · Aviso de stock bajo</b></td><td style="padding:10px 8px;border-top:1px solid var(--line);white-space:nowrap"><small>Producto de prueba con stock 1</small></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><small>Llega el aviso de stock a la carpeta Stock</small></td></tr><tr><td style="padding:10px 8px;border-top:1px solid var(--line);text-align:center"><input type="checkbox" data-k="t9" style="width:20px;height:20px;accent-color:var(--navy)"></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>9 · Anulación o devolución</b></td><td style="padding:10px 8px;border-top:1px solid var(--line);white-space:nowrap"><small>Desde el pedido aprobado de la prueba 1</small></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><small>Queda anulado en la tienda y en el portal de Transbank</small></td></tr><tr><td style="padding:10px 8px;border-top:1px solid var(--line);text-align:center"><input type="checkbox" data-k="t10" style="width:20px;height:20px;accent-color:var(--navy)"></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><b>10 · Compra desde el celular</b></td><td style="padding:10px 8px;border-top:1px solid var(--line);white-space:nowrap"><small>Repetir la prueba 1 en un teléfono</small></td><td style="padding:10px 8px;border-top:1px solid var(--line)"><small>Todo el flujo funciona y se ve bien en móvil</small></td></tr>
+    </table>
+  </div>
+  <div class="grid g3" style="margin-top:14px">
+    <div class="card rv"><span class="pill p-go">Antes del cambio</span><h3 style="margin-top:10px">Modo integración</h3><small style="color:var(--mut)">Si Webpay pide autenticación, usar el RUT 11.111.111-1 y la clave 123, que son los datos de prueba oficiales de Transbank.</small></div>
+    <div class="card rv"><span class="pill p-you">Día del cambio</span><h3 style="margin-top:10px">Vuelta a producción</h3><small style="color:var(--mut)">Se vuelve el plugin a "Producción" con el código de comercio de Noia y se hace 1 compra real pequeña con tu tarjeta.</small></div>
+    <div class="card rv"><span class="pill p-ok">Cierre</span><h3 style="margin-top:10px">Anulación y registro</h3><small style="color:var(--mut)">La compra real se anula desde tu portal de Transbank y queda anotado quién probó, cuándo y el resultado.</small></div>
+  </div>
+  <p style="color:var(--mut);font-size:14px;margin-top:12px">Tarjetas de prueba según la documentación oficial de Transbank Developers. Las marcas de esta tabla quedan guardadas en tu navegador.</p>
+</div></section>
+
 <section id="tu" style="background:#fff"><div class="in">
   <div class="kick">Lo que necesito de ti</div>
   <h2>Tu checklist</h2>
@@ -343,7 +405,7 @@ footer b{color:#fff}
   var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.12}):null;
   document.querySelectorAll('.rv').forEach(function(el,i){el.style.transitionDelay=(i%5*70)+'ms';io?io.observe(el):el.classList.add('on')});
   var K='noia-checklist-v1',st={};try{st=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){}
-  document.querySelectorAll('#checks input').forEach(function(b){b.checked=!!st[b.dataset.k];b.addEventListener('change',function(){st[b.dataset.k]=b.checked;try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}})});
+  document.querySelectorAll('#checks input,#tests input').forEach(function(b){b.checked=!!st[b.dataset.k];b.addEventListener('change',function(){st[b.dataset.k]=b.checked;try{localStorage.setItem(K,JSON.stringify(st))}catch(e){}})});
 })();
 </script>
 </body>
