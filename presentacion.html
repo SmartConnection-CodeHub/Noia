@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Noia · Presentación ejecutiva</title>
+<link rel="icon" href="img/pelota.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+:root{--navy:#1f2d3f;--navy2:#334862;--sky:#a9c3d9;--sky2:#e8f0f6;--wine:#6b1d3a;--ball:#d9ef3a;--ink:#2b2a2a;--mut:#6b6a6a;--bg:#faf8f5;--ok:#2f7a47}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;background:#0f1722;overflow:hidden;font-family:Raleway,system-ui,sans-serif}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0;overflow:hidden;background:var(--bg);color:var(--ink)}
+.s{position:absolute;inset:0;padding:110px 140px;visibility:hidden}
+.s.dark{background:var(--navy);color:#fff}
+.kick{font-size:24px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--wine)}
+.dark .kick{color:var(--ball)}
+h1{font-size:150px;font-weight:900;line-height:.98;letter-spacing:-.03em}
+h2{font-size:88px;font-weight:900;line-height:1.02;letter-spacing:-.02em;margin:18px 0 26px}
+h2 em,h1 em{font-style:normal;color:var(--ball)}
+.s:not(.dark) h2 em{color:var(--wine)}
+p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
+.dark p.lead{color:#c9d4e1}
+.row{display:flex;gap:32px}
+.card{flex:1;background:#fff;border:2px solid #ebe6df;border-radius:32px;padding:40px;box-shadow:0 20px 60px rgba(31,45,63,.10)}
+.dark .card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14);box-shadow:none}
+.card .ic{font-size:60px}
+.card h3{font-size:40px;font-weight:800;margin:14px 0 8px}
+.card p{font-size:27px;line-height:1.4;color:var(--mut)}
+.dark .card p{color:#c9d4e1}
+.big{font-size:96px;font-weight:900;line-height:1}
+.tag{display:inline-block;font-size:22px;font-weight:800;padding:8px 18px;border-radius:99px;background:var(--sky2);color:var(--navy2)}
+.tag.ok{background:#e5f3ea;color:var(--ok)}
+.tag.red{background:#fbe9e7;color:#b3261e}
+.tag.ball{background:var(--ball);color:var(--navy)}
+/* portada */
+#s0 .bg{position:absolute;inset:0;background:url(img/hero-padel.jpg) center 25%/cover}
+#s0 .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,30,44,.95) 0%,rgba(20,30,44,.75) 50%,rgba(20,30,44,.2) 100%)}
+#s0 .in{position:relative;top:170px}
+#s0 img.logo{height:70px;filter:brightness(0) invert(1);margin-bottom:60px}
+#s0 p{font-size:38px;color:#dbe4ee;margin-top:36px;max-width:1000px}
+/* agenda */
+.agenda{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:70px}
+.ag{border-top:6px solid var(--sky);padding-top:26px}
+.ag b{display:block;font-size:30px;font-weight:900;color:var(--wine)}
+.ag span{display:block;font-size:42px;font-weight:800;margin-top:6px}
+.ag small{display:block;font-size:24px;color:var(--mut);margin-top:8px}
+/* antes / después */
+.split{display:grid;grid-template-columns:1fr 120px 1fr;gap:20px;align-items:center;margin-top:30px}
+.blk{display:flex;gap:22px;align-items:center;padding:24px 28px;border-radius:22px;margin-bottom:16px;font-size:30px;font-weight:700}
+.blk small{display:block;font-size:22px;font-weight:500;color:var(--mut)}
+.old .blk{border:3px dashed #d8d2c8;background:#fff}
+.new .blk{border:3px solid transparent;background:#fff;box-shadow:0 14px 40px rgba(31,45,63,.08)}
+.new .blk.w{border-color:var(--sky)}
+.new .blk.m{border-color:#d8b6c3}
+.arrowbig{font-size:110px;text-align:center;color:var(--wine)}
+/* planes */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:20px}
+.plan{position:relative;background:#fff;border:3px solid #ebe6df;border-radius:32px;padding:36px 36px 30px}
+.plan.rec{border-color:var(--wine);box-shadow:0 26px 70px rgba(107,29,58,.18)}
+.plan .badge{position:absolute;top:-22px;left:32px}
+.plan h3{font-size:38px;font-weight:900}
+.plan .pl{font-size:24px;color:var(--mut);font-weight:700}
+.plan .pr{font-size:72px;font-weight:900;margin:18px 0 0;line-height:1}
+.plan .pr small{font-size:24px;color:var(--mut);font-weight:700}
+.plan .pm{font-size:24px;color:var(--mut);margin-bottom:18px}
+.plan ul{padding-left:0;list-style:none;font-size:24px;line-height:1.75}
+.plan li::before{content:"✓ ";color:var(--ok);font-weight:900}
+.plan li.x::before{content:"– ";color:#b3261e}
+.vsaws{margin-top:26px;font-size:26px;color:var(--mut);display:flex;gap:16px;align-items:center}
+/* timeline */
+.tl{position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:18px;margin-top:80px}
+.tl::before{content:"";position:absolute;top:34px;left:4%;right:4%;height:6px;background:rgba(255,255,255,.18);border-radius:6px}
+.tl .fill{position:absolute;top:34px;left:4%;height:6px;width:0;background:var(--ball);border-radius:6px}
+.st{position:relative;text-align:center}
+.st .dot{width:74px;height:74px;margin:0 auto 22px;border-radius:50%;display:grid;place-items:center;font-size:34px;background:var(--navy2);border:4px solid rgba(255,255,255,.25);position:relative;z-index:1}
+.st.done .dot{background:var(--ok);border-color:var(--ok)}
+.st b{display:block;font-size:30px}
+.st small{display:block;font-size:22px;color:#b9c6d6;margin-top:8px;line-height:1.35}
+.st .who{display:inline-block;margin-top:12px;font-size:18px;font-weight:800;padding:5px 12px;border-radius:99px;background:rgba(255,255,255,.12)}
+/* checklist */
+.ck{display:flex;gap:26px;align-items:flex-start;padding:24px 0;border-bottom:2px solid #ebe6df;font-size:34px;font-weight:700}
+.ck:last-child{border:0}
+.ck .n{flex:none;width:58px;height:58px;border-radius:50%;background:var(--wine);color:#fff;display:grid;place-items:center;font-weight:900}
+.ck small{display:block;font-size:24px;font-weight:500;color:var(--mut);margin-top:4px}
+.photo{border-radius:32px;background:url(img/jugadora-padel.jpg) center 18%/cover;height:760px}
+/* cierre */
+.strip{display:flex;gap:26px;justify-content:center;margin-top:60px}
+.strip div{width:250px;height:340px;background:#fff;border-radius:26px;padding:12px;display:grid;place-items:center}
+.strip img{max-width:100%;max-height:100%;object-fit:contain}
+/* pelota de transición */
+#ball{position:absolute;width:56px;height:56px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f1ff8a,var(--ball) 55%,#a9bd12);box-shadow:0 10px 24px rgba(0,0,0,.25);z-index:50;left:-100px;top:-100px}
+#ball::after{content:"";position:absolute;inset:6px;border-radius:50%;border:3px solid rgba(255,255,255,.7);border-left-color:transparent;border-right-color:transparent;transform:rotate(30deg)}
+/* controles */
+#ui{position:fixed;left:0;right:0;bottom:0;display:flex;align-items:center;gap:10px;padding:10px 16px;background:linear-gradient(transparent,rgba(0,0,0,.55));z-index:100;font:600 14px Raleway,sans-serif;color:#fff}
+#ui button{font:inherit;background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:99px;padding:7px 14px;cursor:pointer}
+#ui button:hover{background:rgba(255,255,255,.28)}
+#dots{display:flex;gap:6px;flex:1;justify-content:center}
+#dots i{width:26px;height:5px;border-radius:5px;background:rgba(255,255,255,.3);cursor:pointer}
+#dots i.on{background:var(--ball)}
+#ui a{color:#fff}
+@media (max-width:600px){#ui .hide-m{display:none}}
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <!-- 0 PORTADA -->
+  <section class="s dark" id="s0">
+    <div class="bg"></div>
+    <div class="in">
+      <img class="logo a" src="img/logo-noia.png" alt="NOIA">
+      <div class="kick a">Presentación ejecutiva · 30-10-2026</div>
+      <h1 class="a" style="margin-top:20px">Tu tienda,<br><em>100% a tu nombre.</em></h1>
+      <p class="a">Análisis, diseño, plan y próximos pasos para noiasportswear.cl. Preparado por Smart Connection.</p>
+    </div>
+  </section>
+
+  <!-- 1 AGENDA -->
+  <section class="s" id="s1">
+    <div class="kick a">El recorrido</div>
+    <h2 class="a">Cinco pasos, <em>sin dejar de vender</em></h2>
+    <div class="agenda">
+      <div class="ag a"><b>01</b><span>Análisis</span><small>Qué encontramos en la web actual</small></div>
+      <div class="ag a"><b>02</b><span>Respaldo</span><small>Todo copiado y verificado</small></div>
+      <div class="ag a"><b>03</b><span>Diseño</span><small>Cómo queda, todo a tu nombre</small></div>
+      <div class="ag a"><b>04</b><span>Planes</span><small>Dónde alojar y cuánto cuesta</small></div>
+      <div class="ag a"><b>05</b><span>Migración</span><small>El cambio paso a paso</small></div>
+    </div>
+  </section>
+
+  <!-- 2 ANALISIS -->
+  <section class="s" id="s2">
+    <div class="kick a">01 · Análisis</div>
+    <h2 class="a">Hoy todo vive bajo <em>un techo que no es tuyo</em></h2>
+    <div class="row" style="margin-top:50px">
+      <div class="card a"><div class="ic">🏚️</div><h3>Un solo servidor ajeno</h3><p>La tienda, los correos y el "mapa" del dominio están en el servidor del proveedor anterior, fuera de Chile. Si se apaga, se cae todo junto.</p><br><span class="tag red">Riesgo alto</span></div>
+      <div class="card a"><div class="ic">💾</div><h3>Sin respaldo completo</h3><p>Solo existía una copia parcial de enero. Si algo fallaba, no había cómo recuperar la tienda.</p><br><span class="tag red">Riesgo alto</span></div>
+      <div class="card a"><div class="ic">🌐</div><h3>El dominio es tuyo</h3><p>noiasportswear.cl está a tu nombre, se renueva solo y está pagado hasta agosto de 2027.</p><br><span class="tag ok">En orden</span></div>
+    </div>
+  </section>
+
+  <!-- 3 RESPALDO -->
+  <section class="s dark" id="s3">
+    <div class="kick a">02 · Respaldo · hecho el 30-10</div>
+    <h2 class="a">Tu tienda ya está <em>a salvo</em></h2>
+    <div class="row" style="margin-top:60px">
+      <div class="card a"><div class="big"><span class="cnt" data-to="8.6" data-dec="1">0</span> GB</div><h3>Web y correos</h3><p>Fotos, tema, plugins y los 7 buzones, verificados archivo por archivo.</p></div>
+      <div class="card a"><div class="big"><span class="cnt" data-to="83">0</span></div><h3>Tablas de la tienda</h3><p>Productos, pedidos, clientas y configuración de la base de datos.</p></div>
+      <div class="card a"><div class="big"><span class="cnt" data-to="71668" data-sep="1">0</span></div><h3>Archivos copiados</h3><p>Guardados de forma segura fuera del servidor anterior.</p></div>
+    </div>
+  </section>
+
+  <!-- 4 DISEÑO -->
+  <section class="s" id="s4">
+    <div class="kick a">03 · Diseño</div>
+    <h2 class="a">De un techo ajeno a <em>tu propia casa</em></h2>
+    <div class="split">
+      <div class="old">
+        <div class="blk a"><span>🛒</span><span>Tienda<small>Servidor del proveedor anterior</small></span></div>
+        <div class="blk a"><span>📬</span><span>5 cuentas de correo en Outlook<small>5 claves separadas</small></span></div>
+        <div class="blk a"><span>💾</span><span>Respaldos<small>No había uno completo</small></span></div>
+        <div class="blk a"><span>🔑</span><span>Accesos<small>En manos de un tercero</small></span></div>
+      </div>
+      <div class="arrowbig a">→</div>
+      <div class="new">
+        <div class="blk w a"><span>🛒</span><span>Tienda en un hosting chileno<small>Contratado a nombre de tu empresa</small></span></div>
+        <div class="blk m a"><span>📬</span><span>Tus mismos correos, en Outlook<small>Las mismas direcciones, sin costo extra</small></span></div>
+        <div class="blk w a"><span>💾</span><span>Respaldo automático diario<small>Más una copia mensual en tu Drive</small></span></div>
+        <div class="blk m a"><span>🔑</span><span>Todo tuyo<small>Smart Connection entra con un usuario de soporte</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 PLANES -->
+  <section class="s" id="s5">
+    <div class="kick a">04 · Planes · precios oficiales al 30-10-2026</div>
+    <h2 class="a" style="font-size:76px">Tres hostings en Chile, <em>con correo incluido</em></h2>
+    <div class="plans">
+      <div class="plan a"><span class="tag badge">Más económico</span><h3>BlueHosting</h3><div class="pl">Plan Full · Haulmer</div><div class="pr">$52.241<small> /año</small></div><div class="pm">$43.900 + IVA · ≈ $4.400 al mes</div><ul><li>Correos ilimitados</li><li>Migración gratis</li><li>Mismo lugar donde está tu dominio</li><li class="x">Espacio "ilimitado" con política de uso</li></ul></div>
+      <div class="plan rec a"><span class="tag ball badge">⭐ Recomendado</span><h3>HostingPlus</h3><div class="pl">Plan WordPress NVMe</div><div class="pr">$118.881<small> /año</small></div><div class="pm">$99.900 + IVA · ≈ $9.900 al mes</div><ul><li>60 GB rápidos y correos ilimitados</li><li>Datacenter Tier III en Santiago</li><li>Respaldo fuera del servidor</li><li>Migración gratis · 4,8★ en Google</li></ul></div>
+      <div class="plan a"><span class="tag badge">Equilibrio</span><h3>PlanetaHosting</h3><div class="pl">Plan Profesional</div><div class="pr">$71.281<small> /año</small></div><div class="pm">$59.900 + IVA · ≈ $5.900 al mes</div><ul><li>30 GB (60 GB el 1er año) · 25 correos</li><li>Respaldo diario, 30 días</li><li>Migración gratis</li><li>Datacenter propio en Chile</li></ul></div>
+    </div>
+    <div class="vsaws a">🔁 <span>Como referencia, Amazon + Google costaría ≈ US$20–35 al mes (≈ $230–400 mil al año). Queda como opción si la tienda crece mucho.</span></div>
+  </section>
+
+  <!-- 6 MIGRACION -->
+  <section class="s dark" id="s6">
+    <div class="kick a">05 · Migración</div>
+    <h2 class="a">El cambio, <em>paso a paso</em></h2>
+    <p class="lead a">La tienda sigue vendiendo todo el tiempo. Solo al final se "cambia la dirección", cuando todo está probado. Unos 5 a 7 días hábiles.</p>
+    <div class="tl">
+      <span class="fill"></span>
+      <div class="st done a"><div class="dot">✓</div><b>Análisis y respaldo</b><small>Revisión completa y copia verificada</small><span class="who">Hecho</span></div>
+      <div class="st a"><div class="dot">💬</div><b>Decidir el plan</b><small>Elegir hosting y contratarlo a tu nombre</small><span class="who">Tú</span></div>
+      <div class="st a"><div class="dot">📦</div><b>Copiar todo</b><small>El hosting migra tienda y correos gratis</small><span class="who">Hosting + SMC</span></div>
+      <div class="st a"><div class="dot">🧪</div><b>Probar</b><small>Pedido de prueba, Transbank, avisos y correos</small><span class="who">SMC</span></div>
+      <div class="st a"><div class="dot">🔀</div><b>El cambio</b><small>Se mueve el dominio y se configura tu Outlook</small><span class="who">Tú + SMC</span></div>
+      <div class="st a"><div class="dot">🔒</div><b>Cierre</b><small>Se cierra el servidor anterior y cambias las claves</small><span class="who">SMC</span></div>
+    </div>
+  </section>
+
+  <!-- 7 PROXIMOS PASOS -->
+  <section class="s" id="s7">
+    <div style="display:grid;grid-template-columns:1.25fr .75fr;gap:70px;align-items:center;height:100%">
+      <div>
+        <div class="kick a">Próximos pasos</div>
+        <h2 class="a">Lo que necesito <em>de ti</em></h2>
+        <div class="ck a"><span class="n">1</span><span>Elegir uno de los 3 planes<small>Te recomiendo HostingPlus WordPress</small></span></div>
+        <div class="ck a"><span class="n">2</span><span>Contarme cuánto pagabas antes<small>Hosting, mantención y correos, para comparar</small></span></div>
+        <div class="ck a"><span class="n">3</span><span>Limpiar spam y correos antiguos<small>pia.valencia@ e ideas@ (antes de 2023). Nada de ventas@</small></span></div>
+        <div class="ck a"><span class="n">4</span><span>Agendar 30 minutos<small>Para contratar juntos, con la tarjeta de tu empresa</small></span></div>
+      </div>
+      <div class="photo a"></div>
+    </div>
+  </section>
+
+  <!-- 8 CIERRE -->
+  <section class="s dark" id="s8" style="text-align:center;padding-top:170px">
+    <img class="a" src="img/logo-noia.png" alt="NOIA" style="height:80px;filter:brightness(0) invert(1);margin:0 auto 50px">
+    <h2 class="a" style="font-size:110px">Tu juego. Tu estilo.<br><em>Tu tienda.</em></h2>
+    <div class="strip">
+      <div class="a"><img src="img/CATERINA-LAVANDA-COMPLETA.png" alt=""></div>
+      <div class="a"><img src="img/ISIDORA-ICE-BLUE-FRONT-400x565.png" alt=""></div>
+      <div class="a"><img src="img/falda-plisada-celeste-front-zoom.jpg" alt=""></div>
+      <div class="a"><img src="img/POLERON-CLUB-FRONT-ZOOM-646x800.jpg" alt=""></div>
+      <div class="a"><img src="img/ALONDA-AZUL-TOTAL-FRONT-400x548.png" alt=""></div>
+    </div>
+    <p class="a" style="font-size:28px;color:#b9c6d6;margin-top:50px">Smart Connection · Precios oficiales de cada hosting al 30-10-2026, se confirman al contratar.</p>
+  </section>
+
+  <div id="ball"></div>
+</div>
+
+<div id="ui">
+  <button id="prev" aria-label="Anterior">‹</button>
+  <button id="play">❚❚ Pausa</button>
+  <button id="next" aria-label="Siguiente">›</button>
+  <div id="dots"></div>
+  <a class="hide-m" href="index.html">Ver el plan completo →</a>
+</div>
+
+<script>
+(function(){
+  var st=document.getElementById('stage');
+  function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform='scale('+s+') translate(-50%,-50%)';}
+  addEventListener('resize',fit);fit();
+
+  var S=[].slice.call(document.querySelectorAll('.s')),cur=-1,timer=null,playing=true,DUR=[6,6,8,7,8,10,9,9,7];
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var dots=document.getElementById('dots');
+  S.forEach(function(_,i){var d=document.createElement('i');d.onclick=function(){go(i)};dots.appendChild(d)});
+  var ball=document.getElementById('ball');
+
+  function counters(s){
+    s.querySelectorAll('.cnt').forEach(function(c){
+      var to=+c.dataset.to,dec=+(c.dataset.dec||0),o={v:0};
+      gsap.to(o,{v:to,duration:reduce?0:1.8,delay:.6,ease:'power2.out',onUpdate:function(){
+        var v=dec?o.v.toFixed(dec).replace('.',','):Math.round(o.v).toString();
+        if(c.dataset.sep)v=v.replace(/\B(?=(\d{3})+(?!\d))/g,'.');c.textContent=v;}});
+    });
+  }
+  function fly(){
+    if(reduce)return;
+    gsap.killTweensOf(ball);
+    gsap.set(ball,{left:-80,top:880,rotation:0});
+    var tl=gsap.timeline();
+    tl.to(ball,{left:640,duration:.45,ease:'none'},0).to(ball,{top:420,duration:.22,ease:'power2.out'},0).to(ball,{top:900,duration:.23,ease:'power2.in'},.22)
+      .to(ball,{left:1300,duration:.45,ease:'none'},.45).to(ball,{top:520,duration:.22,ease:'power2.out'},.45).to(ball,{top:950,duration:.23,ease:'power2.in'},.67)
+      .to(ball,{left:2000,top:700,duration:.4,ease:'power1.out'},.9).to(ball,{rotation:900,duration:1.3,ease:'none'},0);
+  }
+  function go(i){
+    if(i<0)i=S.length-1;if(i>=S.length)i=0;
+    var prev=S[cur];cur=i;var s=S[i];
+    [].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===i)});
+    if(prev&&prev!==s){gsap.to(prev,{autoAlpha:0,duration:.5,ease:'power2.inOut'});}
+    gsap.set(s,{autoAlpha:1,zIndex:2});if(prev)gsap.set(prev,{zIndex:1});
+    var a=s.querySelectorAll('.a');
+    gsap.fromTo(a,{autoAlpha:0,y:reduce?0:50,filter:reduce?'none':'blur(8px)'},{autoAlpha:1,y:0,filter:'blur(0px)',duration:reduce?.01:.8,stagger:reduce?0:.09,ease:'power3.out',delay:.25});
+    if(s.id==='s0')gsap.fromTo('#s0 .bg',{scale:1.12},{scale:1,duration:7,ease:'power1.out'});
+    var f=s.querySelector('.tl .fill');if(f)gsap.fromTo(f,{width:0},{width:'15%',duration:1.4,delay:.9,ease:'power2.out'});
+    counters(s);fly();
+    clearTimeout(timer);if(playing)timer=setTimeout(function(){go(cur+1)},DUR[i]*1000);
+  }
+  function toggle(){playing=!playing;document.getElementById('play').textContent=playing?'❚❚ Pausa':'▶ Reproducir';clearTimeout(timer);if(playing)timer=setTimeout(function(){go(cur+1)},2500);}
+  document.getElementById('prev').onclick=function(){go(cur-1)};
+  document.getElementById('next').onclick=function(){go(cur+1)};
+  document.getElementById('play').onclick=toggle;
+  addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(cur+1);if(e.key==='ArrowLeft')go(cur-1);if(e.key===' '){e.preventDefault();toggle();}});
+  if(reduce){playing=false;document.getElementById('play').textContent='▶ Reproducir';}
+  go(0);
+})();
+</script>
+</body>
+</html>
