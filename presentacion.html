@@ -96,6 +96,14 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
 .strip{display:flex;gap:26px;justify-content:center;margin-top:60px}
 .strip div{width:250px;height:340px;background:#fff;border-radius:26px;padding:12px;display:grid;place-items:center}
 .strip img{max-width:100%;max-height:100%;object-fit:contain}
+.who4{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+.w4{display:flex;align-items:center;gap:22px;background:#fff;border-radius:24px;padding:26px 30px;border:3px solid #ebe6df}
+.w4 .e{font-size:54px}
+.w4 b{display:block;font-size:34px}
+.w4 small{display:block;font-size:24px;color:var(--mut)}
+.w4.ok{border-color:var(--sky)}
+.w4.no{border-style:dashed}
+.w4 .tag{margin-left:auto;white-space:nowrap}
 /* pelota de transición */
 #ball{position:absolute;width:64px;height:64px;border-radius:50%;background:#fff url(img/pelota.png) center/115% no-repeat;box-shadow:0 0 0 4px rgba(255,255,255,.9),0 12px 26px rgba(0,0,0,.28);z-index:50;left:-100px;top:-100px}
 
@@ -160,6 +168,20 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
     </div>
   </section>
 
+  <!-- 2b BLUEHOSTING -->
+  <section class="s" id="s2b">
+    <div class="kick a">La duda clave</div>
+    <h2 class="a" style="font-size:78px">"¿Si ya tengo Bluehosting, <em>qué hay que mover?"</em></h2>
+    <p class="lead a">En tu cuenta de Bluehosting hoy pagas <b>solo tu dominio</b>: la dirección de la tienda. La tienda y los correos viven en el servidor del proveedor anterior.</p>
+    <div class="who4">
+      <div class="w4 ok a"><span class="e">🌐</span><span><b>Dominio</b><small>noiasportswear.cl · $8.900 al año</small></span><span class="tag ok">Bluehosting ✓ tuyo</span></div>
+      <div class="w4 no a"><span class="e">🛒</span><span><b>Tienda</b><small>productos, pedidos, clientas</small></span><span class="tag red">Servidor anterior</span></div>
+      <div class="w4 no a"><span class="e">📬</span><span><b>Correos</b><small>tus 7 casillas</small></span><span class="tag red">Servidor anterior</span></div>
+      <div class="w4 no a"><span class="e">🗺️</span><span><b>DNS</b><small>la guía que dice dónde está todo</small></span><span class="tag red">Servidor anterior</span></div>
+    </div>
+    <p class="lead a" style="margin-top:34px;font-size:30px">👉 Por eso <b>hay que mudarse</b>: la tienda y los correos se traen a un hosting <b>a tu nombre</b>, en tu misma cuenta de Bluehosting.</p>
+  </section>
+
   <!-- 3 RESPALDO -->
   <section class="s dark" id="s3">
     <div class="kick a">02 · Respaldo · hecho el 30-10</div>
@@ -197,11 +219,11 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
     <div class="kick a">04 · Planes · precios oficiales al 30-10-2026</div>
     <h2 class="a" style="font-size:76px">Tres hostings en Chile, <em>con correo incluido</em></h2>
     <div class="plans">
-      <div class="plan a"><span class="tag badge">Más económico</span><h3>BlueHosting</h3><div class="pl">Plan Full · Haulmer</div><div class="pr">$52.241<small> /año</small></div><div class="pm">$43.900 + IVA · ≈ $4.400 al mes</div><ul><li>Correos ilimitados</li><li>Migración gratis</li><li>Mismo lugar donde está tu dominio</li><li class="x">Espacio "ilimitado" con política de uso</li></ul></div>
-      <div class="plan rec a"><span class="tag ball badge">⭐ Recomendado</span><h3>HostingPlus</h3><div class="pl">Plan WordPress NVMe</div><div class="pr">$118.881<small> /año</small></div><div class="pm">$99.900 + IVA · ≈ $9.900 al mes</div><ul><li>60 GB rápidos y correos ilimitados</li><li>Datacenter Tier III en Santiago</li><li>Respaldo fuera del servidor</li><li>Migración gratis · 4,8★ en Google</li></ul></div>
+      <div class="plan rec a"><span class="tag ball badge">⭐ Recomendado</span><h3>BlueHosting</h3><div class="pl">Plan Full · tu misma cuenta</div><div class="pr">$52.241<small> /año</small></div><div class="pm">$43.900 + IVA · ≈ $4.400 al mes</div><ul><li>Misma cuenta de tu dominio</li><li>Pagas 1 vez al año, con débito</li><li>Correos ilimitados</li><li>Migración gratis</li></ul></div>
+      <div class="plan a"><span class="tag badge">Premium</span><h3>HostingPlus</h3><div class="pl">Plan WordPress NVMe</div><div class="pr">$118.881<small> /año</small></div><div class="pm">$99.900 + IVA · ≈ $9.900 al mes</div><ul><li>60 GB rápidos y correos ilimitados</li><li>Datacenter Tier III en Santiago</li><li>Respaldo fuera del servidor</li><li>Migración gratis · 4,8★ en Google</li></ul></div>
       <div class="plan a"><span class="tag badge">Equilibrio</span><h3>PlanetaHosting</h3><div class="pl">Plan Profesional</div><div class="pr">$71.281<small> /año</small></div><div class="pm">$59.900 + IVA · ≈ $5.900 al mes</div><ul><li>30 GB (60 GB el 1er año) · 25 correos</li><li>Respaldo diario, 30 días</li><li>Migración gratis</li><li>Datacenter propio en Chile</li></ul></div>
     </div>
-    <div class="vsaws a">🔁 <span>Como referencia, Amazon + Google costaría ≈ US$20–35 al mes (≈ $230–400 mil al año). Queda como opción si la tienda crece mucho.</span></div>
+    <div class="vsaws a">💡 <span><b>Es un costo nuevo:</b> hasta ahora solo pagabas el dominio, porque la tienda vivía en el servidor del proveedor anterior. Si en tu cuenta ya aparece un plan de hosting pagado, usamos ese y no pagas nada extra.</span></div>
   </section>
 
   <!-- 6 MIGRACION -->
@@ -212,7 +234,7 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
     <div class="tl">
       <span class="fill"></span>
       <div class="st done a"><div class="dot">✓</div><b>Análisis y respaldo</b><small>Revisión completa y copia verificada</small><span class="who">Hecho</span></div>
-      <div class="st a"><div class="dot">💬</div><b>Decidir el plan</b><small>Elegir hosting y contratarlo a tu nombre</small><span class="who">Tú</span></div>
+      <div class="st a"><div class="dot">💬</div><b>Contratar hosting</b><small>BlueHosting Full en tu misma cuenta del dominio</small><span class="who">Tú</span></div>
       <div class="st a"><div class="dot">📦</div><b>Copiar todo</b><small>El hosting migra tienda y correos gratis</small><span class="who">Hosting + SMC</span></div>
       <div class="st a"><div class="dot">🧪</div><b>Probar</b><small>10 pruebas con Transbank en modo integración: aprobada, rechazada, cuotas, anulación</small><span class="who">SMC</span></div>
       <div class="st a"><div class="dot">🔀</div><b>El cambio</b><small>Se mueve el dominio y se configura tu Outlook</small><span class="who">Tú + SMC</span></div>
@@ -240,8 +262,8 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
       <div>
         <div class="kick a">Próximos pasos</div>
         <h2 class="a">Lo que necesito <em>de ti</em></h2>
-        <div class="ck a"><span class="n">1</span><span>Elegir uno de los 3 planes<small>Te recomiendo HostingPlus WordPress</small></span></div>
-        <div class="ck a"><span class="n">2</span><span>Contarme cuánto pagabas antes<small>Hosting, mantención y correos, para comparar</small></span></div>
+        <div class="ck a"><span class="n">1</span><span>Revisar tu cuenta de Bluehosting<small>Ver si tienes solo el dominio o también un plan de hosting</small></span></div>
+        <div class="ck a"><span class="n">2</span><span>Contratar BlueHosting Full<small>≈ $52 mil al año, en tu misma cuenta (si no tienes uno ya)</small></span></div>
         <div class="ck a"><span class="n">3</span><span>Limpiar spam y correos antiguos<small>pia.valencia@ e ideas@ (antes de 2023). Nada de ventas@</small></span></div>
         <div class="ck a"><span class="n">4</span><span>Agendar 30 minutos<small>Para contratar juntos, con la tarjeta de tu empresa</small></span></div>
       </div>
@@ -282,7 +304,7 @@ p.lead{font-size:34px;line-height:1.45;max-width:1150px;color:var(--mut)}
   function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform='scale('+s+') translate(-50%,-50%)';}
   addEventListener('resize',fit);fit();
 
-  var S=[].slice.call(document.querySelectorAll('.s')),cur=-1,timer=null,playing=true,DUR=[6,6,8,7,8,10,9,10,9,7];
+  var S=[].slice.call(document.querySelectorAll('.s')),cur=-1,timer=null,playing=true,DUR=[6,6,8,10,7,8,10,9,10,9,7];
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   var dots=document.getElementById('dots');
   S.forEach(function(_,i){var d=document.createElement('i');d.onclick=function(){go(i)};dots.appendChild(d)});
